@@ -1,24 +1,33 @@
-#intregrantes del equipo 7:
+# Intregrantes del Equipo 7: "Raices Argentinas"
 
-##Maria Luciana Garcia Chequer
+***
+###Maria Luciana Garcia Chequer
 
-##Jorge Anibal Lesme Aquino - 41 años Hurlingham
+***
+##Jorge Anibal Lesme Aquino 
+#### Edad: 41 años 
+####Ciudad de Residencia: Hurlingham
 
-##Tomas Reyes
+#### Ocupacion: Vigilador Bombero en un edifdicio de oficinas a 5 cuadras del obelisco.
+***
 
-##Nehemias Lezcano
+###Tomas Reyes
 
-#Tematica del market
+***
+###Nehemias Lezcano
+***
 
-#se va a realizar un ecommerce de productos regionales, dirigido al publico que se encuentre en provincias distintas, en la misma o el exterior, que no pueda conseguir el producto especifico de esa región o quiera probarlo.
+#Tematica del Market
 
-##link de los repositorios:
+####se va a realizar un ecommerce de productos regionales, dirigido al publico que se encuentre en provincias distintas, en la misma o el exterior, que no pueda conseguir el producto especifico de esa región o quiera probarlo.
+
+##Link de los Repositorios:
 
 ###https://github.com/luche83/C21--grupo7--proyectofinal
 
 ###https://trello.com/b/fmmObyfj/proyecto-integrador
 
-##funtes de ispiracion:
+##Funtes de Ispiracion:
 
 ###https://alfajoresdeltucuman.com.ar/
 
