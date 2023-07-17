@@ -3,3 +3,9 @@
 
 @import "./normalize.css";
 @import "./general.css";
+@import "./header.css";
+@import "./index.css";
+@import "./footer.css";
+@import "./carrito.css";
+@import "./register.css";
+@import "./productDetail.css";
