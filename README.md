@@ -13,6 +13,8 @@
 
 ### Tomas Reyes
 
+#### Edad: 18 años 
+#### Ciudad: San Miguel
 ***
 ### Nehemias Lezcano
 ***
