@@ -3,6 +3,7 @@
     --LineasMenu: #D4A373;
     --LetrasMenu: #7F5539;
     --LetrasProducto: #533F3F;
+    --tipografia: 'Spectral', serif;
 }
 
 *{
@@ -14,3 +15,4 @@
 h1{
     color: blueviolet;
 }
+  
