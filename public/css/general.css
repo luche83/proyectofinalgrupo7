@@ -1,3 +1,11 @@
+:root {
+    --MarronOscuro: #533F3F;
+    --LineasMenu: #D4A373;
+    --LetrasMenu: #7F5539;
+    --LetrasProducto: #533F3F;
+    --tipografia: 'Spectral', serif;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -7,3 +15,4 @@
 h1{
     color: blueviolet;
 }
+  
