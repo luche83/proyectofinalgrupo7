@@ -1,14 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/productCart.css">
 
     <title>Carrito</title>
 </head>
-<body class="cart">
-    <h1>Carrito</h1>
+<body>
+    <main class="main--carrito">
+
+        <section class="contenedor--productos-carrito">
+            <article class="boton--volver-carrito">
+                <a href="/">
+                    Inicio 
+                    <i class="fa-solid fa-chevron-left fa-xs"></i>
+                    carrito
+                </a>
+            </article>
+
+            <article class="contenedor--titulo-carrito">
+                <h2 class="titulo-carrito">Tu carrito</h2>
+            </article>
+
+            <article class="contenedor--producto-individual">
+                <img class="img--carrito" src="/img/products/cinturon-de-cuero.jpg" alt="">
+                <h4 class="titulo--individual-carrito">Cinturon de cuero</h4>
+                <div class="selector--cantidad-carrito">
+                    <i class="fa-solid fa-minus restar--cantidad-carrito"></i>
+                    <input type="text" value="1" class="cantidad--actual-carrito" disabled>
+                    <i class="fa-solid fa-plus sumar--cantidad-carrito"></i>
+                    <i class="fa-solid fa-trash eliminar--cantidad-carrito"></i>
+                </div>
+                <p class="precio-carrito">$3.500</p>
+            </article>
+
+            <article class="contenedor--producto-individual">
+                <img class="img--carrito" src="/img/products/poncho.jpg" alt="">
+                <h4 class="titulo--individual-carrito">poncho</h4>
+                <div class="selector--cantidad-carrito">
+                    <i class="fa-solid fa-minus restar--cantidad-carrito"></i>
+                    <input type="text" value="1" class="cantidad--actual-carrito" disabled>
+                    <i class="fa-solid fa-plus sumar--cantidad-carrito"></i>
+                    <i class="fa-solid fa-trash eliminar--cantidad-carrito"></i>
+                </div>
+                <p class="precio-carrito">$16.000</p>
+            </article>
+
+            <article class="contenedor--producto-individual">
+                <img class="img--carrito" src="/img/products/tabla-de-asado.jpg" alt="">
+                <h4 class="titulo--individual-carrito">Tabla de asado</h4>
+                <div class="selector--cantidad-carrito">
+                    <i class="fa-solid fa-minus restar--cantidad-carrito"></i>
+                    <input type="text" value="1" class="cantidad--actual-carrito" disabled>
+                    <i class="fa-solid fa-plus sumar--cantidad-carrito"></i>
+                    <i class="fa-solid fa-trash eliminar--cantidad-carrito"></i>
+                </div>
+                <p class="precio-carrito">$1.800</p>
+            </article>
+
+            <article class="contenedor--precioTotal-carrito">
+                <h4 class="precioTotal-carrito">Total a pagar: $21.300</h4>
+            </article>
+
+            <article class="boton--finalizar-carrito">
+                <button class="boton--eliminar-carrito"><i class="fa-solid fa-trash eliminar--todo-carrito"></i> Eliminar los productos</button>
+                <button class="boton--pagar-carrito">pagar</button>
+            </article>
+        </section>
+
+
+    </main>
+
+
+    <script src="https://kit.fontawesome.com/ea8753952e.js" crossorigin="anonymous"></script>
 </body>
 </html>
