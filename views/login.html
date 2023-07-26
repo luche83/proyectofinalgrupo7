@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/73dba2e5fe.js" crossorigin="anonymous"></script>
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
     <link rel="stylesheet" href="/css/styles.css">
 
     <title>Login</title>
 </head>
+
 <body class="login">
+    
     <div class="login__box">
-            <div class="login__box__encabezado">
-                <a href=""><img src="/img/Recortado.png" alt=""></a>
-                <h4>LOGGIN</h4>
+        
+        <div class="login__box__encabezado">
+
+            <a href="" class="rotate-scale-up-ver"><img src="/img/Recortado.png" alt=""></a>
+            <h4 class="animate__animated animate__flash">LOGGING</h4>
+        
+        </div>
+        
+        <form action="" method="" class="login__box__cuerpo">
+            
+            <div class="login__box__cuerpo__contenido">
+                <label for="email">Email</label>
+                <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input">
             </div>
-        <form action="" class="login__box__cuerpo">
-            <label for="">Email</label>
-            <input type="email">
-            <label for="">Contraseña</label>
-            <input type="password">
-            <button>Enviar</button>
-            <button>Borrar</button>
+
+            <div class="login__box__cuerpo__contenido">
+                <label for="password" class="labels-forms">Contraseña</label>
+                <input id="password" type="password" placeholder="Escriba su contraseña" name="password" class="form-input">
+            </div>
+
+            <div class="login__box__cuerpo__contenido__recordarme">
+                <label for="remember">Recordarme</label>
+                <input type="checkbox" id="remember" class="form-input">
+            </div>
+            
+            <div class="login__box__cuerpo__bottom">
+                <button type="submit" class="buttom-forms">Enviar</button>
+            </div>
+
         </form>
+
     </div>
+
 </body>
+
 </html>

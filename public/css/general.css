@@ -6,6 +6,10 @@
     --tipografia: 'Spectral', serif;
 }
 
+body{
+    max-width: 1500px;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
