@@ -51,8 +51,13 @@ img {
     justify-content: flex-end;
 }
 
-.header-div-login__box h5 {
+.header-div-login__box a {
     font-size: 12px;
+    color: #ffffff ;
+}
+
+.header-div-login__box h5{
+    display: none;
 }
 
 .fa-user {
@@ -150,9 +155,10 @@ img {
      
     /* HEADER */
    
-    .header-div-login__box h5 {
+    .header-div-login__box a {
         display: none;
     } 
+
 }
 
 @media (min-width:769px) { 
@@ -165,6 +171,10 @@ img {
  
     .div-user-bar-login__box {
         width: 50%;
+    }
+
+    .header-div-login__box h5{
+        display: flex;
     }
     
     .Header-nav__div ul {

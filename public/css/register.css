@@ -1,6 +1,6 @@
 .register {
     background-color: beige;
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,6 +80,9 @@
 
 
 @media (min-width: 481px) {
+    .register{
+        min-height: 100vh;
+    }
     .register__box {
         width: 60%;
 
@@ -87,7 +90,9 @@
 }
 
 @media (min-width: 720px) {
-        
+    .register{
+        min-height: 80vh;
+    }
     .register__box {
         display: flex;
         width: 80%;
