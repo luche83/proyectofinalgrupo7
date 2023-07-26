@@ -4,6 +4,13 @@
     --LetrasMenu: #7F5539;
     --LetrasProducto: #533F3F;
     --tipografia: 'Spectral', serif;
+<<<<<<< HEAD
+=======
+}
+
+body{
+    max-width: 1500px;
+>>>>>>> jorge
 }
 
 *{
@@ -17,9 +24,13 @@ a {
     text-decoration: none;
 
 }
+<<<<<<< HEAD
 
 li {
     list-style-type: none;
 }
 
 
+=======
+  
+>>>>>>> jorge
