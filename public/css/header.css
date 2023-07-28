@@ -51,7 +51,8 @@ img {
     justify-content: flex-end;
 }
 
-.header-div-login__box h5 {
+.header-div-login__box a {
+    color: #ffffff;
     font-size: 12px;
 }
 
@@ -150,7 +151,7 @@ img {
      
     /* HEADER */
    
-    .header-div-login__box h5 {
+    .header-div-login__box a {
         display: none;
     } 
 }
