@@ -45,7 +45,7 @@
     font-weight: bold;
 }
 .selector--cantidad-carrito{
-    display: block;
+    display: flex;
 }
 .selector--cantidad-carrito .restar--cantidad-carrito:hover{
     color:#533F3F;
@@ -93,4 +93,35 @@
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
+}
+@media (max-width: 780px){
+/*     .contenedor--producto-individual{
+        display: block; 
+        margin: 0px;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #777;
+        border-radius: 10px;
+        transition: .3s;
+    } */
+    .contenedor--producto-individual /* contenedor de los productos individuales */{
+        display: flex; 
+        margin: 10px;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #777;
+        border-radius: 10px;
+        transition: .3s;
+    }
+    .img--carrito{
+        padding: 5px;
+        width: 20%;
+        border-radius: 10px;
+    }
+    .titulo--individual-carrito{
+        font-size: 15px;
+    }
+    .selector--cantidad-carrito{
+        flex-direction: column;
+    }
 }
