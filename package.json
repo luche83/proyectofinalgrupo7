@@ -20,6 +20,5 @@
   "homepage": "https://github.com/luche83/C21--grupo7-RaicesArgentinas#readme",
   "dependencies": {
     "express": "^4.18.2"
-  },
-  "devDependencies": {}
+  }
 }

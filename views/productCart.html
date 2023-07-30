@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,137 @@
     <title>Carrito</title>
 </head>
 <body>
-    
+    <header>
+        <div class="Header-div__box">
+
+            <img src="/img/logo-1.png" alt="">
+
+            <div class="login-input__box">
+                <div class="Header-form__box">
+                    <form action="" class="Header-form">
+                        <input type="text" placeholder="Buscar">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+
+                <div class="div-user-bar-login__box">
+                    <div class="header-div-login__box">
+
+                        <a href="/register">crear cuenta</a>
+                        <h5>/</h5>
+                        <a href="/login">iniciar sesión</a>
+
+                        <div class="header__usuario">
+                            <a href="/login.html"><i class="fa-regular fa-user"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="Header-div-bars__box">
+                        <a href=""><i class="fa-solid fa-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="header-nav__box">
+            <div class="Header-nav__div">
+                <ul>
+                    <li><a href="/views/index.html">Inicio</a></li>
+                    <li><a href="Productos">Productos</a></li>
+                    <li><a href="Regiones">Regiones</a></li>
+                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                </ul>
+            </div>
+            <div class="Header-nav-div__div2">
+
+            </div>
+        </nav>
+    </header>
+    <main class="main--carrito">
+
+        <section class="contenedor--productos-carrito">
+            <article class="boton--volver-carrito">
+                <a href="/">
+                    Inicio 
+                    <i class="fa-solid fa-chevron-left fa-xs"></i>
+                    carrito
+                </a>
+            </article>
+
+            <article class="contenedor--titulo-carrito">
+                <h2 class="titulo-carrito">Tu carrito</h2>
+            </article>
+
+            <article class="contenedor--producto-individual">
+                <img class="img--carrito" src="/img/products/cinturon-de-cuero.jpg" alt="">
+                <h4 class="titulo--individual-carrito">Cinturon de cuero</h4>
+                <div class="selector--cantidad-carrito">
+                    <i class="fa-solid fa-minus restar--cantidad-carrito"></i>
+                    <input type="text" value="1" class="cantidad--actual-carrito" disabled>
+                    <i class="fa-solid fa-plus sumar--cantidad-carrito"></i>
+                </div>
+                <i class="fa-solid fa-trash eliminar--cantidad-carrito"></i>
+                <p class="precio-carrito">$3.500</p>
+            </article>
+
+            <article class="contenedor--producto-individual">
+                <img class="img--carrito" src="/img/products/poncho.jpg" alt="">
+                <h4 class="titulo--individual-carrito">poncho</h4>
+                <div class="selector--cantidad-carrito">
+                    <i class="fa-solid fa-minus restar--cantidad-carrito"></i>
+                    <input type="text" value="1" class="cantidad--actual-carrito" disabled>
+                    <i class="fa-solid fa-plus sumar--cantidad-carrito"></i>
+                </div>
+                <i class="fa-solid fa-trash eliminar--cantidad-carrito"></i>
+                <p class="precio-carrito">$16.000</p>
+            </article>
+
+            <article class="contenedor--producto-individual">
+                <img class="img--carrito" src="/img/products/tabla-de-asado.jpg" alt="">
+                <h4 class="titulo--individual-carrito">Tabla de asado</h4>
+                <div class="selector--cantidad-carrito">
+                    <i class="fa-solid fa-minus restar--cantidad-carrito"></i>
+                    <input type="text" value="1" class="cantidad--actual-carrito" disabled>
+                    <i class="fa-solid fa-plus sumar--cantidad-carrito"></i>
+                </div>
+                <i class="fa-solid fa-trash eliminar--cantidad-carrito"></i>
+                <p class="precio-carrito">$1.800</p>
+            </article>
+
+            <article class="contenedor--precioTotal-carrito">
+                <h4 class="precioTotal-carrito">Total a pagar: $21.300</h4>
+            </article>
+
+            <article class="boton--finalizar-carrito">
+                <button class="boton--eliminar-carrito"><i class="fa-solid fa-trash eliminar--todo-carrito"></i> Eliminar los productos</button>
+                <button class="boton--pagar-carrito">pagar</button>
+            </article>
+        </section>
+
+
+    </main>
+    <footer>
+        <div class="Footer-div__box">
+            <div>
+                <h5>AYUDA</h5>
+                <p>Envios y entregas</p>
+                <p>Devoluciones</p>
+                <p>Cambios</p>
+                <p>Opciones de pago</p>
+            </div>
+            <div>
+                <h5>Contactanos</h5>
+                <div class="Footer-number__box">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <p>+548191419278</p>
+                </div>
+            </div>
+        </div>
+        <div class="Footer-div__buton">
+        </div>
+    </footer>  
+
+
+    <script src="https://kit.fontawesome.com/ea8753952e.js" crossorigin="anonymous"></script>
 </body>
 </html>
