@@ -16,10 +16,22 @@
 
 .login__box__cuerpo__bottom a{
     text-decoration: none;
+    
       
 }
 
 .login__box__cuerpo__bottom a:hover{
+    color: white;
+      
+}
+
+.register__box__cuerpo__bottom a{
+    text-decoration: none;
+    color: var(--LetrasMenu);
+      
+}
+
+.register__box__cuerpo__bottom a:hover{
     color: white;
       
 }
