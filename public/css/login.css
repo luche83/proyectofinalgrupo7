@@ -1,10 +1,9 @@
 .login{
-    background-color: beige;
-    min-height: 60vh;
+       
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    
 }
 
 .login__box{
@@ -17,7 +16,10 @@
     height: 400px;
     font-family: var(--tipografia);
     color: var(--LetrasMenu);
-    box-shadow: 0px 0px 5px 0px grey;
+    box-shadow: 0px 0px 20px 0px grey;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
 }
 
 .login__box__encabezado{
@@ -69,6 +71,7 @@
     padding-top: 20px;
     gap: 7px;
     font-weight: 700;
+    width: 100%;
 }
 
 .login__box__cuerpo__contenido__recordarme{
@@ -99,7 +102,15 @@
    }
 
     .login__box__cuerpo__contenido{
+        display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .login__box__cuerpo__contenido input{
+        display: block;
+        justify-content: end;
     }
 
     .login__box{
