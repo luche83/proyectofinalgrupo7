@@ -52,3 +52,6 @@
 #### Posblemente nuestra commpetencia directa ya que lo que pensamos es referido practicamente con ese tema y sistema de manejo tanto como de productos como de presentacion en la pagina.
 
 ***
+
+
+
