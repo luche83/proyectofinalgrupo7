@@ -21,6 +21,11 @@
     transition: .3s;
 }
 .tarjeta--individual-index{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
     max-width: 400px;
     padding: 10px;
     margin: auto;
@@ -34,8 +39,9 @@
     scale: 1.05 ;
 }
 .img--trajeta{
-    width: 100%;
+    width: 90%;
     border-radius: 5px;
+    
 }
 .titulo--tarjeta{
     display: block;
@@ -65,3 +71,4 @@
     text-decoration: none;
     color: #fff;
 }
+
