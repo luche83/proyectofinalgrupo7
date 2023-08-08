@@ -1,74 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://kit.fontawesome.com/73dba2e5fe.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <link rel="stylesheet" href="/css/styles.css">
-
-    <title>Perfil de Usuario</title>
-</head>
+<%- include('partials/head') %>
 
 <body>
 
-    <header>
-        <div class="Header-div__box">
-
-            <a class="img-logo__a" href="/"><img src="/img/logo-2.png" alt=""></a>
-
-            <div class="login-input__box">
-                <div class="Header-form__box">
-                    <form action="" class="Header-form">
-                        <input type="text" placeholder="Buscar">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
-
-                <div class="div-user-bar-login__box">
-                    <div class="header-div-login__box">
-
-                        <a href="/register"><h5>crear cuenta</h5></a>
-                        <h5>/</h5>
-                        <a href="/login"><h5>iniciar sesión</h5></a>
-
-                        <div class="header__usuario">
-                            <a href="/login"><i class="fa-regular fa-user"></i></a>
-                        </div>
-
-                    </div>
-
-                    <div class="Header-div-bars__box">
-                        <a href=""><i class="fa-solid fa-bars"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <nav class="header-nav__box">
-            <div class="Header-nav__div">
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Regiones</a></li>
-                    <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
-                </ul>
-            </div>
-            <div class="Header-nav-div__div2">
-
-            </div>
-        </nav>
-    </header>
+    <%- include('partials/header') %>
 
     <main class="perfil">
         <div class="perfil__box">
 
             <div class="perfil__box__encabezado">
 
-                <a href="/index" class="rotate-scale-up-ver"><img src="/img/Recortado.png" alt=""></a>
+                <a href="/index" class="rotate-scale-up-ver"><img src="/images/Recortado.png" alt=""></a>
                 <h4 class="animate__animated animate__flash">Perfil de Usuario</h4>
 
             </div>
@@ -178,27 +122,8 @@
 
     </main>
 
+    <%- include('partials/footer') %>
 
-    <footer>
-        <div class="Footer-div__box">
-            <div>
-                <h5>AYUDA</h5>
-                <p>Envios y entregas</p>
-                <p>Devoluciones</p>
-                <p>Cambios</p>
-                <p>Opciones de pago</p>
-            </div>
-            <div>
-                <h5>Contactanos</h5>
-                <div class="Footer-number__box">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <p>+548191419278</p>
-                </div>
-            </div>
-        </div>
-        <div class="Footer-div__buton">
-        </div>
-    </footer>
 </body>
 
 </html>
