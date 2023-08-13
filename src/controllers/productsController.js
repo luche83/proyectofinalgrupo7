@@ -1,11 +1,12 @@
+
 module.exports = {
-    details : (req, res) => {
-       return res.render('productDetail')
-    },
+      
+   detail : require('./products/detail'),
+   add : require('./products/add'),
+   create : require('./products/create'),
+
     cart : (req, res) => {
         return res.render('productCart')
-     },
-     add : (req,res) => {
-      return res.render('productAdd')
      }
-};
+     
+}

@@ -19,7 +19,7 @@
 
                     <div class="login__box__cuerpo container">
                         
-                        <form action="" class="row ">
+                        <form action="" method="POST" class="row ">
 
                             <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="title" class="form-label">Nombre del Producto</label>
@@ -29,10 +29,12 @@
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="categoria" class="form-label">Categoria</label>
                                 <select class="form-input" aria-label="Default select example" name="category" id="category">
-                                    <option selected>Seleccione ....</option>
-                                    <option value="1">Productos Artesanales</option>
-                                    <option value="2">Vestimenta</option>
-                                    <option value="3">Regionales</option>
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    <% categories.forEach(category => { %>
+                                    
+                                        <option value="<%= category.name %>"><%= category.name %></option>
+
+                                    <% }) %>
                                   </select>
                               </div>
 
