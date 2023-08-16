@@ -1,3 +1,35 @@
 [
-   
+   {
+      "id": "90754508-e33d-448b-bf0b-0373d9349338",
+      "title": "Mate Forrado",
+      "category": "Productos Artesanales",
+      "price": 1500,
+      "discount": 10,
+      "description": "Elaborado en la Mezopotamia",
+      "cant": 50,
+      "cantMin": 5,
+      "image": null
+   },
+   {
+      "id": "c617171b-138e-417f-a366-3491a7397339",
+      "title": "Poncho Pampeano",
+      "category": "Vestimenta",
+      "price": 2500,
+      "discount": 0,
+      "description": "Elabora con lana de alpaca",
+      "cant": 100,
+      "cantMin": 10,
+      "image": null
+   },
+   {
+      "id": "233b7011-0e4a-4c53-bda9-b00624f63e46",
+      "title": "Bombilla de plata",
+      "category": "Productos Artesanales",
+      "price": 3500,
+      "discount": 20,
+      "description": "Elavorado por Platero TOMAS",
+      "cant": 50,
+      "cantMin": 5,
+      "image": null
+   }
 ]
