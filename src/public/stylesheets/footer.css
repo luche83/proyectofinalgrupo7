@@ -14,13 +14,14 @@
     padding-bottom: 40px;
 }
 
-.Footer-div__box h5{
+.Footer__h5 {
     font-size: 16px;
 }
 
-.Footer-div__box p{
+.Footer__p {
     color: #fff;
     font-size: 13px;
+    margin-bottom: 0;
 }
 
 .Footer-div__box i{
