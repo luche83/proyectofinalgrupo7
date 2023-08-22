@@ -145,8 +145,37 @@
   
                                     <a class="btn btn-sm btn-success" href="/products/edit/<%= id %>"><i
                                         class="fas fa-edit"></i></a>
-                                    <a class="btn btn-sm btn-danger" href="/products/remove/<%= id %>"><i
-                                        class="fas fa-trash"></i></a>
+                                        <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#removeProduct<%= id %>">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="removeProduct<%= id %>" tabindex="-1" aria-labelledby="removeProduct<%= id %>Label"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="removeProduct<%= id %>Label">ADVERTENCIA</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Estás seguro que querés eliminar el producto <b><%= title %></b></p> 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                                <form action="/products/remove/<%= id %>?_method=DELETE" method="POST">
+                                                    <button type="submit" class="btn btn-danger">Eliminalo</button>
+                                                </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                        
                                   </div>
                                 </td>
                               </tr>
@@ -236,6 +265,7 @@
       </main>
       
       <%- include('partials/footer') %>
+      <%- include('partials/scripts') %>
 
   </body>
 

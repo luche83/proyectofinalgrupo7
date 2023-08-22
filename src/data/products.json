@@ -1,14 +1,14 @@
 [
    {
       "id": "90754508-e33d-448b-bf0b-0373d9349338",
-      "title": "Mate Forrado",
+      "title": "Mate de algarrobo",
       "category": "Productos Artesanales",
-      "price": 1500,
+      "price": 16200,
       "discount": 10,
       "description": "Elaborado en la Mezopotamia",
       "cant": 50,
       "cantMin": 5,
-      "image": null
+      "image": "mate-algarrobo-y-bombilla.jpg"
    },
    {
       "id": "c617171b-138e-417f-a366-3491a7397339",
@@ -19,7 +19,7 @@
       "description": "Elabora con lana de alpaca",
       "cant": 100,
       "cantMin": 10,
-      "image": null
+      "image": "poncho.jpg"
    },
    {
       "id": "233b7011-0e4a-4c53-bda9-b00624f63e46",
@@ -30,6 +30,39 @@
       "description": "Elavorado por Platero TOMAS",
       "cant": 50,
       "cantMin": 5,
-      "image": null
+      "image": "bombilla-de-mate.jpg"
+   },
+   {
+      "id": "9bda903a-bb9c-4b39-8e32-515f73ffe743",
+      "title": "Cinturón de Cuero",
+      "category": "Vestimenta",
+      "price": 3500,
+      "discount": 4,
+      "description": "",
+      "cant": 40,
+      "cantMin": 1,
+      "image": "cinturon-de-cuero.jpg"
+   },
+   {
+      "id": "cfee5140-0d4b-4578-bfba-41c28d123753",
+      "title": "Termo Stanley",
+      "category": "Regionales",
+      "price": 50000,
+      "discount": 4,
+      "description": "",
+      "cant": 70,
+      "cantMin": 5,
+      "image": "termo-stanley.jpg"
+   },
+   {
+      "id": "ec174ff5-cdae-49c3-b995-d14d28b19dcb",
+      "title": "Tablas de asado",
+      "category": "Productos Artesanales",
+      "price": 5000,
+      "discount": 4,
+      "description": "",
+      "cant": 70,
+      "cantMin": 1,
+      "image": "tabla-de-asado.jpg"
    }
 ]

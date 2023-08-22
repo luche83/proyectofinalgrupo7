@@ -71,6 +71,7 @@
     }
 
     .n2 {
+        width: 60%;
         gap: 2px;
         justify-content: space-between;
     }
