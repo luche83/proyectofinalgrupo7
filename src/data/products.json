@@ -63,5 +63,18 @@
       "cant": "250",
       "cantMin": "20",
       "image": "1692996480509_products_.jpg"
+   },
+   {
+      "id": "28c296c8-94eb-4efe-9e0a-76e751f0564b",
+      "title": "Termo",
+      "category": "",
+      "character": "Vestimenta",
+      "region": "Pampeana",
+      "price": "250000",
+      "discount": "10",
+      "description": "gfgcfdhgvshgdvbsd",
+      "cant": "300",
+      "cantMin": "5",
+      "image": "1692998499368_products_.jpg"
    }
 ]
