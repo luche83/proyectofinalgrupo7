@@ -10,13 +10,16 @@ module.exports = {
             toThousand
         })
     },
+
     admin : (req,res) => {
 
         const products = readJSON('products.json');
-        const categories = readJSON('categories.json');
+        const characters = readJSON('characters.json');
+        const regiones = readJSON('regiones.json');
         return res.render('admin', {
             products,
-            categories
+            characters,
+            regiones
         })
     }
 }
