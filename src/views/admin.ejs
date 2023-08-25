@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">m
+<html lang="en">
 
 <%- include('partials/head') %>
 
@@ -62,6 +62,8 @@
                                   <th scope="col">Orden</th>
                                   <th scope="col">Producto</th>
                                   <th scope="col">Categoria</th>
+                                  <th scope="col">Caracteristica</th>
+                                  <th scope="col">Region</th>
                                   <th scope="col">Cantidad</th>
                                   <th scope="col">Precio</th>
                                   <th scope="col">Descuento</th>
@@ -74,13 +76,16 @@
                               
                               <tbody>
       
-                                <% products.forEach(({id, title, category,cant, cantMin, price, discount, image, description}, index) => { %>
+
+                                <% products.forEach(({id, title, category, character, region, cant, cantMin, price, discount, image, description}, index) => { %>
       
                                   <tr>
                                     
                                     <th scope="row"><%= index + 1 %></th>
                                     <td><%= title %></td>
                                     <td><%= category ? category : 'sin especificar' %></td>
+                                    <td><%= character ? character : 'sin especificar' %></td>
+                                    <td><%= region %></td>
                                     <td><%= cant %></td>
                                     <td><%= price %></td>
                                     <td><%= discount %></td>
@@ -118,7 +123,7 @@
                                                   <div class="row g-0">
                                                     
                                                     <div class="col-md-6">
-                                                      <img src="/images/products/<%= image || 'poncho.jpg' %>" class="img-fluid rounded-start" alt="...">
+                                                      <img src="/images/productos/<%= image || 'poncho.jpg' %>" class="img-fluid rounded-start" alt="...">
                                                     </div>
                                                     
                                                     <div class="col-md-6">
@@ -214,7 +219,7 @@
                           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     
                             <div>
-                              <a class="btn btn-outline-dark " href="/products/add">Carga de Categorias</a>
+                              <a class="btn btn-outline-dark " href="/characters/add">Carga de Categorias</a>
                             </div>
     
                             <div class="table-responsive">
@@ -232,20 +237,20 @@
                               
                               <tbody>
     
-                                <% categories.forEach(({id, name, image},index)=> { %>
+                                <% characters.forEach(({id, title, image},index)=> { %>
                                   
                                   <tr>
                                     
                                     <th scope="row"><%= index + 1 %></th>
-                                    <td><%= name %></td>
-                                    <td><%= products.filter(product=> product.category === name).length %></td>
-                                    <td><img src="/img/categories/<%= image %>" class="img-fluid" alt=""></td>
+                                    <td><%= title %></td>
+                                    <td><%= products.filter(product=> product.character === title).length %></td>
+                                    <td><img src="/img/characters/<%= image %>" class="img-fluid" alt=""></td>
     
                                     <td>
                                       
                                       <div class="d-flex gap-2">
-                                        <a class="btn btn-sm btn-success" href="/categories/edit/<%= id %>"><i class="fas fa-edit"></i></a>
-                                        <a class="btn btn-sm btn-danger" href="/categories/remove/<%= id %>"><i class="fas fa-trash"></i></a>
+                                        <a class="btn btn-sm btn-success" href="/characters/edit/<%= id %>"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-sm btn-danger" href="/characters/remove/<%= id %>"><i class="fas fa-trash"></i></a>
                                       </div>
                                     
                                     </td>

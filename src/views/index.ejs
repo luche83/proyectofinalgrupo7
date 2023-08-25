@@ -9,13 +9,9 @@
                     <% products.forEach(({image, title, price, id})=> { %>
 
                         <article class="tarjeta--individual-index">
-                            <img class="img--trajeta" src="/images/products/<%= image %>" alt="">
-                            <h4 class="titulo--tarjeta">
-                                <%= title %>
-                            </h4>
-                            <p class="precio--tarjeta">
-                                <%= toThousand((price).toFixed(0)) %>
-                            </p>
+                            <img class="img--trajeta card-img-top" src="/images/productos/<%= image %>" alt="">
+                            <h4 class="titulo--tarjeta"><%= title %></h4>
+                            <p class="precio--tarjeta"><%= toThousand(price) %></p>
                             <button class="boton--tarjeta"><a href="/products/detail/<%= id %>">VER MAS</a></button>
                         </article>
 

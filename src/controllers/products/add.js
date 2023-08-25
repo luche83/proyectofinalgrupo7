@@ -2,9 +2,11 @@ const { readJSON } = require("../../data")
 
 module.exports = (req,res) => {
 
-    const categories = readJSON('categories.json');
+    const characters = readJSON('characters.json');
+    const regiones = readJSON('regiones.json');
 
     return res.render('productAdd',{
-        categories
+        characters,
+        regiones
     })
    }

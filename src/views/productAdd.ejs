@@ -19,7 +19,7 @@
 
                     <div class="login__box__cuerpo container">
                         
-                        <form action="" method="POST" class="row ">
+                        <form action="" method="POST" enctype="multipart/form-data" class="row">
 
                             <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="title" class="form-label">Nombre del Producto</label>
@@ -27,12 +27,29 @@
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="categoria" class="form-label">Categoria</label>
-                                <select class="form-input" aria-label="Default select example" name="category" id="category">
+                                <label for="category" class="form-label">Caracteristica</label>
+                                <input type="text" class="form-input" id="category" placeholder="Nombre del Producto" name="category">
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="region" class="form-label">Caracteristica</label>
+                                <select class="form-input" aria-label="Default select example" name="region" id="region">
                                     <option value="" selected hidden>Seleccione ....</option>
-                                    <% categories.forEach(category => { %>
+                                    <% regiones.forEach(region => { %>
                                     
-                                        <option value="<%= category.name %>"><%= category.name %></option>
+                                        <option value="<%= region.title %>"><%= region.title %></option>
+
+                                    <% }) %>
+                                  </select>
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="character" class="form-label">Caracteristica</label>
+                                <select class="form-input" aria-label="Default select example" name="character" id="character">
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    <% characters.forEach(character => { %>
+                                    
+                                        <option value="<%= character.title %>"><%= character.title %></option>
 
                                     <% }) %>
                                   </select>
