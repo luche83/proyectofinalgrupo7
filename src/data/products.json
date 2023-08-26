@@ -2,7 +2,7 @@
    {
       "id": "7f520f39-f71b-4b96-ac43-48cf9199e3f8",
       "title": "mattehd",
-      "category": "Oferta",
+      "category": "in-sale",
       "character": "Vestimenta",
       "region": "Norte",
       "price": "150000",
@@ -15,7 +15,7 @@
    {
       "id": "40c0f343-2986-410a-9fc1-b9660356cfd5",
       "title": "Bombilla",
-      "category": "",
+      "category": "in-sale",
       "character": "Vestimenta",
       "region": "Pampeana",
       "price": "20000",
@@ -28,7 +28,7 @@
    {
       "id": "cf5e4af5-05a3-45cc-a5b5-c0bbe0778780",
       "title": "poncho",
-      "category": "oferta",
+      "category": "in-sale",
       "character": "Vestimenta",
       "region": "Pampeana",
       "price": "30000",
@@ -41,7 +41,7 @@
    {
       "id": "ca446296-be7f-42e9-8d99-7593b647f6dc",
       "title": "Destapador",
-      "category": "Oferta",
+      "category": "in-sale",
       "character": "Regionales",
       "region": "Pampeana",
       "price": "250000",
@@ -54,7 +54,7 @@
    {
       "id": "e325abfa-1737-4712-94af-e2f81a34f32d",
       "title": "Cinturon",
-      "category": "New",
+      "category": "in-sale",
       "character": "Vestimenta",
       "region": "Pampeana",
       "price": "25000",
@@ -65,16 +65,42 @@
       "image": "1692996480509_products_.jpg"
    },
    {
-      "id": "28c296c8-94eb-4efe-9e0a-76e751f0564b",
-      "title": "Termo",
+      "id": "047269a5-5a10-4ac6-bf52-ce300db2deca",
+      "title": "termo",
       "category": "",
       "character": "Vestimenta",
+      "region": "Norte",
+      "price": "111111",
+      "discount": "",
+      "description": "1",
+      "cant": "1",
+      "cantMin": "1",
+      "image": "1693024933532_products_.jpg"
+   },
+   {
+      "id": "8f6b189f-f168-4893-9d7f-4a9874018158",
+      "title": "tabla de asado",
+      "category": "",
+      "character": "Productos Artesanales",
       "region": "Pampeana",
-      "price": "250000",
-      "discount": "10",
-      "description": "gfgcfdhgvshgdvbsd",
-      "cant": "300",
-      "cantMin": "5",
-      "image": "1692998499368_products_.jpg"
+      "price": "12312",
+      "discount": "",
+      "description": "a",
+      "cant": "1",
+      "cantMin": "1",
+      "image": "1693024979067_products_.jpg"
+   },
+   {
+      "id": "a0b1cb5f-5bd1-4e02-be44-37935b0a33dd",
+      "title": "porta termo",
+      "category": "",
+      "character": "Productos Artesanales",
+      "region": "Pampeana",
+      "price": "54897",
+      "discount": "",
+      "description": "a",
+      "cant": "1",
+      "cantMin": "1",
+      "image": "1693025011787_products_.jpg"
    }
 ]

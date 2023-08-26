@@ -6,7 +6,8 @@ module.exports = {
     index : (req, res) => {
         const products = readJSON('products.json');
         return res.render('index',{
-            products,
+            productsInsale : products.filter(product => product.category === "in-sale"),
+            products : products.filter(product => product.category === ""),
             toThousand
         })
     },

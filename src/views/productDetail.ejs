@@ -13,13 +13,22 @@
 
                 <div class="n2">
                     <div class="Producto-precio__nombre">
-                        <h4><%= title %></h4>
-                        <p>$<%= price %></p>
+                        <h2 class="detail--h4"><%= title %></h2>
+                        <div class="detail--price-discount__box">                
+                            <% if (discount) { %>
+                                <p class="detail--p">$<%= toThousand(price) %></p>
+                                <p class="detail--space__p">/</p>
+                                <p class="detail--discount__p">% <%= discount %> OFF</p>
+                            <% } %>
+                        </div>
+                        <div class="detail--div__box">
+                            <h4 class="detail--pricefinal__h4">Precio final : $<%= toThousand((price - (price * discount / 100)).toFixed(0)) %></h4>
+                        </div>
                     </div>
 
                     <p class="productos__detalles"><%= description %></p>
                     <div class="Producto-comprar__carrito">
-                        <a href="/src/views/partials/productCart.ejs">Comprar</a>
+                        <a href="/products/Cart">Comprar</a>
                         <a href="/products/cart">Agregar al carrito</a>
                     </div>
                 </div>
