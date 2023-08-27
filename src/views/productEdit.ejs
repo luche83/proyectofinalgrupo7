@@ -3,78 +3,108 @@
 
 <%- include('partials/head') %>
 
-<body class="productAdd">
+    <body class="productEdit">
 
-    <%- include('partials/header') %>
+        <%- include('partials/header') %>
 
-    <main class="login">
-        <div class="login__box">
+            <main class="login">
+                <div class="login__box">
 
-            <div class="login__box__encabezado">
-                <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
-                <h4 class="animate__animated animate__flash">EDICION DE PRODUCTOS</h4>                        
-            </div>
+                    <div class="login__box__encabezado">
 
-            <div class="login__box__cuerpo container">
+                        <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+                        <h4 class="animate__animated animate__flash">CARGA DE PRODUCTOS</h4>
                         
-                <form action="" method="POST" class="row ">
-
-                    <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                        <label for="title" class="form-label">Nombre del Producto</label>
-                        <input type="text" class="form-input" id="title" placeholder="Nombre del Producto" name="title">
                     </div>
 
-                    <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                        <label for="categoria" class="form-label">Categoria</label>
-                        <select class="form-input" aria-label="Default select example" name="category" id="category">
-                            <option value="" selected hidden>Seleccione ....</option>
-                            <% categories.forEach(category => { %>
+                    <div class="login__box__cuerpo container">
+                        
+                        <form action="" method="POST" enctype="multipart/form-data" class="row">
+
+                            <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="title" class="form-label">Nombre del Producto</label>
+                                <input type="text" class="form-input" id="title" placeholder="Nombre del Producto" name="title" value="<%= title %>">
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="category" class="form-label">Categoria</label>
+                                <select class="form-input" aria-label="Default select example" name="category" id="category">
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    <% categories.forEach(category => { %>
                                     
-                            <option value="<%= category.name %>"><%= category.name %></option>
+                                        <option value="<%= category.title %><%= category.title %>"></option>
 
-                            <% }) %>
-                        </select>
+                                    <% }) %>
+                                  </select>
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="region" class="form-label">Region</label>
+                                <select class="form-input" aria-label="Default select example" name="region" id="region">
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    <% regiones.forEach(region => { %>
+                                    
+                                        <option value="<%= region.title %><%= region.title %>"></option>
+
+                                    <% }) %>
+                                  </select>
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="character" class="form-label">Caracteristica</label>
+                                <select class="form-input" aria-label="Default select example" name="character" id="character">
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    <% characters.forEach(character => { %>
+                                    
+                                        <option value="<%= character.title %><%= region.title %>"></option>
+
+                                    <% }) %>
+                                  </select>
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="price" class="form-label">Precio</label>
+                                <input type="number" class="form-input" id="price" placeholder="Precio" name="price" value="<%= price %>">
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="discount" class="form-label">Descuento</label>
+                                <input type="number" class="form-input" id="discount" placeholder="Descuento" name="discount" value="<%= discount %>">
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="cant" class="form-label">Cantidad Disponible</label>
+                                <input type="number" class="form-input" id="cant" placeholder="Cantidad Disponible" name="cant" value="<%= cant %>">
+                              </div>
+        
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="canntkMin" class="form-label">Cantidad Minima</label>
+                                <input type="number" class="form-input" id="cantMin" placeholder="Cantidad Minima" name="cantMin" value="<%= cantMin %>">
+                              </div>
+
+
+                              <div class="col-12 mb-3 login__box__cuerpo__contenido">
+                                <label for="description" class="form-label">Descripcion</label>
+                                <textarea name="description" id="description" class="form-input" style="resize: none"></textarea>
+                              </div>
+
+                              
+
+                              <div class="col-12 d-flex justify-content-end gap-2 mb-3">
+                                <label for="image" class="btn btn-secondary">Agregar Imagen</label>
+                                <input type="file" name="image" id="image" hidden>
+                                <button class="btn btn-outline-dark">Guardar</button>
+                              </div>
+
+                        </form>
                     </div>
 
-                    <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                        <label for="price" class="form-label">Precio</label>
-                        <input type="number" class="form-input" id="price" placeholder="Precio" name="price">
-                    </div>
 
-                    <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                        <label for="discount" class="form-label">Descuento</label>
-                        <input type="number" class="form-input" id="discount" placeholder="Descuento" name="discount">
-                    </div>
 
-                    <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                        <label for="cant" class="form-label">Cantidad Disponible</label>
-                        <input type="number" class="form-input" id="cant" placeholder="Cantidad Disponible" name="cant">
-                      </div>
+                </div>
 
-                      <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                        <label for="canntkMin" class="form-label">Cantidad Minima</label>
-                        <input type="number" class="form-input" id="cantMin" placeholder="Cantidad Minima" name="cantMin">
-                      </div>
-
-                    <div class="col-12 mb-3 login__box__cuerpo__contenido">
-                        <label for="description" class="form-label">Descripcion</label>
-                        <textarea name="description" id="description" class="form-input" style="resize: none"></textarea>
-                    </div>
-                    
-
-                    <div class="col-12 d-flex justify-content-end gap-2 mb-3">
-                        <label for="image" class="btn btn-secondary">Agregar Imagen</label>
-                        <input type="file" name="image" id="image" hidden>
-                        <button class="btn btn-outline-dark">Guardar Cambios</button>
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-
-    </main>
-    <%- include('partials/footer') %>
+            </main>
+            <%- include('partials/footer') %>
     </body>
 
 </html>

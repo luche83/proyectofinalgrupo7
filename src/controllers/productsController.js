@@ -4,6 +4,7 @@ module.exports = {
    add : require('./products/add'),
    create : require('./products/create'),
    remove : require('./products/remove'),
+   edit : require('./products/edit'),
    cart : (req, res) => {
       return res.render('productCart')
    }

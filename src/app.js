@@ -12,6 +12,7 @@ const charactersRouter = require('./routes/characters');
 
 
 
+
 const app = express();
 
 // view engine setup
@@ -30,6 +31,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/characters', charactersRouter);
+
 
 
 

@@ -10,6 +10,7 @@ module.exports = (req, res) => {
     /*const newProduct = new Product(req.body);*/
 
     products.push({
+
         /*id : products.length ? products[products.lenth -1 ].id +1 : 1,*/
         id : uuidv4(),
         title : req.body.title,

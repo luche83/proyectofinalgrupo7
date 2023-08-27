@@ -16,6 +16,8 @@ module.exports = (req,res) => {
 
             /*product.name = req.body.name;
             product.image = req.file ? req.file.filename : product.image;*/
+
+            
         }
         /*return product;  */
         return product.id !== req.params.id;

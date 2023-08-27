@@ -16,10 +16,12 @@ module.exports = {
         const products = readJSON('products.json');
         const characters = readJSON('characters.json');
         const regiones = readJSON('regiones.json');
+        const categories = readJSON('categories.json');
         return res.render('admin', {
             products,
             characters,
-            regiones
+            regiones,
+            categories
         })
     }
 }

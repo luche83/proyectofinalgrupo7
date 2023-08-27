@@ -27,12 +27,19 @@
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="category" class="form-label">Caracteristica</label>
-                                <input type="text" class="form-input" id="category" placeholder="Nombre del Producto" name="category">
+                                <label for="category" class="form-label">Categoria</label>
+                                <select class="form-input" aria-label="Default select example" name="category" id="category">
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    <% categories.forEach(category => { %>
+                                    
+                                        <option value="<%= category.title %>"><%= category.title %></option>
+
+                                    <% }) %>
+                                  </select>
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="region" class="form-label">Caracteristica</label>
+                                <label for="region" class="form-label">Region</label>
                                 <select class="form-input" aria-label="Default select example" name="region" id="region">
                                     <option value="" selected hidden>Seleccione ....</option>
                                     <% regiones.forEach(region => { %>
@@ -86,7 +93,7 @@
                               <div class="col-12 d-flex justify-content-end gap-2 mb-3">
                                 <label for="image" class="btn btn-secondary">Agregar Imagen</label>
                                 <input type="file" name="image" id="image" hidden>
-                                <button class="btn btn-outline-dark">Guardar Cambios</button>
+                                <button class="btn btn-outline-dark">Guardar</button>
                               </div>
 
                         </form>
