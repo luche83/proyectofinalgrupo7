@@ -1,5 +1,6 @@
 
 module.exports = {
+   index : require('./products/index'),
    detail : require('./products/detail'),
    add : require('./products/add'),
    create : require('./products/create'),
