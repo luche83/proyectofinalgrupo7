@@ -5,24 +5,8 @@
     <body>
         <%- include('partials/header') %>
             <main class="main--index">
-                <div>
-                    <h3>visita</h3>
-                </div>
                 <section class="contenedor--tarjetas-index">
                     <% products.forEach(product=> { %>
-
-                        <%- include('partials/productCard',{
-                            ...product,
-                            toThousand
-                        }) %>
-
-                        <% }) %>
-                </section>
-                <div>
-                    <h3>oferta</h3>
-                </div>
-                <section class="contenedor--tarjetas-index">
-                    <% productsInsale.forEach(product=> { %>
 
                         <%- include('partials/productCard',{
                             ...product,
