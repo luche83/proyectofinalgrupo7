@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const {detail, add, create,edit, remove,} = require('../controllers/productsController');
+const {detail, add, create, remove,} = require('../controllers/productsController');
 const productsController = require('../controllers/productsController');
 const upload = require('../middlewares/upload');
 
 /* /products */
 
-
-router.get('/cart', productsController.cart);
+router.get('/', index);
+router.get('/cart', cart);
 router.get('/detail/:id', detail);
 router.get('/add', add);
 router.post('/add', upload.single('image'), create);

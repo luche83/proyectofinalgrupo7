@@ -1,22 +1,22 @@
 [
    {
-      "id": "7304496e-8668-4c1d-9c16-0f2e8a7db41c",
-      "title": "Bombilla de Plata",
-      "category": "New",
-      "character": "Productos Artesanales",
-      "region": "Antartica",
-      "price": "25000",
-      "discount": "5",
-      "description": "Trabajado en plata 900",
-      "cant": "200",
-      "cantMin": "10",
-      "image": "1693162989272_products_.jpg"
+      "id": "7f520f39-f71b-4b96-ac43-48cf9199e3f8",
+      "title": "mattehd",
+      "category": "Oferta",
+      "character": "Vestimenta",
+      "region": "Norte",
+      "price": "150000",
+      "discount": "10",
+      "description": "hvhgvkkjhbkldihsn",
+      "cant": "3000",
+      "cantMin": "22",
+      "image": "1692992392705_products_.jpg"
    },
    {
-      "id": "fb0fe735-aa08-4876-8389-ef04ff42a773",
-      "title": "Mate Forrado",
-      "category": "Mas Visitadas",
-      "character": "Productos Artesanales",
+      "id": "40c0f343-2986-410a-9fc1-b9660356cfd5",
+      "title": "Bombilla",
+      "category": "",
+      "character": "Vestimenta",
       "region": "Pampeana",
       "price": "30000",
       "discount": "10",
@@ -26,9 +26,9 @@
       "image": "1693163145810_products_.jpg"
    },
    {
-      "id": "d0baac49-2a53-4dbb-8e76-edd9cd3067cc",
-      "title": "Cinturon",
-      "category": "Mas Visitadas",
+      "id": "cf5e4af5-05a3-45cc-a5b5-c0bbe0778780",
+      "title": "poncho",
+      "category": "oferta",
       "character": "Vestimenta",
       "region": "Pampeana",
       "price": "50000",
@@ -39,8 +39,8 @@
       "image": "1693163207387_products_.jpg"
    },
    {
-      "id": "61663781-df2b-463d-b6f0-3e616e50743e",
-      "title": "Porta Termo",
+      "id": "ca446296-be7f-42e9-8d99-7593b647f6dc",
+      "title": "Destapador",
       "category": "Oferta",
       "character": "Regionales",
       "region": "Norte",
@@ -65,9 +65,9 @@
       "image": "1693163346298_products_.jpg"
    },
    {
-      "id": "6412b102-a351-4d4e-8063-f4d55f9bfd28",
-      "title": "Abridor",
-      "category": "Oferta",
+      "id": "e325abfa-1737-4712-94af-e2f81a34f32d",
+      "title": "Cinturon",
+      "category": "New",
       "character": "Vestimenta",
       "region": "Pampeana",
       "price": "25000",
@@ -78,29 +78,42 @@
       "image": "1693164147854_products_.jpg"
    },
    {
-      "id": "f8d3fa8a-70d6-468d-9abf-6390ef827943",
-      "title": "Tabla de Asado",
-      "category": "Oferta",
+      "id": "28c296c8-94eb-4efe-9e0a-76e751f0564b",
+      "title": "Termo",
+      "category": "",
       "character": "Vestimenta",
-      "region": "Pampeana",
-      "price": "50000",
-      "discount": "10",
-      "description": "Madera de pino",
-      "cant": "200",
-      "cantMin": "5",
-      "image": "1693164240590_products_.jpg"
+      "region": "Norte",
+      "price": "111111",
+      "discount": "",
+      "description": "1",
+      "cant": "1",
+      "cantMin": "1",
+      "image": "1693024933532_products_.jpg"
    },
    {
-      "id": "47219d99-afef-428d-9687-e3179e319c95",
-      "title": "borrador",
-      "category": "Mas Visitadas",
-      "character": "Vestimenta",
+      "id": "8f6b189f-f168-4893-9d7f-4a9874018158",
+      "title": "tabla de asado",
+      "category": "",
+      "character": "Productos Artesanales",
       "region": "Pampeana",
-      "price": "15000",
-      "discount": "2",
-      "description": "ygvjgbkuhnfd",
-      "cant": "35",
+      "price": "12312",
+      "discount": "",
+      "description": "a",
+      "cant": "1",
+      "cantMin": "1",
+      "image": "1693024979067_products_.jpg"
+   },
+   {
+      "id": "a0b1cb5f-5bd1-4e02-be44-37935b0a33dd",
+      "title": "porta termo",
+      "category": "",
+      "character": "Productos Artesanales",
+      "region": "Pampeana",
+      "price": "250000",
+      "discount": "10",
+      "description": "gfgcfdhgvshgdvbsd",
+      "cant": "300",
       "cantMin": "5",
-      "image": "1693170523828_products_.jpg"
+      "image": "1692998499368_products_.jpg"
    }
 ]

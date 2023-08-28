@@ -1,6 +1,6 @@
 const { readJSON, writeJSON } = require('../../data');
+const products = readJSON('products.json')
 const { unlinkSync, existsSync } = require("fs");
-
 
 module.exports = (req,res) => {    
     
@@ -16,15 +16,11 @@ module.exports = (req,res) => {
 
             /*product.name = req.body.name;
             product.image = req.file ? req.file.filename : product.image;*/
-
-            
         }
-        /*return product;  */
-        return product.id !== req.params.id;
-        
-    });
+        return product.id !== req.params.id
+    })
 
-    writeJSON(productsDelete, 'products.json')
-    
+    writeJSON(productModify, 'products.json')
+
     return res.redirect('/admin')
 }

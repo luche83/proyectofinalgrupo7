@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+    <body>
+        <%- include('partials/header') %>
+            <main class="main--index">
+                <section class="contenedor--tarjetas-index">
+                   <% if (results.length) { %>
+                    <% results.forEach(product=> { %>
+
+                        <%- include('partials/productCard',{
+                            ...product,
+                            toThousand
+                        }) %>
+
+                    <% }) %>
+                   <% }else {   %>
+                    <div>
+                        <h2 style="color: burlywood;">No se a podido encontrar su busquedad</h2>
+                    </div>
+                   <% }  %>
+                    
+                 
+                </section>
+            </main>
+            <%- include('partials/footer') %>
+    </body>
+
+</html>

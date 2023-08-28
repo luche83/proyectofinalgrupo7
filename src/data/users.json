@@ -1,0 +1,17 @@
+[
+    {
+       "id": "1",
+       "nombre": "tomas",
+        "category" : "admin"
+    },
+    {
+        "id": "2",
+        "nombre": "jorge",
+        "category" : "admin"
+    },
+    {
+        "id": "3",
+        "nombre": "nehemias",
+        "category" : "admin"
+    }
+]    
