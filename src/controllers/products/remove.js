@@ -14,8 +14,6 @@ module.exports = (req,res) => {
             existsSync(`./src/public/images/productos/${product.image}`)&&
             unlinkSync(`./src/public/images/productos/${product.image}`);
 
-            /*product.name = req.body.name;
-            product.image = req.file ? req.file.filename : product.image;*/
         }
         return product.id !== req.params.id
     })
