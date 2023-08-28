@@ -6,9 +6,9 @@ module.exports = (req,res) => {
 
     const productModify = products.filter((product) => {
 
-        if (product.id === +req.params.id ) {
-            existsSync(`../../public/images/productos/${product.image}`) &&               
-            unlinkSync(`../../public/images/productos/${product.image}`)           
+        if (product.id === req.params.id ) {
+            existsSync(`./src/public/images/productos/${product.image}`) &&               
+            unlinkSync(`./src/public/images/productos/${product.image}`)           
         }
         return product.id !== req.params.id
     })
