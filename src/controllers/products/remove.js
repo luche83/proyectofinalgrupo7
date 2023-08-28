@@ -1,5 +1,5 @@
 const { readJSON, writeJSON } = require('../../data');
-const products = readJSON('products.json')
+/*const products = readJSON('products.json')*/
 const { unlinkSync, existsSync } = require("fs");
 
 module.exports = (req,res) => {    
@@ -7,7 +7,7 @@ module.exports = (req,res) => {
     /*const productsModify = products.filter(product => product.id !== req.params.id);*/
       
     const products = readJSON('products.json')
-
+    console.log(req.params.id)
     const productsDelete = products.filter((product) => {
         if (product.id === req.params.id) { 
 
@@ -20,7 +20,7 @@ module.exports = (req,res) => {
         return product.id !== req.params.id
     })
 
-    writeJSON(productModify, 'products.json')
+    writeJSON(productsDelete, 'products.json')
 
     return res.redirect('/admin')
 }

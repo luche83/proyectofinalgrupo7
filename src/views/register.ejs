@@ -17,7 +17,7 @@
     
             </div>
     
-            <form action="" method="" class="register__box__cuerpo">
+            <form action="" method="POST" enctype="multipart/form-data" class="register__box__cuerpo row">
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="email">Nombe</label>
@@ -29,9 +29,14 @@
                     <input id="lastname" placeholder="Escriba su apellido" type="text" name="lastname" class="form-input">
                 </div>
     
-                <div class="register__box__cuerpo__contenido dos">
+                <div class="register__box__cuerpo__contenido uno">
                     <label for="email">Email</label>
                     <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input">
+                </div>
+
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="email">Categoria</label>
+                    <input id="email" placeholder="Usuario/Administrador" type="email" name="email" class="form-input">
                 </div>
     
                 <div class="register__box__cuerpo__contenido uno">
@@ -46,10 +51,16 @@
                         class="form-input">
                 </div>
     
-                <div class="register__box__cuerpo__bottom">
+                <div class="col-12 d-flex justify-content-end gap-2 mb-3">
+                    <label for="image" class="btn btn-secondary">Agregar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>
+                    <button class="btn btn-outline-dark">Guardar</button>
+                  </div>
+
+              <!--  <div class="register__box__cuerpo__bottom">
                     <button type="submit" class="buttom-forms"><a href="/">Enviar</a></button>
                     <button type="reset" class="buttom-forms">Borrar</button>
-                </div>
+                </div>-->
     
             </form>
     

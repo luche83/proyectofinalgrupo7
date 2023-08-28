@@ -1,5 +1,5 @@
 const {readJSON} = require("../data");
-const products = require("./products");
+/*const products = require("./products");*/
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -7,8 +7,10 @@ module.exports = {
     index : (req, res) => {
         const products = readJSON('products.json');
         return res.render('index',{
-            productsInsale : products.filter(product => product.category === "in-sale"),
-            products : products.filter(product => product.category === ""),
+            productsInsale : products.filter(product => product.category === "Oferta"),
+            productsMasVisitadas : products.filter(product => product.category === "Mas Visitadas"),
+            productsNew : products.filter(product => product.category === "New"),
+            products : products.filter(product => product.category === " "),
             toThousand
         })
     },

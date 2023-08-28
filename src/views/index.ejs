@@ -5,11 +5,26 @@
     <body>
         <%- include('partials/header') %>
             <main class="main--index">
+                
                 <div>
-                    <h3>visita</h3>
+                    <h1>Nuevos Productos</h1>
                 </div>
                 <section class="contenedor--tarjetas-index">
-                    <% products.forEach(product=> { %>
+                    <% productsNew.forEach(product=> { %>
+
+                        <%- include('partials/productCard',{
+                            ...product,
+                            toThousand
+                        }) %>
+
+                        <% }) %>
+                </section>
+                
+                <div>
+                    <h1>Mas Visitadas</h1>
+                </div>
+                <section class="contenedor--tarjetas-index">
+                    <% productsMasVisitadas.forEach(product=> { %>
 
                         <%- include('partials/productCard',{
                             ...product,
@@ -19,7 +34,7 @@
                         <% }) %>
                 </section>
                 <div>
-                    <h3>oferta</h3>
+                    <h3>OFERTAS</h3>
                 </div>
                 <section class="contenedor--tarjetas-index">
                     <% productsInsale.forEach(product=> { %>

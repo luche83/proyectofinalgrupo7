@@ -1,8 +1,11 @@
 
 module.exports = {
-    detail : require('./characters/detail'),
+    
     add : require('./characters/add'),
+    
+   /* detail : require('./characters/detail'),
+    
     create : require('./characters/create'),
-    remove : require('./characters/remove'),
+    remove : require('./characters/remove'),*/
     
  }
