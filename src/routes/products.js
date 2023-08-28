@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {detail, add, create,edit, cart, remove,} = require('../controllers/productsController');
-
+const {index, detail, add, create, remove,edit , cart} = require('../controllers/productsController');
 const upload = require('../middlewares/upload');
 
 /* /products */
 
-
+router.get('/', index);
 router.get('/cart', cart);
 router.get('/detail/:id', detail);
 router.get('/add', add);
