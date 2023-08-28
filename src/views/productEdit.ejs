@@ -19,7 +19,7 @@
 
                     <div class="login__box__cuerpo container">
                         
-                        <form action="" method="POST" enctype="multipart/form-data" class="row">
+                        <form action="/products/update<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="row">
 
                             <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="title" class="form-label">Nombre del Producto</label>
@@ -31,8 +31,8 @@
                                 <select class="form-input" aria-label="Default select example" name="category" id="category">
                                     <option value="" selected hidden>Seleccione ....</option>
                                     <option value="<%= region.title %>" selected hidden>Seleccione ....</option>
-                                    <% categories.forEach(categorie => { %>
-                                      <option value="<%= categorie.title %>"><%= categorie.title %></option>
+                                    <% categories.forEach(item => { %>
+                                      <option <%= item.title === category && 'selected' %> value="<%= item.title%>"><%= item.title%></option>
                                     <% }) %>
                                   </select>
                               </div>
@@ -41,8 +41,8 @@
                                 <label for="region" class="form-label">Region</label>
                                 <select class="form-input" aria-label="Default select example" name="region" id="region">
                                     <option value="<%= region.title %>" selected hidden>Seleccione ....</option>
-                                    <% regiones.forEach(region => { %>
-                                      <option value="<%= region.title %>"><%= region.title %></option>
+                                    <% regiones.forEach(item => { %>
+                                      <option <%= item.title === category && 'selected' %> value="<%= item.title %>"><%= item.title %></option>
                                     <% }) %>
                                                                
                                   </select>
@@ -81,7 +81,8 @@
 
                               <div class="col-12 mb-3 login__box__cuerpo__contenido">
                                 <label for="description" class="form-label">Descripcion</label>
-                                <textarea name="description" id="description" class="form-input" style="resize: none"></textarea>
+                                <textarea name="description" id="description" class="form-input" style="resize: none"><%= description %></textarea>
+
                               </div>
 
                               
