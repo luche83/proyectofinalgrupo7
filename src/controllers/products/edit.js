@@ -4,7 +4,7 @@ const { readJSON, writeJSON } = require('../../data');
 module.exports = (req, res) => {
 
     const products = readJSON('products.json');
-    const Categories = readJSON('categories.json');
+    const categories = readJSON('categories.json');
     const regiones = readJSON('regiones.json');
     const characters = readJSON('characters.json');
 
@@ -13,7 +13,7 @@ module.exports = (req, res) => {
 
     return res.render('productEdit', {
         ...product,
-        Categories,
+        categories,
         regiones,
         characters      
     })
