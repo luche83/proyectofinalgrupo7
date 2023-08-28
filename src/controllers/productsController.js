@@ -1,4 +1,3 @@
-
 module.exports = {
    index : require('./products'),
    detail : require('./products/detail'),
