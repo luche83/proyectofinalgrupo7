@@ -5,7 +5,5 @@ module.exports = {
    create : require('./products/create'),
    remove : require('./products/remove'),
    edit : require('./products/edit'),
-   cart : require('./products/cart'),
-     
-     
+   cart : require('./products/cart'),     
 }
