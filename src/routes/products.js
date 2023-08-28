@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {index, detail, add, create, remove,edit , cart} = require('../controllers/productsController');
+const {detail, add, create, remove,} = require('../controllers/productsController');
+const productsController = require('../controllers/productsController');
 const upload = require('../middlewares/upload');
 
 /* /products */
