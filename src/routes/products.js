@@ -12,7 +12,7 @@ router.get('/detail/:id', detail);
 router.get('/add', add);
 router.post('/add', upload.single('image'), create);
 router.get('/edit/:id', edit);
-router.put('/update/:id', update);
+router.put('/update/:id',upload.single('image'), update);
 router.delete('/remove/:id', remove)
 
 /* Tambien se puede expresar de esta manera

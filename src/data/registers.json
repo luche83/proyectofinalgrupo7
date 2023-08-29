@@ -22,5 +22,17 @@
          "dfgdfgdf"
       ],
       "image": "1693344208848_users_.jpg"
+   },
+   {
+      "id": "28f285e1-f167-4dd1-907e-e570346b3efc",
+      "firstname": "Juanito",
+      "lastname": "Perez",
+      "email": "manidelabk031@gmail.com",
+      "category": "Administrador",
+      "password": [
+         "fsdfdf",
+         "sdfsfds"
+      ],
+      "image": "1693344789802_users_.jpg"
    }
 ]
