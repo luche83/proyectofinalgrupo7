@@ -7,7 +7,6 @@ module.exports = (req,res) => {
     /*const productsModify = products.filter(product => product.id !== req.params.id);*/
       
     const products = readJSON('products.json')
-    console.log(req.params.id)
     const productsDelete = products.filter((product) => {
         if (product.id === req.params.id) { 
 

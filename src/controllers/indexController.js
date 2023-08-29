@@ -21,11 +21,13 @@ module.exports = {
         const characters = readJSON('characters.json');
         const regiones = readJSON('regiones.json');
         const categories = readJSON('categories.json');
+        const registers = readJSON('registers.json');
         return res.render('admin', {
             products,
             characters,
             regiones,
-            categories
+            categories,
+            registers
         })
     },
 
