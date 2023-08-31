@@ -11,12 +11,13 @@ module.exports = (req, res) => {
 
         if(product.id === req.params.id){
 
+            req.file &&
             existsSync(`./src/public/images/productos/${product.image}`)&&
             unlinkSync(`./src/public/images/productos/${product.image}`);
 
-            product.title = req.bodytitle;
-            product.category = reg.body.category;
-            product.character = reg.body.character;
+            product.title = req.body.title;
+            product.category = req.body.category;
+            product.character = req.body.character;
             product.region = req.body.region;
             product.price = req.body.price;
             product.discount = req.body.discount;
@@ -28,8 +29,7 @@ module.exports = (req, res) => {
 
         return product
     })
-
-   
+  
 		writeJSON(productsModify, 'products.json')
 
 		return res.redirect('/admin')

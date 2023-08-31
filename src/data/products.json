@@ -78,19 +78,6 @@
       "image": "1693221876951_products_.jpg"
    },
    {
-      "id": "c56d783b-5777-4500-a638-f6a6038e3812",
-      "title": "Porta termo",
-      "category": "Mas Visitadas",
-      "character": "Regionales",
-      "region": "Pampeana",
-      "price": "35000",
-      "discount": "",
-      "description": "Cuero Ecologico",
-      "cant": "3000",
-      "cantMin": "20",
-      "image": "1693221935019_products_.jpg"
-   },
-   {
       "id": "1e3e2e9a-dd32-4c1d-81e5-72cbe6c6f48a",
       "title": "Termo",
       "category": "New",
@@ -102,18 +89,5 @@
       "cant": "3000",
       "cantMin": "10",
       "image": "1693222044487_products_.jpg"
-   },
-   {
-      "id": "bb0acdc0-6481-4aa7-a1f5-43348c23eddf",
-      "title": "ssdgfgh",
-      "category": "Oferta",
-      "character": "Vestimenta",
-      "region": "Pampeana",
-      "price": "2500000",
-      "discount": "10",
-      "description": "dggfdgfdgfdgfdg",
-      "cant": "3000",
-      "cantMin": "20",
-      "image": "1693345915471_products_.jpg"
    }
 ]
