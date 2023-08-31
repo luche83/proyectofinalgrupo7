@@ -1,297 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <%- include('partials/head') %>
 
-  <body>
 
-    <%- include('partials/header') %>
+    <body class="">
+        <%- include('partials/header') %>
 
-      <main class="container">
-
-        <div class="row">
-
-          <div class="col-12 col-md-10 mx-auto mt-5">
-
-            <div class="card- shadow">
-
-              <div class="card-header">
-
-                  <form action="" class="">
-                    
-                    <div class="card-body">
-                      
-                      <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                            Productos
-                          </button>
-                        </li>
-                        
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                            Categotias
-                          </button>
-                        </li>
-                        
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
-                            Usuarios
-                          </button>
-                        </li>
-                      
-                      </ul>
-    
-                      <div class="tab-content" id="myTabContent">
-    
-                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-    
-                          <div class="">
-                            <a class="btn btn-outline-dark " href="/products/add">Carga de Productos</a>
-                          </div>
-    
-                          <div class="table-responsive">
-    
-                            <table class="table table-hover">
-                              
-                              <thead>
-                                
-                                <tr>
-                                  
-                                  <th scope="col">Orden</th>
-                                  <th scope="col">Producto</th>
-                                  <th scope="col">Categoria</th>
-                                  <th scope="col">Caracteristica</th>
-                                  <th scope="col">Region</th>
-                                  <th scope="col">Cantidad</th>
-                                  <th scope="col">Precio</th>
-                                  <th scope="col">Descuento</th>
-                                  <th scope="col">P. Final</th>
-                                  <th scope="col">Acciones</th>
-                                
-                                </tr>
-                              
-                              </thead>
-                              
-                              <tbody>
-      
-
-                                <% products.forEach(({id, title, category, character, region, cant, cantMin, price, discount, image, description}, index) => { %>
-      
-                                  <tr>
-                                    
-                                    <th scope="row"><%= index + 1 %></th>
-                                    <td><%= title %></td>
-                                    <td><%= category ? category : 'sin especificar' %></td>
-                                    <td><%= character ? character : 'sin especificar' %></td>
-                                    <td><%= region %></td>
-                                    <td><%= cant %></td>
-                                    <td><%= price %></td>
-                                    <td><%= discount %></td>
-                                    <td><%= price - (price * discount / 100) %></td>
-                                    
-                                    <td>
-                                      
-                                      <div class="d-flex gap-2">
-                                        
-                                        <a class="" href="/products/detail/<%= id %>"></a>
-      
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#detailProduct<%= id %>">
-                                          <i class="fas fa-eye"></i>
-                                        </button>
-      
-                                        <!-- Modal -->
-                                        
-                                        <div class="modal fade" id="detailProduct<%= id %>" tabindex="-1" aria-labelledby="detailProduct<%= id %>" aria-hidden="true">
-                                          
-                                          <div class="modal-dialog modal-dialog-centered">
-                                            
-                                            <div class="modal-content">
-                                              
-                                              <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="detailProduct<%= id %>"><%= title %></h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                              </div>
-                                              
-                                              <div class="modal-body">
-      
-                                                <!-- Inicio Card -->
-                                                <div class="card mb-3" style="max-width: 540px;">
-                                                  
-                                                  <div class="row g-0">
-                                                    
-                                                    <div class="col-md-6">
-                                                      <img src="/images/productos/<%= image || 'poncho.jpg' %>" class="img-fluid rounded-start" alt="...">
-                                                    </div>
-                                                    
-                                                    <div class="col-md-6">
-                                                      
-                                                      <div class="card-body">
-                                                        <h5 class="card-title"><%= title %></h5>
-                                                        <p class="card-text"><%= description %></p>
-                                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                                                      </div>
-                                                    
-                                                    </div>
-                                                  
-                                                  </div>
-                                                
-                                                </div>
-                                                <!-- Fin Card -->
-      
-                                              </div>
-                                              
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                              </div>
-                                            
-                                            </div>
-                                          
-                                          </div>
-                                        
-                                        </div>
-                                        
-                                        <!-- FIN Modal -->
-
-                                        <a class="btn btn-sm btn-success" href="/products/edit/<%= id %>"><i class="fas fa-edit"></i></a>
-                                            
-                                        <!-- Button trigger modal -->
-                                
-                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#removeProduct<%= id %>">
-                                          
-                                          <i class="fas fa-trash"></i>
-                                
-                                        </button>
-                                    
-                                        <!-- Modal -->
-                                
-                                        <div class="modal fade" id="removeProduct<%= id %>" tabindex="-1" aria-labelledby="removeProduct<%= id %>Label" aria-hidden="true">
-                                    
-                                          <div class="modal-dialog modal-dialog-centered">
-                                        
-                                            <div class="modal-content">
-                                            
-                                              <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="removeProduct<%= id %>Label">ADVERTENCIA</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                              </div>
-                                            
-                                              <div class="modal-body">
-                                                <p>Estás seguro que querés eliminar el producto <b><%= title %></b></p>                                             
-                                              </div>
-                                            
-                                              <div class="modal-footer">
-                                                
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                
-                                                <form action="/products/remove/<%= id %>?_method=DELETE" method="POST">
-                                                  <button type="submit" class="btn btn-danger">Eliminalo</button>
-                                                </form>
-                                              
-                                              </div>
-                                        
-                                            </div>
-                                    
-                                          </div>
-                                
-                                        </div>
-                                            
-                                      </div>
-                                    
-                                    </td>
-                                  
-                                  </tr>
-                                  
-                                <% }) %>
-                                
-                              </tbody>
-                              
-                            </table>
-                            
-                          </div>
-                        
-                        </div>
-    
-                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-    
-                          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-    
-                            <div>
-                              <a class="btn btn-outline-dark " href="/characters/add">Carga de Categorias</a>
+            <main class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10 mx-auto mt-5">
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <a class="btn btn-outline-dark" href="/products/add">Nuevo producto</a>
                             </div>
-    
-                            <div class="table-responsive">
-
-                            <table class="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Orden</th>
-                                  <th scope="col">Nombre</th>
-                                  <th scope="col">Cantidad</th>
-                                  <th scope="col">Imagen</th>
-                                  <th scope="col">Acciones</th>
-                                </tr>
-                              </thead>
-                              
-                              <tbody>
-    
-                                <% characters.forEach(({id, title, image},index)=> { %>
-                                  
-                                  <tr>
-                                    
-                                    <th scope="row"><%= index + 1 %></th>
-                                    <td><%= title %></td>
-                                    <td><%= products.filter(product=> product.character === title).length %></td>
-                                    <td><img src="/img/characters/<%= image %>" class="img-fluid" alt=""></td>
-    
-                                    <td>
-                                      
-                                      <div class="d-flex gap-2">
-                                        <a class="btn btn-sm btn-success" href="/characters/edit/<%= id %>"><i class="fas fa-edit"></i></a>
-                                        <a class="btn btn-sm btn-danger" href="/characters/remove/<%= id %>"><i class="fas fa-trash"></i></a>
-                                      </div>
-                                    
-                                    </td>
-                                  
-                                  </tr>
-                                  
-                                <% }) %>
-        
-                              </tbody>
-                            
-                            </table>
-
+                            <div class="card-body">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                                aria-selected="true">Productos</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                                data-bs-target="#profile" type="button" role="tab"
+                                                aria-controls="profile" aria-selected="false">Categorias</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#contact" type="button" role="tab"
+                                                aria-controls="contact" aria-selected="false">Usuarios</button>
+                                        </li>
+                                    </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                        aria-labelledby="home-tab">
+                                        <%- include('partials/tableProducts',{ products }) %>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel"
+                                        aria-labelledby="profile-tab">
+                                        <%- include('partials/tableCategories',{ categories }) %>
+                                    </div>
+                                    <div class="tab-pane fade" id="contact" role="tabpanel"
+                                        aria-labelledby="contact-tab">
+                                    </div>
+                                </div>
                             </div>
 
-                          </div>
-    
                         </div>
-                        
-                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                              
-                          <%- include('partials/usuarios') %>
-                        
-                        </div>
-    
-                      </div>
-                    
-                  </form>
+                    </div>
+                </div>
+            </main>
+            <%- include('partials/footer') %>
+                <%- include('partials/scripts') %>
 
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </main>
-      
-      <%- include('partials/footer') %>
-      <%- include('partials/scripts') %>
-
-  </body>
+    </body>
 
 </html>
