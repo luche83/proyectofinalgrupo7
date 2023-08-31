@@ -1,0 +1,50 @@
+<div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    
+    <div>
+      <a class="btn btn-outline-dark " href="/characters/add">Carga de Categorias</a>
+    </div>
+
+    <div class="table-responsive">
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Orden</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+
+        <% characters.forEach(({id, title, image},index)=> { %>
+          
+          <tr>
+            
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= title %></td>
+            <td><%= products.filter(product=> product.character === title).length %></td>
+            <td><img src="/img/characters/<%= image %>" class="img-fluid" alt=""></td>
+
+            <td>
+              
+              <div class="d-flex gap-2">
+                <a class="btn btn-sm btn-success" href="/characters/edit/<%= id %>"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-sm btn-danger" href="/characters/remove/<%= id %>"><i class="fas fa-trash"></i></a>
+              </div>
+            
+            </td>
+          
+          </tr>
+          
+        <% }) %>
+
+      </tbody>
+    
+    </table>
+
+    </div>
+
+  </div>
