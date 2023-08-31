@@ -51,14 +51,14 @@
                         class="form-input">
                 </div>
 
-                <div class="col-12 col-md-6">
-
-                    <img src="/images/usuarios/<%= image || 'poncho.jpg' %>" alt="">
+                <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
+                    <label for="image" class="form-label">Imagen Actual</label>
+                    <img src="/images/usuarios/<%= image || 'poncho.jpg' %>" alt="" name="image" class="card-img-top mb-5">
 
                 </div>
     
-                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center row gap-2 mb-3">
-                    <label for="image" class="btn btn-secondary">Agregar Imagen</label>
+                <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
+                    <label for="image" class="btn btn-secondary">Cambiar Imagen</label>
                     <input type="file" name="image" id="image" hidden>
                     <button class="btn btn-outline-dark">Guardar</button>
                     <button type="reset" class="btn btn-outline-dark">Borrar</button>
