@@ -8,6 +8,7 @@ module.exports = (req, res) => {
     const regiones = readJSON('regiones.json');
     const characters = readJSON('characters.json');
 
+    const id = req.params.id;
 
     const product = products.find(product => product.id === req.params.id);
 

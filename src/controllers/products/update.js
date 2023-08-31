@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     
     const productsModify = products.map(product => {
 
-        if (product.id === req.params.id){
+        if(product.id === req.params.id){
 
             existsSync(`./src/public/images/productos/${product.image}`)&&
             unlinkSync(`./src/public/images/productos/${product.image}`);
@@ -32,5 +32,5 @@ module.exports = (req, res) => {
    
 		writeJSON(productsModify, 'products.json')
 
-		return res.redirect("/admin")
+		return res.redirect('/admin')
  }
