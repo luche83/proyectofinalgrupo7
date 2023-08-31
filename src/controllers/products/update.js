@@ -11,6 +11,7 @@ module.exports = (req, res) => {
 
         if (product.id === req.params.id){
 
+            req.file &&
             existsSync(`./src/public/images/productos/${product.image}`)&&
             unlinkSync(`./src/public/images/productos/${product.image}`);
 
