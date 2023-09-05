@@ -25,7 +25,7 @@ module.exports = (req, res) => {
             product.cant = req.body.cant;
             product.cantMin = req.body.cantMin;
             product.image = req.file ? req.file.filename : product.image;
-        }
+        } 
 
         return product
     })
