@@ -1,14 +1,14 @@
 const { v4: uuidv4 } = require('uuid');
-const Register = require('../../data/Register');
+const Register = require('../../data/User');
 const { readJSON, writeJSON } = require('../../data');
 
 module.exports = (req, res) => {
 
-    const registers = readJSON('registers.json');
+    const users = readJSON('users.json');
 
     /*const newProduct = new Product(req.body);*/
 
-    registers.push({
+    users.push({
 
         /*id : products.length ? products[products.lenth -1 ].id +1 : 1,*/
         id : uuidv4(),
@@ -20,9 +20,9 @@ module.exports = (req, res) => {
         image: req.file ? req.file.filename : null,
     });
 
-    writeJSON(registers, 'registers.json');
+    writeJSON(users, 'users.json');
 
-    return res.redirect('/admin')
+    return res.redirect('/users/login')
 }
 
 

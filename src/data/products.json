@@ -1,16 +1,29 @@
 [
    {
-      "id": "89238ac8-befe-4d18-8684-3bd650ad13c5",
+      "id": "2ed7aa6b-6d2e-4853-b2d5-9c606912574f",
       "title": "Mate Forrado",
-      "category": "New",
+      "category": "Oferta",
       "character": "Productos Artesanales",
-      "region": "Norte",
-      "price": "25000",
-      "discount": "10",
-      "description": "Elaborado con palo santo",
+      "region": "Pampeana",
+      "price": "250000",
+      "discount": "20",
+      "description": "Mate de Palo Santo",
       "cant": "200",
       "cantMin": "10",
       "image": "1693794552829_products_.jpg"
+   },
+   {
+      "id": "35702a14-cba7-4ac9-9e1a-356308fc3803",
+      "title": "Bombilla de Plata",
+      "category": "Mas Visitadas",
+      "character": "Productos Artesanales",
+      "region": "Pampeana",
+      "price": "30000",
+      "discount": "20",
+      "description": "Elaborado con plata 900",
+      "cant": "300",
+      "cantMin": "15",
+      "image": "1693221355485_products_.jpg"
    },
    {
       "id": "572a172d-f321-4123-b40a-b951c932f11e",
@@ -88,7 +101,7 @@
       "description": "Madera de pino",
       "cant": "400",
       "cantMin": "20",
-      "image": "1693509829798_products_.jpg"
+      "image": "1693571573212_products_.jpg"
    },
    {
       "id": "6b5ea5bc-246a-49e6-aec9-2365bccb663b",
@@ -101,6 +114,6 @@
       "description": "Madera de pino",
       "cant": "600",
       "cantMin": "20",
-      "image": "1693514093994_products_.jpg"
+      "image": "1693509902428_products_.jpg"
    }
 ]
