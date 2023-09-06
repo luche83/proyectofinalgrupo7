@@ -22,7 +22,7 @@ module.exports = (req, res) => {
 
     writeJSON(users, 'users.json');
 
-    return res.redirect('/admin')
+    return res.redirect('/users/login')
 }
 
 
