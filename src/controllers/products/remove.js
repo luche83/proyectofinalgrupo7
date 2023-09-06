@@ -16,8 +16,8 @@ module.exports = (req,res) => {
         }
         return product.id !== req.params.id
     })
-
-    writeJSON(productsDelete, 'products.json')
+    
+    writeJSON(productsDelete, 'products.json') 
 
     return res.redirect('/admin')
 }

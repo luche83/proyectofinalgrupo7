@@ -34,10 +34,10 @@
                     <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input">
                 </div>
 
-                <div class="register__box__cuerpo__contenido uno">
+               <!-- <div class="register__box__cuerpo__contenido uno">
                     <label for="category">Categoria</label>
                     <input id="category" placeholder="Usuario/Administrador" type="category" name="category" class="form-input">
-                </div>
+                </div>-->
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="password1" class="labels-forms">Contraseña</label>
@@ -46,14 +46,21 @@
                 </div>
     
                 <div class="register__box__cuerpo__contenido uno">
-                    <label for="password2" class="labels-forms">Reiterar Contraseña</label>
-                    <input id="password2" type="password" placeholder="Escriba su contraseña" name="password"
+                    <label for="password2" class="labels-forms">Confirmar Contraseña</label>
+                    <input id="password2" type="password" placeholder="Confirmar su contraseña" name="password"
                         class="form-input">
+                </div>
+
+                <div class="register__box__cuerpo__contenido uno">
+                    
+                    <label for="image" class="btn btn-secondary">Agregar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>
+
                 </div>
     
                 <div class="col-12 d-flex justify-content-end gap-2 mb-3">
-                    <label for="image" class="btn btn-secondary">Agregar Imagen</label>
-                    <input type="file" name="image" id="image" hidden>
+                    <!--<label for="image" class="btn btn-secondary">Agregar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>-->
                     <button class="btn btn-outline-dark">Guardar</button>
                     <button type="reset" class="btn btn-outline-dark">Borrar</button>
                   </div>

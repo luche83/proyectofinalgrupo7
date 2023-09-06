@@ -1,7 +1,7 @@
 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     
   <div class="">
-    <a class="btn btn-outline-dark " href="/registers/add">Carga de Usuarios</a>
+    <a class="btn btn-outline-dark " href="/users/add">Carga de Usuarios</a>
   </div>
 
   <div class="table-responsive">
@@ -26,7 +26,7 @@
       
       <tbody>
 
-        <% registers.forEach(({id, firstname, lastname, category, email, image}, index) => { %>
+        <% users.forEach(({id, firstname, lastname, category, email, image}, index) => { %>
            
           <tr>
             
@@ -44,7 +44,7 @@
                 
               <!--Seccion Detalles-->
 
-              <a class="" href="/registers/detail/<%= id %>"></a>
+              <a class="" href="/users/detail/<%= id %>"></a>
       
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#detailRegister<%= id %>">
@@ -104,7 +104,7 @@
               
               <!-- FIN Modal -->
 
-              <a class="btn btn-sm btn-success" href="/registers/edit/<%= id %>"><i class="fas fa-edit"></i></a>
+              <a class="btn btn-sm btn-success" href="/users/edit/<%= id %>"><i class="fas fa-edit"></i></a>
 
               <!--Seccion Borrado-->
                 
@@ -135,7 +135,7 @@
                       
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       
-                      <form action="/registers/remove/<%= id %>?_method=DELETE" method="POST">
+                      <form action="/users/remove/<%= id %>?_method=DELETE" method="POST">
                         <button type="submit" class="btn btn-danger">Eliminalo</button>
                       </form>
                     
