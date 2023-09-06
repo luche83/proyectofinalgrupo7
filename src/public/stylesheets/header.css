@@ -29,7 +29,7 @@ img {
     position: absolute;
     border: none;
     color: black;
-    background: #ffffff;
+    /* background: #ffffff; */
     top: 12px;
     right: 6px;
 }

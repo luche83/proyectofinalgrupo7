@@ -9,7 +9,5 @@ module.exports = {
    login : require('./users/login'),
    processLogin : require('./users/processRegister'),
    logout : require('./users/logout'),
-   profile : require('./users/profile'),
-      
-      
+   profile : require('./users/profile'),    
  }

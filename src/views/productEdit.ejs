@@ -28,7 +28,6 @@
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
                 <label for="category" class="form-label">Categoria</label>
                 <select class="form-input" aria-label="Default select example" name="category" id="category">
-                  <option value="" selected hidden>Seleccione ....</option>
                   <option value="<%= categories.title %>" selected hidden>Seleccione ....</option>
                   <% categories.forEach(item=> { %>
                     <option <%=item.title===category && 'selected' %> value="<%= item.title%>"><%= item.title%>
