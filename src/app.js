@@ -9,7 +9,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const charactersRouter = require('./routes/characters');
-const registersRouter = require('./routes/registers');
+
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/characters', charactersRouter);
-app.use('/registers', registersRouter);
+
 
 
 

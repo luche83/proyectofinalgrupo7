@@ -1,18 +1,5 @@
 [
    {
-      "id": "89238ac8-befe-4d18-8684-3bd650ad13c5",
-      "title": "Mate Forrado",
-      "category": "New",
-      "character": "Productos Artesanales",
-      "region": "Norte",
-      "price": "25000",
-      "discount": "10",
-      "description": "Elaborado con palo santo",
-      "cant": "200",
-      "cantMin": "10",
-      "image": "1693507767340_products_.jpg"
-   },
-   {
       "id": "572a172d-f321-4123-b40a-b951c932f11e",
       "title": "Poncho ",
       "category": "New",
@@ -88,7 +75,7 @@
       "description": "Madera de pino",
       "cant": "400",
       "cantMin": "20",
-      "image": "1693509829798_products_.jpg"
+      "image": "1693571573212_products_.jpg"
    },
    {
       "id": "6b5ea5bc-246a-49e6-aec9-2365bccb663b",
@@ -101,6 +88,6 @@
       "description": "Madera de pino",
       "cant": "600",
       "cantMin": "20",
-      "image": "1693509902428_products_.jpg"
+      "image": "1693571605690_products_.jpg"
    }
 ]

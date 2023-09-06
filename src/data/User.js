@@ -2,7 +2,7 @@
 
 const { v4: uuidv4 } = require('uuid');
 
-const Register = function ({firstname, lastname, category, email, password, image}) {
+const User = function ({firstname, lastname, category, email, password, image}) {
 
     this.id = uuidv4();
     this.firstname = firstname.trim();
@@ -14,4 +14,4 @@ const Register = function ({firstname, lastname, category, email, password, imag
     this.createAt = new Date;
 }
 
-module.exports = Register;
+module.exports = User;
