@@ -2,17 +2,19 @@
 
 const express = require('express');
 const router = express.Router();
-const {add, edit, create, remove, update, login, processLogin, profile} = require('../controllers/usersController');
+const {register, edit, processRegister, remove, update, login, processLogin, profile, logout} = require('../controllers/usersController');
 const uploadUser = require('../middlewares/uploadUser');
+
 /* /users*/
 
-router.get('/add', add);
-router.post('/add',uploadUser.single('image'), create);
+router.get('/register', register);
+router.post('/register',uploadUser.single('image'), processRegister);
 router.get('/edit/:id', edit);
 router.put('/update/:id',uploadUser.single('image'), update);
 router.delete('/remove/:id', remove);
 router.get('/login', login);
 router.post('/login', processLogin);
-router.get('/profile', profile)
+router.get('/profile', profile);
+router.put('./logout', logout);
 
 module.exports = router;

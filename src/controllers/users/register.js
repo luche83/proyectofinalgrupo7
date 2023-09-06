@@ -3,5 +3,5 @@ const { readJSON } = require("../../data")
 module.exports = (req,res) => {
 
        
-    return res.render('userAdd');
+    return res.render('register');
    }
