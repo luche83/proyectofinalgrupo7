@@ -34,21 +34,26 @@
                     <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input" value="<%= email %>">
                 </div>
 
-                <div class="register__box__cuerpo__contenido uno">
+                <!--<div class="register__box__cuerpo__contenido uno">
                     <label for="category">Categoria</label>
                     <input id="category" placeholder="Usuario/Administrador" type="category" name="category" class="form-input" value="<%= category %>">
-                </div>
+                </div>-->
     
                 <div class="register__box__cuerpo__contenido uno">
-                    <label for="password1" class="labels-forms">Contraseña</label>
-                    <input id="password1" type="password" placeholder="Escriba su contraseña" name="password"
+                    <label for="password" class="labels-forms">Contraseña</label>
+                    <input id="password" type="password" placeholder="Escriba su contraseña" name="password"
                         class="form-input">
                 </div>
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="password2" class="labels-forms">Reiterar Contraseña</label>
-                    <input id="password2" type="password" placeholder="Escriba su contraseña" name="password"
+                    <input id="password2" type="password" placeholder="Escriba su contraseña" name="password2"
                         class="form-input">
+                </div>
+
+                <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
+                    <label for="image" class="btn btn-secondary">Cambiar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>
                 </div>
 
                 <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
@@ -58,8 +63,8 @@
                 </div>
     
                 <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
-                    <label for="image" class="btn btn-secondary">Cambiar Imagen</label>
-                    <input type="file" name="image" id="image" hidden>
+                    <!--<label for="image" class="btn btn-secondary">Cambiar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>-->
                     <button class="btn btn-outline-dark">Guardar</button>
                     <button type="reset" class="btn btn-outline-dark">Borrar</button>
                   </div>

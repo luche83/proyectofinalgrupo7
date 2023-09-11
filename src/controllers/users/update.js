@@ -1,5 +1,6 @@
 const { unlinkSync, existsSync } = require("fs");
 const {readJSON, writeJSON} = require("../../data");
+const {hashSync} = require('bcryptjs');
 
 module.exports = (req, res) => {
     
@@ -16,8 +17,11 @@ module.exports = (req, res) => {
             user.firstname = req.body.firstname;
             user.lastname = req.body.lastname;
             user.email = req.body.email;
-            user.category = req.body.category;
-            user.password = req.body.password;
+            user.category = 'user';
+            user.password = hashSync(req.body.password, 10);
+            user.password2 = hashSync(req.body.password2, 10);
+            //user.password =  req.body.password,
+            //user.password2 = req.body.password2,
             user.image = req.file ? req.file.filename : user.image;
             
         }

@@ -1,47 +1,12 @@
 [
    {
-      "id": "bb13ca69-1fcb-4b17-bed6-d724d540a798",
+      "id": "9e8d19e5-f641-4a5a-8e99-c1fd5079c1f0",
       "firstname": "Jorge",
       "lastname": "Lesme",
-      "email": "manidelabk031@gmail.com",
-      "category": "Usuario",
-      "password": [
-         "dfsdfd",
-         "dsfdsfsd"
-      ],
-      "image": "1693570787963_users_.jpg"
-   },
-   {
-      "id": "37118247-f04e-4bbc-b3da-0d04371a6440",
-      "firstname": "",
-      "lastname": "",
-      "email": "",
-      "password": [
-         "",
-         ""
-      ],
-      "image": null
-   },
-   {
-      "id": "56cb586c-ed55-48ba-b973-19003a6ad6b7",
-      "firstname": "",
-      "lastname": "",
-      "email": "",
-      "password": [
-         "",
-         ""
-      ],
-      "image": null
-   },
-   {
-      "id": "96321321-8fe0-4375-b6c5-909415b48c3e",
-      "firstname": "",
-      "lastname": "",
-      "email": "",
-      "password": [
-         "",
-         ""
-      ],
-      "image": null
+      "email": "tomy@gmail.com",
+      "category": "user",
+      "password": "$2a$10$HzAzdZtIgVdlXTjQLtU1iebU21IbXvQUyALcDEQsajLCWxtFdniCS",
+      "password2": "$2a$10$BzLo/0igB9GaU8rpD3eKU.08LPG8y1ZZPUPJ6gGTMuQnx193iCG8K",
+      "image": "1694179688503_users_.jpg"
    }
 ]

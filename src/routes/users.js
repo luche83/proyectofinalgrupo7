@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const {register, edit, processRegister, remove, update, login, processLogin, profile, logout} = require('../controllers/usersController');
+const {register,detail, edit, processRegister, remove, update, login, processLogin, profile, logout} = require('../controllers/usersController');
 const uploadUser = require('../middlewares/uploadUser');
 
 /* /users*/
@@ -15,6 +15,7 @@ router.delete('/remove/:id', remove);
 router.get('/login', login);
 router.post('/login', processLogin);
 router.get('/profile', profile);
+router.get('/detail', detail);
 router.put('./logout', logout);
 
 module.exports = router;
