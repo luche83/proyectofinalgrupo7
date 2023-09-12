@@ -10,7 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const charactersRouter = require('./routes/characters');
-
+const userSessionCheck = require('./middlewares/userSessionCheck');
 
 const app = express();
 
@@ -31,6 +31,8 @@ app.use(session({
   resave : true,
   saveUninitialized : true,
 }))
+
+app.use(userSessionCheck)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -7,7 +7,7 @@ module.exports = {
    update : require('./users/update'),
    remove : require('./users/remove'),
    login : require('./users/login'),
-   processLogin : require('./users/processRegister'),
+   processLogin : require('./users/processLogin'),
    logout : require('./users/logout'),
    profile : require('./users/profile'),    
  }

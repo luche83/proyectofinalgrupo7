@@ -1,12 +1,20 @@
 [
    {
       "id": "9e8d19e5-f641-4a5a-8e99-c1fd5079c1f0",
-      "firstname": "Jorge",
-      "lastname": "Lesme",
+      "name": "Jorge",
+      "surname": "Lesme",
       "email": "tomy@gmail.com",
-      "category": "user",
+      "role": "user",
       "password": "$2a$10$HzAzdZtIgVdlXTjQLtU1iebU21IbXvQUyALcDEQsajLCWxtFdniCS",
-      "password2": "$2a$10$BzLo/0igB9GaU8rpD3eKU.08LPG8y1ZZPUPJ6gGTMuQnx193iCG8K",
       "image": "1694179688503_users_.jpg"
+   },
+   {
+      "id": "99052ddf-ec48-4fc3-958b-3985cb05d359",
+      "name": "tomas",
+      "surname": "reyes",
+      "email": "tomasreyes2107@gmail.com",
+      "role": "user",
+      "password": "$2a$10$5x/4mYnIplIUwn84RnTBIe5zf9wHmRdUS4DEaO0IMuqGboihpgDiy",
+      "createAt": "2023-09-12T16:25:17.144Z"
    }
 ]
