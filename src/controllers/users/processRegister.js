@@ -17,7 +17,10 @@ module.exports = (req, res) => {
     return res.redirect('/')
 
     }else {
-        return res.send(errors.mapped())
+        return res.render('register',{
+            errors : errors.mapped(),
+            old : req.body
+        })
     } 
 }
 

@@ -18,6 +18,6 @@ router.get('/login', login);
 router.post('/login', loginValidator, processLogin);
 router.get('/profile', profile);
 router.get('/detail', detail);
-router.put('./logout', logout);
+router.get('/logout', logout);
 
 module.exports = router;

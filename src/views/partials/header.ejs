@@ -15,15 +15,18 @@
 
                 <div class="div-user-bar-login__box">
                     <div class="header-div-login__box">
-
-                        <a href="/users/register"><h5>crear cuenta</h5></a>
-                        <h5>/</h5>
-                        <a href="/users/login"><h5>iniciar sesión</h5></a>
-
-                        <div class="header__usuario">
-                            <a href="/users/perfil"><i class="fa-regular fa-user"></i></a>
-                        </div>
-
+                        <% if (locals.userLogin) { %>
+                            <a><h5>hola <%= userLogin.name %></h5></a>
+                            <h5>/</h5>
+                            <a href="/users/logout"><h5>cerrar sesión</h5></a>
+                            <div class="header__usuario">
+                                <a href="/users/perfil"><i class="fa-regular fa-user"></i></a>
+                            </div>
+                        <% }else {  %>
+                            <a href="/users/register"><h5>crear cuenta</h5></a>
+                            <h5>/</h5>
+                            <a href="/users/login"><h5>iniciar sesión</h5></a>
+                        <% } %>   
                     </div>
 
                     <div class="Header-div-bars__box">
@@ -39,9 +42,6 @@
                     <li><a href="/products">Productos</a></li>
                     <li><a href="#">Regiones</a></li>
                     <li><a href="/admin">Admin</a></li>
-                    <% if (locals.userLogin) { %>
-                        <li><a href="/admin"><%= userLogin.name %></a></li>
-                    <% } %>
                     <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
                 </ul>
             </div>
