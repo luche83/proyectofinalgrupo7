@@ -9,12 +9,16 @@
       "image": "1694179688503_users_.jpg"
    },
    {
-      "id": "99052ddf-ec48-4fc3-958b-3985cb05d359",
+      "id": "40ef5c4a-109c-464b-ae03-80facf0f0681",
+      "role": "admin",
       "name": "tomas",
       "surname": "reyes",
       "email": "tomasreyes2107@gmail.com",
-      "role": "user",
-      "password": "$2a$10$5x/4mYnIplIUwn84RnTBIe5zf9wHmRdUS4DEaO0IMuqGboihpgDiy",
-      "createAt": "2023-09-12T16:25:17.144Z"
+      "password": "$2a$10$BnrUIAnpR3EERfIQ2fNdW.UpFFtoi9z6uU6E42Siyp0OZYNAKXNKa",
+      "birthday": null,
+      "address": null,
+      "city": null,
+      "province": null,
+      "createAt": "2023-09-13T22:14:09.748Z"
    }
 ]

@@ -10,7 +10,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const charactersRouter = require('./routes/characters');
+
 const userSessionCheck = require('./middlewares/userSessionCheck');
+const cookieCheck = require('./middlewares/cookieCheck');
 
 const app = express();
 
@@ -32,17 +34,13 @@ app.use(session({
   saveUninitialized : true,
 }))
 
-app.use(userSessionCheck)
+app.use(cookieCheck); 
+app.use(userSessionCheck);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/characters', charactersRouter);
-
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

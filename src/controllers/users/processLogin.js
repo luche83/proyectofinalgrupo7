@@ -15,12 +15,10 @@ module.exports = (req,res) => {
             role
         }
 
-        /* req.body.remember !== undefined && res.cookie('kitcheningUser4EVER',req.session.userLogin,{
-            maxAge : 1000 * 60 * 5
-        }) */
-        
-        //console.log(req.session.userLogin);
-        
+        req.body.remember !== undefined && res.cookie('raicesArgentinas',req.session.userLogin,{
+            maxAge : 1000 * 60 * 4
+        })
+
         return res.redirect('/')
     }else {
         return res.render('login',{
