@@ -36,4 +36,4 @@ module.exports = [
             }
             return true
         }).withMessage('Las contraseñas no coinciden')        
-]
+];

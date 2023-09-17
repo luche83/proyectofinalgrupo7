@@ -1,24 +1,44 @@
 [
    {
-      "id": "9e8d19e5-f641-4a5a-8e99-c1fd5079c1f0",
-      "name": "Jorge",
-      "surname": "Lesme",
-      "email": "tomy@gmail.com",
-      "role": "user",
-      "password": "$2a$10$HzAzdZtIgVdlXTjQLtU1iebU21IbXvQUyALcDEQsajLCWxtFdniCS",
-      "image": "1694179688503_users_.jpg"
-   },
-   {
       "id": "40ef5c4a-109c-464b-ae03-80facf0f0681",
-      "role": "admin",
       "name": "tomas",
       "surname": "reyes",
+      "role": "admin",
       "email": "tomasreyes2107@gmail.com",
       "password": "$2a$10$BnrUIAnpR3EERfIQ2fNdW.UpFFtoi9z6uU6E42Siyp0OZYNAKXNKa",
       "birthday": null,
       "address": null,
       "city": null,
       "province": null,
+      "image": null,
       "createAt": "2023-09-13T22:14:09.748Z"
+   },
+   {
+      "id": "7f69b23e-5844-404d-a329-2a0a4481fcb9",
+      "role": "admin",
+      "name": "Jorge",
+      "surname": "Lesme",
+      "email": "manidelabk031@gmail.com",
+      "password": "$2a$10$OET18k7cwGyn6tLxRm3cf.ozN0B7Mv5FN18QnWynyhIE9vd7YAdIm",
+      "birthday": "1981-09-10",
+      "address": "Lío Zanganeando 2495",
+      "city": "Hurlinghan",
+      "province": "Buenos Aires",
+      "image": "1694983112885_users_.jpg",
+      "createAt": "2023-09-17T20:14:46.404Z"
+   },
+   {
+      "id": "582844ef-dd24-40b0-b4ff-787dc996c12d",
+      "role": "user",
+      "name": "Julio",
+      "surname": "Benedigno",
+      "email": "juliobenedigno@gmail.com",
+      "password": "$2a$10$QJ3bfiUyjbwsHtWssuhNIu005Jo9f1aFuf6t.qOrRVvTt0AKfNXw2",
+      "birthday": "1981-09-10",
+      "address": "Lío Zanganeando 2495",
+      "city": "Hurlinghan",
+      "province": "Buenos Aires",
+      "image": "1694983622415_users_.jpg",
+      "createAt": "2023-09-17T20:22:16.855Z"
    }
 ]

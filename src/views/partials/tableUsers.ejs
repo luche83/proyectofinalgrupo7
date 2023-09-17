@@ -15,8 +15,8 @@
           <th scope="col">Orden</th>
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
-          <th scope="col">E-Mail</th>
-          <th scope="col">Categoria</th>
+          <th scope="col">Categotia</th>
+          <th scope="col">Email</th>
           
           <th scope="col">Acciones</th>
         
@@ -26,14 +26,14 @@
       
       <tbody>
 
-        <% users.forEach(({id, firstname, lastname, category, email, image}, index) => { %>
+        <% users.forEach(({id, name, surname, role, email, image}, index) => { %>
            
           <tr>
             
             <th scope="row"><%= index + 1 %></th>
-            <td><%= firstname %></td>
-            <td><%= lastname %></td>
-            <td><%= category %></td>
+            <td><%= name %></td>
+            <td><%= surname %></td>
+            <td><%= role %></td>
             <td><%= email %></td>
             
             
@@ -60,7 +60,7 @@
                   <div class="modal-content">
                     
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="detailRegister<%= id %>"><%= category %> :   <%= firstname %> <%= lastname%></h1>
+                      <h1 class="modal-title fs-5" id="detailRegister<%= id %>"><%= role %> :   <%= name %> <%= surname%></h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     
@@ -72,14 +72,15 @@
                         <div class="row g-0">
                           
                           <div class="col-md-6">
-                            <img src="/images/usuarios/<%= image || 'poncho.jpg' %>" class="img-fluid rounded-start" alt="...">
+                            <img src="/images/usuarios/<%= image || 'perfil.png' %>" class="img-fluid rounded-start" alt="...">
                           </div>
                           
                           <div class="col-md-6">
                             
                             <div class="card-body">
-                              <h5 class="card-title"><%= firstname %> <%= lastname %></h5>
+                              <h5 class="card-title"><%= name %> <%= surname %></h5>
                               <p class="card-text"><%= email %></p>
+                              <p class="card-text"><%= role %></p>
                               <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                             </div>
                           
@@ -128,7 +129,7 @@
                     </div>
                   
                     <div class="modal-body">
-                      <p>Estás seguro que querés eliminar el producto <b><%= firstname %></b></p>                                             
+                      <p>Estás seguro que querés eliminar el producto <b><%= name %></b></p>                                             
                     </div>
                   
                     <div class="modal-footer">

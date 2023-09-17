@@ -7,16 +7,24 @@ module.exports = (req,res) => {
 
     if(errors.isEmpty()){
         const users = readJSON('users.json')
-        const {id,name,role} = users.find(user => user.email === req.body.email)
+        const {id,name,role,surname,email,birthday,address,city,province,image} = users.find(user => user.email === req.body.email)
         
         req.session.userLogin = {
             id,
             name,
-            role
+            role,
+            surname,
+            email,
+            birthday,
+            address,
+            city,
+            province,
+            image
+
         }
 
         req.body.remember !== undefined && res.cookie('raicesArgentinas',req.session.userLogin,{
-            maxAge : 1000 * 60 * 4
+            maxAge : 1000 * 600 * 40
         })
 
         return res.redirect('/')

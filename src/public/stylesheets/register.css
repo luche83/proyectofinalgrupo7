@@ -78,6 +78,15 @@
 
 }
 
+.img {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @media (min-width: 481px) {
     
