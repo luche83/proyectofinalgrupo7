@@ -1,19 +1,5 @@
 [
    {
-      "id": "40ef5c4a-109c-464b-ae03-80facf0f0681",
-      "name": "tomas",
-      "surname": "reyes",
-      "role": "admin",
-      "email": "tomasreyes2107@gmail.com",
-      "password": "$2a$10$BnrUIAnpR3EERfIQ2fNdW.UpFFtoi9z6uU6E42Siyp0OZYNAKXNKa",
-      "birthday": null,
-      "address": null,
-      "city": null,
-      "province": null,
-      "image": null,
-      "createAt": "2023-09-13T22:14:09.748Z"
-   },
-   {
       "id": "7f69b23e-5844-404d-a329-2a0a4481fcb9",
       "role": "admin",
       "name": "Jorge",
@@ -40,5 +26,19 @@
       "province": "Buenos Aires",
       "image": "1694983622415_users_.jpg",
       "createAt": "2023-09-17T20:22:16.855Z"
+   },
+   {
+      "id": "b4aa4b06-88e1-4e22-94dc-58b693f6b226",
+      "role": "admin",
+      "name": "tomas",
+      "surname": "reyes",
+      "email": "tomasreyes2107@gmail.com",
+      "password": "$2a$10$fxVih7ffmTcwaxGzNjg1LODPxaGCLTFvtPfIpQg2KWdWOjrtvCJUu",
+      "birthday": null,
+      "address": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "createAt": "2023-09-22T15:42:08.275Z"
    }
 ]
