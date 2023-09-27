@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+
+    <%- include('partials/header') %>
+
+    <main class="login">
+        <div class="login__box">
+        
+            <div class="login__box__encabezado">
+    
+                <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+                <h4 class="animate__animated animate__flash">LOGGING</h4>
+            
+            </div>
+            
+            <form action="" method="POST" class="login__box__cuerpo">
+                
+                <div class="login__box__cuerpo__contenido">
+                    <label for="email">Email</label>
+                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input" value="<%= locals.old && (old.email && old.email) %>">
+                    <small class="text-danger ms-2">
+                        <%= locals.errors && (errors.email && errors.email.msg) %>
+                    </small>   
+                </div>
+    
+                <div class="login__box__cuerpo__contenido">
+                    <label for="password" class="labels-forms">Contraseña</label>
+                    <input id="password" type="password" placeholder="Escriba su contraseña" name="password" class="form-input">
+                    <small class="text-danger ms-2">
+                        <%= locals.errors && (errors.password && errors.password.msg) %>
+                    </small>   
+                </div>
+    
+                <div class="login__box__cuerpo__contenido__recordarme">
+                    <label for="remember">Recordarme</label>           
+                    <input type="checkbox" value="" id="remember" name="remember"> 
+                </div>
+                
+                <div class="login__box__cuerpo__bottom">
+                    <button type="submit" class="buttom-forms">Enviar</button>
+                </div>
+    
+            </form>
+    
+        </div>
+    
+    </main>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

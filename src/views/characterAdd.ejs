@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+    <body class="productAdd">
+
+        <%- include('partials/header') %>
+
+            <main class="login">
+                <div class="login__box">
+
+                    <div class="login__box__encabezado">
+
+                        <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+                        <h4 class="animate__animated animate__flash">CARGA DE PRODUCTOS</h4>
+                        
+                    </div>
+
+                    <div class="login__box__cuerpo container">
+                        
+                        <form action="" method="POST" class="row ">
+
+                            <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="title" class="form-label">Nombre del Producto</label>
+                                <input type="text" class="form-input" id="title" placeholder="Nombre del Producto" name="title">
+                              </div>
+
+                              <div class="col-12 d-flex justify-content-end gap-2 mb-3">
+                                <label for="image" class="btn btn-secondary">Agregar Imagen</label>
+                                <input type="file" name="image" id="image" hidden>
+                                <button class="btn btn-outline-dark">Guardar Cambios</button>
+                              </div>
+
+                        </form>
+                    </div>
+
+
+
+                </div>
+
+            </main>
+            <%- include('partials/footer') %>
+    </body>
+
+</html>

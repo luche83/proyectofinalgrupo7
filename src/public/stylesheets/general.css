@@ -1,0 +1,30 @@
+:root {
+    --MarronOscuro: #533F3F;
+    --LineasMenu: #D4A373;
+    --LetrasMenu: #7F5539;
+    --LetrasProducto: #533F3F;
+    --tipografia: 'Spectral', serif;
+}
+
+body{
+    max-width: 1500px;
+    margin: auto;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--tipografia);
+}
+
+a {
+    text-decoration: none;
+
+}
+
+li {
+    list-style-type: none;
+}
+
+

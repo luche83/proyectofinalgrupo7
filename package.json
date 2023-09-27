@@ -1,25 +1,22 @@
 {
-  "name": "c21--grupo7-raicesargentinas",
-  "version": "1.0.0",
-  "description": "***\r ### Maria Luciana Garcia Chequer",
-  "main": "app.js",
+  "name": "src",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node ./src/bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luche83/C21--grupo7-RaicesArgentinas.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/luche83/C21--grupo7-RaicesArgentinas/issues"
-  },
-  "homepage": "https://github.com/luche83/C21--grupo7-RaicesArgentinas#readme",
   "dependencies": {
-    "express": "^4.18.2"
-  },
-  "devDependencies": {}
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.0"
+  }
 }

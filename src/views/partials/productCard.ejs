@@ -1,0 +1,12 @@
+<article class="tarjeta--individual-index">
+    <img class="img--trajeta" src="/images/productos/<%= image || 'poncho.jpg' %>" alt="">
+    <h4 class="titulo--tarjeta"> <%= title %> </h4>
+    <div class="index--price-discount__box">
+        <p class="precio--tarjeta"> <%= toThousand((price - (price * discount / 100)).toFixed(0))  %> </p>
+         <% if (discount) { %>
+            <p class="index--space">/</p>
+            <p class="index--discount__p">% <%= discount %> OFF</p>
+        <% } %>
+    </div>
+    <button class="boton--tarjeta"><a href="/products/detail/<%= id %>">VER MAS</a></button>
+</article>   

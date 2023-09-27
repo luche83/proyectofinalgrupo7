@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+
+    <%- include('partials/header') %>
+
+    <main class="register">
+        <div class="register__box">
+
+            <div class="register__box__encabezado">
+    
+                <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+                <h4 class="animate__animated animate__flash">EDICION USUARIO</h4>
+    
+            </div>
+    
+            <form action="/users/update/<%= id %>?_method=PUT " method="POST" enctype="multipart/form-data" class="register__box__cuerpo container">
+    
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="name">Nombe</label>
+                    <input id="name" placeholder="Escriba su nombre" type="text" name="name" class="form-input" value="<%= name %>">
+                </div>
+    
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="surname">Apellido</label>
+                    <input id="surname" placeholder="Escriba su apellido" type="text" name="surname" class="form-input" value="<%= surname %>">
+                </div>
+    
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="birthday">Fecha de nacimiento</label>
+                    <input id="birthday" type="date" name="birthday" class="form-input" value="<%= birthday %>">
+                </div>
+                
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="address">Direccion</label>
+                    <input id="address" placeholder="Calle y Numero" type="text" name="address" class="form-input" value="<%= address %>">
+                </div>
+
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="city">Ciudad</label>
+                    <input id="city" placeholder="Ciudad" type="text" name="city" class="form-input" value="<%= city %>">
+                </div>
+                
+                <div class="register__box__cuerpo__contenido uno">
+                    <label for="province">Provincia</label>
+                    <input id="province" placeholder="Provincia" type="text" name="province" class="form-input" value="<%= province %>">
+                </div>
+
+                <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
+                    <label for="image" class="btn btn-secondary">Cambiar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>
+                </div>
+
+                <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
+                    <label for="image" class="form-label">Imagen Actual</label>
+                    <img src="/images/usuarios/<%= image || 'perfil.png' %>" alt="" name="image" class="card-img-top mb-5">
+
+                </div>
+    
+                <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
+                    <!--<label for="image" class="btn btn-secondary">Cambiar Imagen</label>
+                    <input type="file" name="image" id="image" hidden>-->
+                    <button class="btn btn-outline-dark">Guardar</button>
+                    <button type="reset" class="btn btn-outline-dark">Borrar</button>
+                  </div>
+
+              <!--  <div class="register__box__cuerpo__bottom">
+                    <button type="submit" class="buttom-forms"><a href="/">Enviar</a></button>
+                    <button type="reset" class="buttom-forms">Borrar</button>
+                </div>-->
+    
+            </form>
+    
+        </div>
+    
+    </main>
+  <%- include('partials/footer') %>
+</body>
+
+</html>

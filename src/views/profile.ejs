@@ -1,0 +1,83 @@
+<%- include('partials/head') %>
+
+<body>
+
+    <%- include('partials/header') %>
+
+    <main class="register">
+        <div class="register__box">
+
+            <div class="register__box__encabezado">
+
+                <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+                <h4 class="animate__animated animate__flash">Perfil de <%= name %> <%= surname %></h4>
+
+            </div>
+
+            <form action="" method="" class="perfil__box__cuerpo mt-5">
+
+                <picture class="perfil__box__cuerpo__contenido img" >
+                    <img src="/images/usuarios/<%= image || 'perfil.png' %>" alt="" >
+                </picture>
+                
+                <div class="perfil__box__cuerpo">
+
+                    <div class="perfil__box__cuerpo__contenido uno">
+                        <label for="email" class="labels-forms">Nombe</label>
+                        <h4><%= name %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido uno">
+                        <label for="lastname" class="labels-forms">Apellido</label>
+                        <h4><%= surname %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido uno">
+                        <label for="lastname" class="labels-forms">Rol</label>
+                        <h4><%= role %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido uno">
+                        <label for="lastname" class="labels-forms">Fecha de Nacimiento</label>
+                        <h4><%= birthday || 'Datos incompletos' %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido dos mt-2">
+                        <label for="email" class="labels-forms">Email</label>
+                       <h4><%= email %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido dos">
+                        <label for="address" class="labels-forms">Direccion</label>
+                        <h4><%= address || 'Datos incompletos' %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido uno">
+                        <label for="lastname" class="labels-forms">Ciudad</label>
+                        <h4><%= city || 'Datos incompletos' %></h4>
+                    </div>
+    
+                    <div class="perfil__box__cuerpo__contenido uno">
+                        <label for="lastname" class="labels-forms">Provincia</label>
+                        <h4><%= province || 'Datos incompletos' %></h4>
+                    </div>
+
+                </div>
+                
+                
+                <div class="perfil__box__cuerpo__bottom">
+                   <a href="/users/profileEdit"><h5>MODIFICAR DATOS</h5></a>
+                   <a href="/"><h5>Volver al INICIO</h5></a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+
+</html>

@@ -52,3 +52,27 @@
 #### Posblemente nuestra commpetencia directa ya que lo que pensamos es referido practicamente con ese tema y sistema de manejo tanto como de productos como de presentacion en la pagina.
 
 ***
+
+### SPRIN 1 RETRO
+
+![Retroespectiva SPRIN 1](/mocks/Retro/Retrospectiva.png)
+
+***
+
+### SPRIN 2 RETRO
+
+![Retroespectiva SPRIN 2](/mocks/Retro/SPRINT2RETRO.png)
+
+***
+
+### SPRIN 3 RETRO
+
+![Retroespectiva SPRIN 3](/mocks/Retro/Sprint3Retro.png)
+
+***
+
+### SPRIN 4 RETRO
+
+![Retroespectiva SPRIN 3](/mocks/Retro/Sprint4Retro.png)
+
+***

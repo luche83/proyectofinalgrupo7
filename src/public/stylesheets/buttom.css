@@ -1,0 +1,44 @@
+.buttom-forms{
+    padding: 6px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px lightblue;
+    font-weight: 700;
+    background-color: #849DF1;
+    color: var(--LetrasMenu);
+    
+}
+
+.buttom-forms:hover{
+    background-color: #7dc27d;
+    color: white;
+}
+
+.login__box__cuerpo__bottom a{
+    text-decoration: none;
+    
+      
+}
+
+.login__box__cuerpo__bottom a:hover{
+    color: white;
+      
+}
+
+.register__box__cuerpo__bottom a{
+    text-decoration: none;
+    color: var(--LetrasMenu);
+      
+}
+
+.register__box__cuerpo__bottom a:hover{
+    color: white;
+      
+}
+
+
+
+
+@media (min-width: 481px){
+    
+}

@@ -1,0 +1,38 @@
+/* FOOTER */
+
+.Footer-div__buton {
+    background-color: var(--MarronOscuro);
+    padding: 20px;
+}
+
+.Footer-div__box {
+    background-color: var(--MarronOscuro);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #fff;
+    padding: 10px;
+    padding-bottom: 40px;
+    margin-top: 30px;
+}
+
+.Footer__h5 {
+    color: black;
+    font-size: 16px;
+}
+
+.Footer__p {
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.Footer-div__box i{
+    color: #fff;
+    padding: 1px;
+}
+
+.Footer-number__box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

@@ -1,0 +1,87 @@
+/* *{
+    padding: 0;
+    margin: 0;
+} */
+.main--index{
+    max-width: 1600px;
+    padding: 10px;
+    margin: auto;
+    /* display: flex; */
+    justify-content: space-between;
+    contain: paint;
+    /* flex-direction: column; */
+}
+.contenedor--tarjetas-index{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+    grid-row-gap:30px;
+    width: 100%;
+    transition: .3s;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+.tarjeta--individual-index{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+    max-width: 400px;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid #777;
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+}
+.tarjeta--individual-index:hover{
+    box-shadow: 0 0 10px #777;
+    scale: 1.05 ;
+}
+.img--trajeta{
+    width: 90%;
+    border-radius: 5px;
+    
+}
+.titulo--tarjeta{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.index--price-discount__box{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.precio--tarjeta{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    margin-bottom: 0;
+}
+.index--space{
+    margin-bottom: 0;
+}
+.index--discount__p{
+    margin-bottom: 0;
+}
+.boton--tarjeta{
+    display: block;
+    margin: 10px auto;
+    border: none;
+    background: #D4A373;
+    padding: 5px 15px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 22px;
+}
+.boton--tarjeta a{
+    text-decoration: none;
+    color: #fff;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+
+    <body>
+        <%- include('partials/header') %>
+            <main class="main--index">
+                
+                <div>
+                    <h1>Nuevos Productos</h1>
+                </div>
+                <section class="contenedor--tarjetas-index">
+                    <% productsNew.forEach(product=> { %>
+
+                        <%- include('partials/productCard',{
+                            ...product,
+                            toThousand
+                        }) %>
+
+                        <% }) %>
+                </section>
+                
+                <div>
+                    <h1>Mas Visitadas</h1>
+                </div>
+                <section class="contenedor--tarjetas-index">
+                    <% productsMasVisitadas.forEach(product=> { %>
+
+                        <%- include('partials/productCard',{
+                            ...product,
+                            toThousand
+                        }) %>
+
+                        <% }) %>
+                </section>
+                <div>
+                    <h3>OFERTAS</h3>
+                </div>
+                <section class="contenedor--tarjetas-index">
+                    <% productsInsale.forEach(product=> { %>
+
+                        <%- include('partials/productCard',{
+                            ...product,
+                            toThousand
+                        }) %>
+
+                        <% }) %>
+                </section>
+            </main>
+            <%- include('partials/footer') %>
+    </body>
+
+</html>

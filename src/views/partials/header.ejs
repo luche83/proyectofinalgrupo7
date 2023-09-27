@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header>
+        <div class="Header-div__box">
+
+            <a class="img-logo__a" href="/"><img src="/images/logo-2.png" alt=""></a>
+
+            <div class="login-input__box">
+                <div class="Header-form__box">
+                    <form action="/search" class="Header-form">
+                        <input type="text" name="keywords" placeholder="Buscar">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+
+                <div class="div-user-bar-login__box">
+                    <div class="header-div-login__box">
+                        <% if (locals.userLogin) { %>
+                            <a><h5>hola <%= userLogin.name %></h5></a>
+                            <h5>/</h5>
+                            <a href="/users/logout"><h5>cerrar sesión</h5></a>
+                            <div class="header__usuario">
+                                <a href="/users/profile"><i class="fa-regular fa-user"></i></a>
+                            </div>
+                        <% }else {  %>
+                            <a href="/users/register"><h5>crear cuenta</h5></a>
+                            <h5>/</h5>
+                            <a href="/users/login"><h5>iniciar sesión</h5></a>
+                        <% } %>   
+                    </div>
+
+                    <div class="Header-div-bars__box">
+                        <a href=""><i class="fa-solid fa-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="header-nav__box">
+            <div class="Header-nav__div">
+                <ul class="Header-nav-div__ul">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/products">Productos</a></li>
+                    <li><a href="#">Regiones</a></li>
+                    <% if (locals.userLogin) { %>
+                        <% if (userLogin.role === "admin") { %>
+                            <li><a href="/admin">ADMIN</a></li>
+                        <% } %>
+                    <% } %> 
+                    <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </ul>
+            </div>
+            <div class="Header-nav-div__div2">
+
+            </div>
+        </nav>
+    </header>
+</html>
