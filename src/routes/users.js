@@ -5,6 +5,7 @@ const router = express.Router();
 const {register,detail, edit, processRegister, remove, update, login, processLogin, profile, logout, profileEdit, updatePerfilEdit} = require('../controllers/usersController');
 const uploadUser = require('../middlewares/uploadUser');
 const registerValidator = require('../validations/registerValidator');
+const perfilValidator = require('../validations/perfilValidator');
 const loginValidator = require('../validations/loginValidator');
 const userCheck = require('../middlewares/userCheck');
 const notUserCheck = require('../middlewares/notUserCheck');

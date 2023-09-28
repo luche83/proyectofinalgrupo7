@@ -40,5 +40,19 @@
       "province": "Buenos Aires",
       "image": "1694983622415_users_.jpg",
       "createAt": "2023-09-17T20:22:16.855Z"
+   },
+   {
+      "id": "1740dd5e-49cc-4bcd-ba2a-5041165720ec",
+      "role": "admin",
+      "name": "Jorge",
+      "surname": "Lesme",
+      "email": "tomy@gmail.com",
+      "password": "$2a$10$aJG4H9Uqu9jkviE9GEQ1h.DbEQGVz82mFGFaAyESLDiYaTAgrZAcq",
+      "birthday": null,
+      "address": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "createAt": "2023-09-28T21:17:25.385Z"
    }
 ]
