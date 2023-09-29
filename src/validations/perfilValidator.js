@@ -2,15 +2,20 @@ const {check,body} = require('express-validator')
 const { readJSON } = require('../data')
 module.exports = [
     check("name")
+        .notEmpty()
+        .withMessage("El nombre es obligatorio")
+        .bail()
         .isLength({
              min: 2,
-        }).withMessage("El nombre es obligatorio")
-        .isAlpha("es-ES").withMessage("Solo letras"),
+        }),        
     check("surname")
-        .isLength({
-            min: 2,
-        }).withMessage("El apellido es obligatorio")
-        .isAlpha("es-ES").withMessage("Solo letras"),
+    .notEmpty()
+    .withMessage("El apellido es obligatorio")
+    .bail()
+    .isLength({
+         min: 2,
+    }),        
+        
     body('email')
         .notEmpty().withMessage('El email es obligatorio')
         .isEmail().withMessage('Formato invalido')
@@ -25,24 +30,30 @@ module.exports = [
             return true
         }).withMessage('El email ya se encuentra registrado'),
     check("birthday")
-        .isLength({
-            min: 2,
-        }).withMessage("El apellido es obligatorio")
-        .isAlpha("es-ES").withMessage("Solo letras"),
+    .notEmpty()
+    .withMessage("La fecha es obligatorio")
+    .bail(),
+           
     check("address")
-        .isLength({
-            min: 2,
-        }).withMessage("El apellido es obligatorio")
-        .isAlpha("es-ES").withMessage("Solo letras"),
+    .notEmpty()
+    .withMessage("El nombre es obligatorio")
+    .bail()
+    .isLength({
+         min: 2,
+    }),        
     check("city")
-        .isLength({
-            min: 2,
-        }).withMessage("El apellido es obligatorio")
-        .isAlpha("es-ES").withMessage("Solo letras"),
+    .notEmpty()
+    .withMessage("El nombre es obligatorio")
+    .bail()
+    .isLength({
+         min: 2,
+    }),        
     check("province")
-        .isLength({
-            min: 2,
-        }).withMessage("El apellido es obligatorio")
-        .isAlpha("es-ES").withMessage("Solo letras"),
+    .notEmpty()
+    .withMessage("El nombre es obligatorio")
+    .bail()
+    .isLength({
+         min: 2,
+    }),        
             
 ];

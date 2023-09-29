@@ -23,7 +23,7 @@ router.get('/login',notUserCheck, login);
 router.post('/login', loginValidator, processLogin);
 router.get('/profile',userCheck, profile);
 router.get('/profileEdit',userCheck, profileEdit);
-router.put('/updatePerfilEdit/:id',uploadUser.single('image'), updatePerfilEdit);
+router.put('/updatePerfilEdit/:id',uploadUser.single('image'),perfilValidator, updatePerfilEdit);
 router.get('/detail', detail);
 router.get('/logout', logout);
 

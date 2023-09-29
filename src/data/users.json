@@ -21,37 +21,24 @@
       "email": "juliobenedigno@gmail.com",
       "password": "$2a$10$QJ3bfiUyjbwsHtWssuhNIu005Jo9f1aFuf6t.qOrRVvTt0AKfNXw2",
       "birthday": "1981-09-10",
-      "address": "Lío Zanganeando 2495",
+      "address": "Lío Zanga 2495",
       "city": "Hurlinghan",
       "province": "Buenos Aires",
-      "image": "1694983622415_users_.jpg",
+      "image": "1695951601373_users_.jpg",
       "createAt": "2023-09-17T20:22:16.855Z"
    },
    {
-<<<<<<< HEAD
       "id": "1740dd5e-49cc-4bcd-ba2a-5041165720ec",
       "role": "admin",
       "name": "Jorge",
       "surname": "Lesme",
       "email": "tomy@gmail.com",
       "password": "$2a$10$aJG4H9Uqu9jkviE9GEQ1h.DbEQGVz82mFGFaAyESLDiYaTAgrZAcq",
-=======
-      "id": "b4aa4b06-88e1-4e22-94dc-58b693f6b226",
-      "role": "admin",
-      "name": "tomas",
-      "surname": "reyes",
-      "email": "tomasreyes2107@gmail.com",
-      "password": "$2a$10$fxVih7ffmTcwaxGzNjg1LODPxaGCLTFvtPfIpQg2KWdWOjrtvCJUu",
->>>>>>> develop
-      "birthday": null,
-      "address": null,
-      "city": null,
-      "province": null,
-      "image": null,
-<<<<<<< HEAD
+      "birthday": "",
+      "address": "Lio zanga",
+      "city": "",
+      "province": "",
+      "image": "1695948006946_users_.jpg",
       "createAt": "2023-09-28T21:17:25.385Z"
-=======
-      "createAt": "2023-09-22T15:42:08.275Z"
->>>>>>> develop
    }
 ]
