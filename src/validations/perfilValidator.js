@@ -15,20 +15,8 @@ module.exports = [
     .isLength({
          min: 2,
     }),        
-        
-    body('email')
-        .notEmpty().withMessage('El email es obligatorio')
-        .isEmail().withMessage('Formato invalido')
-        .custom((value,{req}) => {
-            const users = readJSON('users.json')
-            const user = users.find( user => user.email === value)
-
-            if(user){
-                return false
-            }
-
-            return true
-        }).withMessage('El email ya se encuentra registrado'),
+      
+    
     check("birthday")
     .notEmpty()
     .withMessage("La fecha es obligatorio")

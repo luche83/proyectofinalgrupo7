@@ -17,13 +17,13 @@ const notUserCheck = require('../middlewares/notUserCheck');
 router.get('/register', register);
 router.post('/register',uploadUser.single('image'), registerValidator, processRegister);
 router.get('/edit/:id', edit);
-router.put('/update/:id',uploadUser.single('image'), update);
+router.put('/update/:id',uploadUser.single('image'),perfilValidator, update);
 router.delete('/remove/:id', remove);
 router.get('/login',notUserCheck, login);
 router.post('/login', loginValidator, processLogin);
 router.get('/profile',userCheck, profile);
 router.get('/profileEdit',userCheck, profileEdit);
-router.put('/updatePerfilEdit/:id',uploadUser.single('image'),perfilValidator, updatePerfilEdit);
+//router.put('/updatePerfilEdit/:id',uploadUser.single('image'),, updatePerfilEdit);
 router.get('/detail', detail);
 router.get('/logout', logout);
 

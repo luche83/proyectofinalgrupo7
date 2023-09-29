@@ -14,7 +14,7 @@ module.exports = (req, res) => {
 
         const usersModify = users.map(user => {
         
-            if(user.id === req.params.id){
+            if(user.id === req.session.userLogin.id){
     
                 req.file &&
                 existsSync(`./src/public/images/usuarios/${user.image}`)&&
@@ -33,11 +33,11 @@ module.exports = (req, res) => {
                 user.image = req.file ? req.file.filename : user.image;
                 
             }
-    
             return user
+            
         })
     
-    
+        
         writeJSON(usersModify, 'users.json')
          
         return res.redirect('/profile')

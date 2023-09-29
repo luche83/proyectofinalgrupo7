@@ -30,7 +30,23 @@
                     </div>
 
                     <div class="Header-div-bars__box">
-                        <a href=""><i class="fa-solid fa-bars"></i></a>
+                        <!--<a href=""><i class="fa-solid fa-bars"></i></a>-->
+                        <a onclick="document.querySelector('.burger-simple').classList.toggle('showMenu')"
+                class="burger-complejo"><i class="fa-solid fa-bars"></i></a>
+
+                        <div class="burger-simple">
+                            <ul>
+                               <li><a href="/">Inicio</a></li>
+                                <li><a href="/products">Productos</a></li>
+                                <li><a href="#">Regiones</a></li>
+                                     <% if (locals.userLogin) { %>
+                                    <% if (userLogin.role === "admin") { %>
+                            <li><a href="/admin">ADMIN</a></li>
+                                    <% } %>
+                                     <% } %> 
+                                </ul>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

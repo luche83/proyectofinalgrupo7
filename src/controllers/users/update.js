@@ -1,16 +1,19 @@
 const { unlinkSync, existsSync } = require("fs");
 const {readJSON, writeJSON} = require("../../data");
-const {hashSync} = require('bcryptjs');
+const { validationResult } = require("express-validator");
+
 
 module.exports = (req, res) => {
     
-            
+    const errors = validationResult(req)         
     const users = readJSON('users.json');
-
-    const usersModify = users.map(user => {
-        
-        if(user.id === req.params.id){
-
+    
+    if(errors.isEmpty()) {
+    
+        const usersModify = users.map(user => {
+            
+        if(user.id === req.session.userLogin.id){
+            req.file &&
             existsSync(`./src/public/images/usuarios/${user.image}`)&&
             unlinkSync(`./src/public/images/usuarios/${user.image}`);
 
@@ -33,5 +36,16 @@ module.exports = (req, res) => {
 
     writeJSON(usersModify, 'users.json')
      
-    return res.redirect('/admin')
+    return res.redirect('/')
+}else {
+
+    const user = users.find(user => user.id === req.params.id)
+
+     return res.render('profileEdit', {
+         errors : errors.mapped(),
+         old : req.body,
+         ...user
+     })
+
+ }
 }
