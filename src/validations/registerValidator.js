@@ -28,7 +28,7 @@ module.exports = [
         .isLength({
             min: 6,
             max: 12,
-        }),
+        }).withMessage('min 6 caracteres'),
     body('password2')
         .custom((value,{req})=> {
             if(value !== req.body.password){

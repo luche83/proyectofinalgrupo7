@@ -2,10 +2,14 @@ const { v4: uuidv4 } = require('uuid');
 const Product = require('../../data/Product');
 const { unlinkSync, existsSync } = require("fs");
 const { readJSON, writeJSON } = require('../../data');
+const { validationResult } = require('express-validator');
 
 module.exports = (req, res) => {
 
-    const products = readJSON('products.json');
+    const errors = validationResult(req)
+
+    if(errors.isEmpty()) {
+        const products = readJSON('products.json');
 
     /*const newProduct = new Product(req.body);*/
 
@@ -28,4 +32,21 @@ module.exports = (req, res) => {
     writeJSON(products, 'products.json');
 
     return res.redirect('/admin')
+
+    }else {
+
+        const characters = readJSON("characters.json");
+        const regiones = readJSON("regiones.json");
+        const categories = readJSON("categories.json");
+
+        return res.render('productAdd',{
+            characters,
+            regiones,
+            categories,
+            errors : errors.mapped(),
+            old : req.body
+        })
+
+    }
+
 }

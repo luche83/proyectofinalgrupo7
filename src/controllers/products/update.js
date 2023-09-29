@@ -1,10 +1,15 @@
 const { unlinkSync, existsSync } = require("fs");
 const { readJSON, writeJSON } = require('../../data');
+const { validationResult } = require("express-validator");
 
 
 module.exports = (req, res) => {
 
+    const errors = validationResult(req)
     const products = readJSON('products.json');
+
+    if(errors.isEmpty()) {
+        const products = readJSON('products.json');
     
     
     const productsModify = products.map(product => {
@@ -33,4 +38,23 @@ module.exports = (req, res) => {
 		writeJSON(productsModify, 'products.json')
 
 		return res.redirect('/admin')
+    }else {
+
+        const characters = readJSON("characters.json");
+        const regiones = readJSON("regiones.json");
+        const categories = readJSON("categories.json");
+
+        const product = products.find(product => product.id === req.params.id)
+
+        return res.render('productEdit', {
+            characters,
+            regiones,
+            categories,
+            errors : errors.mapped(),
+            old : req.body,
+            ...product
+        })
+    
+    }
+ 
  }

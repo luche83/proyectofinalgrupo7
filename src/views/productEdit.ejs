@@ -23,6 +23,9 @@
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
                 <label for="title" class="form-label">Nombre del Producto</label>
                 <input type="text" class="form-input" id="title" placeholder="Nombre del Producto" name="title" value="<%= title %>">
+                <small class="text-danger ms-2">
+                  <%= locals.errors && (errors.title && errors.title.msg) %>
+                </small>
               </div>
 
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
@@ -44,7 +47,6 @@
                     <option <%=item.title===region && 'selected' %> value="<%= item.title %>"><%= item.title %>
                     </option>
                     <% }) %>
-
                 </select>
               </div>
 
@@ -57,12 +59,16 @@
                     </option>
                     <% }) %>
                 </select>
+                
               </div>
 
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
                 <label for="price" class="form-label">Precio</label>
                 <input type="number" class="form-input" id="price" placeholder="Precio" name="price"
                   value="<%= price %>">
+                  <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.price && errors.price.msg) %>
+                  </small>
               </div>
 
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
@@ -75,12 +81,18 @@
                 <label for="cant" class="form-label">Cantidad Disponible</label>
                 <input type="number" class="form-input" id="cant" placeholder="Cantidad Disponible" name="cant"
                   value="<%= cant %>">
+                  <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.cant && errors.cant.msg) %>
+                  </small>
               </div>
 
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
                 <label for="canntkMin" class="form-label">Cantidad Minima</label>
                 <input type="number" class="form-input" id="cantMin" placeholder="Cantidad Minima" name="cantMin"
                   value="<%= cantMin %>">
+                  <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.cantMin && errors.cantMin.msg) %>
+                  </small>
               </div>
 
 
@@ -88,7 +100,9 @@
                 <label for="description" class="form-label">Descripcion</label>
                 <textarea name="description" id="description" class="form-input"
                   style="resize: none"><%= description %></textarea>
-
+                  <small class="text-danger ms-2">
+                    <%= locals.errors && (errors.description && errors.description.msg) %>
+                  </small>
               </div>
 
               <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
