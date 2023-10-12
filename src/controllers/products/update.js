@@ -9,6 +9,7 @@ module.exports = (req, res) => {
     const products = readJSON('products.json');
 
     if(errors.isEmpty()) {
+        
         const products = readJSON('products.json');
     
     

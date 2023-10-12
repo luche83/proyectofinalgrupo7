@@ -1,5 +1,16 @@
 /* HEADER */
 
+.burger-simple {
+    height: 0;
+    overflow: hidden;
+}
+
+.burger-complejo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header {   
     display: flex;
     flex-direction: column;  

@@ -22,6 +22,7 @@
                     <small class="text-danger ms-2">
                         <%= locals.errors && (errors.name && errors.name.msg) %>
                       </small>
+                      
                 </div>
     
                 <div class="register__box__cuerpo__contenido uno">
@@ -36,7 +37,7 @@
                     <label for="address">Direccion</label>
                     <input id="address" placeholder="Calle y Numero" type="text" name="address" class="form-input" value="<%= address %>">
                     <small class="text-danger ms-2">
-                        <%= locals.errors && (errors.name && errors.name.msg) %>
+                        <%= locals.errors && (errors.address && errors.address.msg) %>
                       </small>
                 </div>
 
@@ -44,7 +45,7 @@
                     <label for="birthday">Fecha de nacimiento</label>
                     <input id="birthday" type="date" name="birthday" class="form-input" value="<%= birthday %>">
                     <small class="text-danger ms-2">
-                        <%= locals.errors && (errors.name && errors.name.msg) %>
+                        <%= locals.errors && (errors.birthday && errors.birthday.msg) %>
                       </small>
                 </div>
 
@@ -52,7 +53,7 @@
                     <label for="city">Ciudad</label>
                     <input id="city" placeholder="Escriba su Ciudad" type="text" name="city" class="form-input" value="<%= city %>">
                     <small class="text-danger ms-2">
-                        <%= locals.errors && (errors.name && errors.name.msg) %>
+                        <%= locals.errors && (errors.city && errors.city.msg) %>
                       </small>
                 </div>
 
@@ -60,7 +61,7 @@
                     <label for="province">Provincia</label>
                     <input id="province" placeholder="Escriba su Provincia" type="text" name="province" class="form-input" value="<%= province %>">
                     <small class="text-danger ms-2">
-                        <%= locals.errors && (errors.name && errors.name.msg) %>
+                        <%= locals.errors && (errors.province && errors.province.msg) %>
                       </small>
                 </div>
 
