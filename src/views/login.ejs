@@ -21,7 +21,7 @@
                 
                 <div class="login__box__cuerpo__contenido">
                     <label for="email">Email</label>
-                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input" value="<%= locals.old && (old.email && old.email) %>">
+                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input <%= locals.errors && ((errors.email || errors.password) && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
                     <small class="text-danger ms-2">
                         <%= locals.errors && (errors.email && errors.email.msg) %>
                     </small>   
