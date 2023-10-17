@@ -40,34 +40,40 @@
               ><i class="fa-solid fa-bars"></i
             ></a>
 
-            <div class="burger-simple">
-              <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/products">Productos</a></li>
-                <li><a href="#">Regiones</a></li>
-                <% if (locals.userLogin) { %> <% if (userLogin.role === "admin")
-                { %>
-                <li><a href="/admin">ADMIN</a></li>
-                <% } %> <% } %>
-              </ul>
+                        <div class="burger-simple">
+                            <ul>
+                               <li><a href="/">Inicio</a></li>
+                                <li><a href="/products">Productos</a></li>
+                                <li><a href="#">Regiones</a></li>
+                                     <% if (locals.userLogin) { %>
+                                    <% if (userLogin.role === "admin") { %>
+                            <li><a href="/admin">ADMIN</a></li>
+                                    <% } %>
+                                     <% } %> 
+                                </ul>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <nav class="header-nav__box">
-      <div class="Header-nav__div">
-        <ul class="Header-nav-div__ul">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/products">Productos</a></li>
-          <li><a href="#">Regiones</a></li>
-          <% if (locals.userLogin) { %> <% if (userLogin.role === "admin") { %>
-          <li><a href="/admin">ADMIN</a></li>
-          <% } %> <% } %>
-          <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </ul>
-      </div>
-      <div class="Header-nav-div__div2"></div>
-    </nav>
-  </header>
+        <nav class="header-nav__box">
+            <div class="Header-nav__div">
+                <ul class="Header-nav-div__ul">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/products">Productos</a></li>
+                    <li><a href="#">Regiones</a></li>
+                    <% if (locals.userLogin) { %>
+                        <% if (userLogin.role === "admin") { %>
+                            <li><a href="/admin">ADMIN</a></li>
+                        <% } %>
+                    <% } %> 
+                    <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </ul>
+            </div>
+            <div class="Header-nav-div__div2">
+
+            </div>
+        </nav>
+    </header>
 </html>

@@ -1,51 +1,64 @@
 const { unlinkSync, existsSync } = require("fs");
-const {readJSON, writeJSON} = require("../../data");
+const db = require("../../database/models");
 const { validationResult } = require("express-validator");
+const { response } = require("express");
 
 
 module.exports = (req, res) => {
-    
-    const errors = validationResult(req)         
-    const users = readJSON('users.json');
-    
+
+    const errors = validationResult(req)
+
     if(errors.isEmpty()) {
-    
-        const usersModify = users.map(user => {
+        
+        const {name, surname, address, birthday, city, province, image } = req.body
+        
+       
+
+        db.User.update(
+            {
+                name : name.trim(),
+                surname : surname.trim(),
+                address : address.trim(),
+                birthday : birthday,
+                city : city.trim(),
+                province : province.trim(),
+
+               
+            },
+            {
+                where : {
+                    id : req.session.userLogin.id
+                }
+            }
+        )
+        .then(response => {
+            console.log(response);
+            req.session.userLogin.name = name;
+            res.locals.userLogin.name = name;
             
-        if(user.id === req.session.userLogin.id){
-            req.file &&
+            if(req.cookies.raicesArgentinas){
+                res.cookie('raicesArgentinas',req.session.userLogin);
+            }
+
+            return res.redirect('/')
+        })
+    }else {
+        db.User.findByPk(req.session.userLogin.id)
+      .then(user =>{
+         return res.render('profile',{
+         ...user.dataValues,
+         errors : errors.mapped()
+      
+       });
+      })
+      .catch(error => console.log(error))
+   }
+    }
+
+    
+/*
+    req.file &&
             existsSync(`./src/public/images/usuarios/${user.image}`)&&
             unlinkSync(`./src/public/images/usuarios/${user.image}`);
 
-            user.name = req.body.name;
-            user.surname = req.body.surname;
-            user.surname = req.body.surname;
-            user.birthday = req.body.birthday;
-            user.address = req.body.address;
-            user.city = req.body.city;
-            user.province = req.body.province;
-
-            
-            user.image = req.file ? req.file.filename : user.image;
-            
-        }
-
-        return user
-    })
-
-
-    writeJSON(usersModify, 'users.json')
-     
-    return res.redirect('/')
-}else {
-
-    const user = users.find(user => user.id === req.params.id)
-
-     return res.render('profileEdit', {
-         errors : errors.mapped(),
-         old : req.body,
-         ...user
-     })
-
- }
-}
+            image = req.file ? req.file.filename : user.image*/
