@@ -12,7 +12,7 @@ const productEditValidator = require('../validations/productEditValidator');
 router.get('/', index);
 router.get('/cart', cart);
 router.get('/detail/:id', detail);
-router.get('/add',adminCheck, add);
+router.get('/add',adminCheck,productAddValidator, add);
 router.post('/add', upload.single('image'), productAddValidator,create);
 router.get('/edit/:id', edit);
 router.put('/update/:id',upload.single('image'), productEditValidator ,update);

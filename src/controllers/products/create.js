@@ -40,9 +40,9 @@ module.exports = (req, res) => {
         const categories = readJSON("categories.json");
 
         return res.render('productAdd',{
-            characters,
-            regiones,
             categories,
+            sections,
+            regions,
             errors : errors.mapped(),
             old : req.body
         })
