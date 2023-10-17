@@ -35,6 +35,11 @@ module.exports = (req, res) => {
             console.log(response);
             req.session.userLogin.name = name;
             res.locals.userLogin.name = name;
+            
+            if(req.cookies.raicesArgentinas){
+                res.cookie('raicesArgentinas',req.session.userLogin);
+            }
+
             return res.redirect('/')
         })
     }else {
