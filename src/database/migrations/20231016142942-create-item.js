@@ -12,10 +12,11 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER,
         defaultValue : 1
+        
       },
       orderId: {
         type: Sequelize.INTEGER,
-        references : {
+        reference : {
           model : {
             tableName : 'Orders'
           }
@@ -24,7 +25,7 @@ module.exports = {
       },
       productId: {
         type: Sequelize.INTEGER,
-        references : {
+        reference : {
           model : {
             tableName : 'Products'
           }

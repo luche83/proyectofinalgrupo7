@@ -123,9 +123,14 @@
                               
 
                               <div class="col-12 d-flex justify-content-end gap-2 mb-3">
-                                <!-- <label for="image" class="btn btn-secondary">Agregar Imagen</label> -->
-                                <input type="file" name="image" id="image">
-                                <button class="btn btn-outline-dark">Guardar</button>
+                                <small class="text-danger ms-2">
+                                  <%= locals.errors && (errors.image && errors.image.msg) %>
+                                </small>
+                                <label for="image" class="btn <%= (locals.errors && errors.image) ? 'btn-danger' %>">Imagen Principal</label>
+                                <input type="file" name="image" id="image" hidden />
+                                <label for="images" class="btn btn-secondary">Images</label>
+                                <input type="file" multiple name="images" id="images" hidden />
+                                <button class="btn btn-outline-dark">Guardar Cambios</button>
                               </div>
 
                         </form>
