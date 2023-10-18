@@ -5,16 +5,19 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     index : (req, res) => {
         
-        db.Product.findAll()
+        db.Product.findAll({
+            include : ['images']
+        })
 
         .then(products => {
             
             return res.render('index',{
-                productsInsale : products.filter(product => product.category === "Oferta"),
-                productsMasVisitadas : products.filter(product => product.category === "Mas Visitadas"),
-                productsNew : products.filter(product => product.category === "Nuevos"),
-                products : products.filter(product => product.category === " "),
-                toThousand
+                /*productsInsale : products.filter(product => product.category.title === "Oferta"),
+                productsMasVisitadas : products.filter(product => product.category.title === "Mas Visitadas"),
+                productsNew : products.filter(product => product.category.title === "Nuevos"),
+                products : products.filter(product => product.category.title === " "),
+                toThousand*/
+                products,
             })
         })
         .catch(error => console.log(error))
@@ -27,9 +30,9 @@ module.exports = {
 
 
         const products = db.Product.findAll();
-        const categories = db.Product.findAll();
-        const regions = db.Product.findAll();
-        const sections = db.Product.findAll();
+        const categories = db.Category.findAll();
+        const regions = db.Region.findAll();
+        const sections = db.Section.findAll();
                
         const users = db.Product.findAll();
 
