@@ -11,17 +11,35 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Product.belongsTo(models.Section,{
+        as : 'section',
+        foreignKey : 'sectionId'
+      });
+      Product.belongsTo(models.Category,{
+        as : 'category',
+        foreignKey : 'categoryId'
+      });
+      Product.belongsTo(models.Region,{
+        as : 'region',
+        foreignKey : 'regionId'
+      });
+      Product.hasMany(models.Image,{
+        as : 'images',
+        foreignKey : 'productId',
+        onDelete : 'cascade'
+      });
     }
   }
   Product.init({
     title: DataTypes.STRING,
     price: DataTypes.INTEGER,
     discount: DataTypes.INTEGER,
-    description: DataTypes.TEXT,
     amount: DataTypes.INTEGER,
     amountmin: DataTypes.INTEGER,
+    description: DataTypes.TEXT,
     categoryId: DataTypes.INTEGER,
-    sectionId: DataTypes.INTEGER
+    sectionId: DataTypes.INTEGER,
+    regionId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',

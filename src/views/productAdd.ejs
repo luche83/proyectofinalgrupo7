@@ -23,63 +23,68 @@
 
                             <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="title" class="form-label">Nombre del Producto</label>
-                                <input type="text" class="form-input" id="title" placeholder="Nombre del Producto" name="title" value="<%= locals.old && (old.title && old.title ) %>">
+                                <input type="text" class="form-input <%= locals.errors && (errors.title && 'is-invalid') %>" id="title" placeholder="Nombre del Producto" name="title" value="<%= locals.old && (old.title && old.title ) %>">
                                 <small class="text-danger ms-2">
                                   <%= locals.errors && (errors.title && errors.title.msg) %>
                                 </small>
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="category" class="form-label">Categoria</label>
-                                <select class="form-input" aria-label="Default select example" name="category" id="category">
+                                <label for="categoryId" class="form-label">Categoria</label>
+                                <select class="form-input <%= locals.errors && (errors.categoryId && 'is-invalid') %>" aria-label="Default select example" name="categoryId" id="categoryId">
                                     <option value="" selected hidden>Seleccione ....</option>
-                                    <% categories.forEach(category=> { %>
-                                      <option value="<%= category.title %>" <%=locals.old && (locals.old.category===category.title
+                                    <% categories.forEach(category => { %>
+                                      <option value="<%= category.id %>" <%=locals.old && (locals.old.categoryId === category.id
                                         && 'selected' ) %>>
                                         <%= category.title %>
                                       </option>
                                       <% }) %>
                                   </select>
                                   <small class="text-danger ms-2">
-                                    <%= locals.errors && (errors.category && errors.category.msg) %>
+                                    <%= locals.errors && (errors.categoryId && errors.categoryId.msg) %>
                                   </small>
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="region" class="form-label">Region</label>
-                                <select class="form-input" aria-label="Default select example" name="region" id="region">
+                                <label for="sectionId" class="form-label">Caracteristica</label>
+                                <select class="form-input <%= locals.errors && (errors.sectionId && 'is-invalid') %>" aria-label="Default select example" name="sectionId" id="sectionId">
                                     <option value="" selected hidden>Seleccione ....</option>
-                                    <% regiones.forEach(region=> { %>
-                                      <option value="<%= region.title %>" <%=locals.old && (locals.old.region===region.title
+                                    <% sections.forEach(section=> { %>
+                                      <option value="<%= section.id %>" <%=locals.old && (locals.old.sectionId===section.id
+                                        && 'selected' ) %>>
+                                        <%= section.title %>
+                                      </option>
+                                      <% }) %>
+                                  </select>
+                                  <small class="text-danger ms-2">
+                                    <%= locals.errors && (errors.sectionId&& errors.sectionId.msg) %>
+                                  </small>
+                              </div>
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="regionId" class="form-label">Region</label>
+                                <select class="form-input <%= locals.errors && (errors.regionId && 'is-invalid') %>" aria-label="Default select example" name="regionId" id="regionId">
+                                    <option value="" selected hidden>Seleccione ....</option>
+                                    
+                                    <% regions.forEach(region => { %>
+                                                                         
+                                      <option value="<%= region.id %>" <%=locals.old && (locals.old.regionId === region.id
                                         && 'selected' ) %>>
                                         <%= region.title %>
                                       </option>
+
                                       <% }) %>
+
                                   </select>
                                   <small class="text-danger ms-2">
-                                    <%= locals.errors && (errors.region && errors.region.msg) %>
+                                    <%= locals.errors && (errors.regionId && errors.regionId.msg) %>
                                   </small>
                               </div>
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="character" class="form-label">Caracteristica</label>
-                                <select class="form-input" aria-label="Default select example" name="character" id="character">
-                                    <option value="" selected hidden>Seleccione ....</option>
-                                    <% characters.forEach(character=> { %>
-                                      <option value="<%= character.title %>" <%=locals.old && (locals.old.character===character.title
-                                        && 'selected' ) %>>
-                                        <%= character.title %>
-                                      </option>
-                                      <% }) %>
-                                  </select>
-                                  <small class="text-danger ms-2">
-                                    <%= locals.errors && (errors.character && errors.character.msg) %>
-                                  </small>
-                              </div>
-
+                              
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="price" class="form-label">Precio</label>
-                                <input type="number" class="form-input" id="price" placeholder="Precio" name="price" value="<%= locals.old && (old.price && old.price ) %>">
+                                <input type="number" class="form-input <%= locals.errors && (errors.price && 'is-invalid') %>" id="price" placeholder="Precio" name="price" value="<%= locals.old && (old.price && old.price ) %>">
                                 <small class="text-danger ms-2">
                                   <%= locals.errors && (errors.price && errors.price.msg) %>
                                 </small>
@@ -87,22 +92,22 @@
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="discount" class="form-label">Descuento</label>
-                                <input type="number" class="form-input" id="discount" placeholder="Descuento" name="discount" value="<%= locals.old && (old.discount && old.discount ) %>">
+                                <input type="number" class="form-input <%= locals.errors && (errors.discount && 'is-invalid') %>" id="discount" placeholder="Descuento" name="discount" value="<%= locals.old && (old.discount && old.discount ) %>">
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="cant" class="form-label">Cantidad Disponible</label>
-                                <input type="number" class="form-input" id="cant" placeholder="Cantidad Disponible" name="cant" id="cant" value="<%= locals.old && (old.cant && old.cant ) %>">
+                                <label for="amount" class="form-label">Cantidad Disponible</label>
+                                <input type="number" class="form-input <%= locals.errors && (errors.amount && 'is-invalid') %>" id="amount" placeholder="Cantidad Disponible" name="amount" id="amount" value="<%= locals.old && (old.amount && old.amount ) %>">
                                 <small class="text-danger ms-2">
-                                  <%= locals.errors && (errors.cant && errors.cant.msg) %>
+                                  <%= locals.errors && (errors.amount && errors.amount.msg) %>
                                 </small>
                               </div>
         
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
-                                <label for="cantMin" class="form-label">Cantidad Minima</label>
-                                <input type="number" class="form-input" id="cantMin" placeholder="Cantidad Minima" name="cantMin" id="cantMin" value="<%= locals.old && (old.cantMin && old.cantMin ) %>">
+                                <label for="amountmin" class="form-label">Cantidad Minima</label>
+                                <input type="number" class="form-input <%= locals.errors && (errors.amountmin && 'is-invalid') %>" id="amountmin" placeholder="Cantidad Minima" name="amountmin" id="amountmin" value="<%= locals.old && (old.amountmin && old.amountmin ) %>">
                                 <small class="text-danger ms-2">
-                                  <%= locals.errors && (errors.cantMin && errors.cantMin.msg) %>
+                                  <%= locals.errors && (errors.amountmin && errors.amountmin.msg) %>
                                 </small>
                               </div>
 
@@ -115,12 +120,15 @@
                                 </small>
                               </div>
 
-                              
-
                               <div class="col-12 d-flex justify-content-end gap-2 mb-3">
-                                <!-- <label for="image" class="btn btn-secondary">Agregar Imagen</label> -->
-                                <input type="file" name="image" id="image">
-                                <button class="btn btn-outline-dark">Guardar</button>
+                                <small class="text-danger ms-2">
+                                  <%= locals.errors && (errors.image && errors.image.msg) %>
+                                </small>
+                                <label for="image" class="btn <%= (locals.errors && errors.image) ? 'btn-danger' : 'btn-secondary' %>">Imagen principal</label>
+                                <input type="file" name="image" id="image" hidden />
+                                <label for="images" class="btn btn-secondary">Imágenes</label>
+                                <input type="file" multiple name="images" id="images" hidden />
+                                <button class="btn btn-dark">Guardar cambios</button>
                               </div>
 
                         </form>

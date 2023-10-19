@@ -2,7 +2,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">N°:</th>
                 <th scope="col">Producto</th>
                 <th scope="col">Categoría</th>
                 <th scope="col">Caracteristica</th>
@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <% products.forEach(({id, title, category, character, region, cant, cantMin, price, discount, image,
+            <% products.forEach(({id, title, categoryId, sectionId, regionId, amount, amountmin, price, discount, image,
                 description}, index)=> { %>
 
                 <tr>
@@ -27,16 +27,16 @@
                         <%= title %>
                     </td>
                     <td>
-                        <%= category ? category : 'sin especificar' %>
+                        <%= categoryId ? categoryId : 'sin especificar' %>
                     </td>
                     <td>
-                        <%= character ? character : 'sin especificar' %>
+                        <%= sectionId ? sectionId : 'sin especificar' %>
                     </td>
                     <td>
-                        <%= region %>
+                        <%= regionId ? regionId : 'sin especificar' %>
                     </td>
                     <td>
-                        <%= cant %>
+                        <%= amount %>
                     </td>
                     <td>
                         <%= price %>

@@ -13,28 +13,23 @@ module.exports = {
         type: Sequelize.STRING
       },
       price: {
-        type: Sequelize.INTEGER,
-        allowNull : false
+        type: Sequelize.INTEGER
       },
       discount: {
-        type: Sequelize.INTEGER,
-        defaultValue : 0
-      },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull : false
+        type: Sequelize.INTEGER
       },
       amount: {
-        type: Sequelize.INTEGER,
-        allowNull : false
+        type: Sequelize.INTEGER
       },
       amountmin: {
-        type: Sequelize.INTEGER,
-        allowNull : false
+        type: Sequelize.INTEGER
+      },
+      description: {
+        type: Sequelize.TEXT
       },
       categoryId: {
         type: Sequelize.INTEGER,
-        references : {
+        reference : {
           model : {
             tableName : 'Categories'
           }
@@ -42,11 +37,21 @@ module.exports = {
       },
       sectionId: {
         type: Sequelize.INTEGER,
-        references : {
+        reference : {
           model : {
             tableName : 'Sections'
           }
         }
+        
+      },
+      regionId: {
+        type: Sequelize.INTEGER,
+        reference : {
+          model : {
+            tableName : 'Regions'
+          }
+        },
+        
       },
       createdAt: {
         allowNull: false,
@@ -55,9 +60,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      deleteAt : {
-        type : Sequelize.DATE
       }
     });
   },

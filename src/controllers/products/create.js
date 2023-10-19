@@ -1,52 +1,96 @@
-const { v4: uuidv4 } = require('uuid');
-const Product = require('../../data/Product');
 const { unlinkSync, existsSync } = require("fs");
-const { readJSON, writeJSON } = require('../../data');
 const { validationResult } = require('express-validator');
+
+const db = require('../../database/models');
+
 
 module.exports = (req, res) => {
 
-    const errors = validationResult(req)
+    const errors = validationResult(req);
 
     if(errors.isEmpty()) {
-        const products = readJSON('products.json');
+        
+        const {title, price, discount, description,amount, amountmin, categoryId, sectionId, regionId } = req.body;
 
-    /*const newProduct = new Product(req.body);*/
+        db.Product.create ({
 
-    products.push({
+            title : title.trim(),
+            price,
+            discount,
+            amount,
+            amountmin,
+            categoryId,
+            sectionId,
+            regionId,
+            description : description.trim()
 
-        /*id : products.length ? products[products.lenth -1 ].id +1 : 1,*/
-        id : uuidv4(),
-        title : req.body.title,
-        category : req.body.category,
-        character : req.body.character,
-        region : req.body.region,
-        price : req.body.price,
-        discount : req.body.discount,
-        description : req.body.description,
-        cant : req.body.cant,
-        cantMin : req.body.cantMin,
-        image: req.file ? req.file.filename : null,
-    });
+        })
+            .then(product => {
+                if(req.files.image){
 
-    writeJSON(products, 'products.json');
+                   db.Image.create({
+                        filename : req.files.image[0].filename,
+                        main : true,
+                        productId : product.id
+                }) 
+                    .then(() => {
+                        if(req.files.images){
+                            const images = req.files.images.map(({filename}) => {
+                                return {
+                                    filename,
+                                    main : false,
+                                    productId : product.id
+                                }
+                            })
 
-    return res.redirect('/admin')
-
+                            db.Image.bulkCreate(images, {
+                                validate : true
+                            }).then(result => console.log(result))
+                        }
+                        
+                    })
+                    
+                }
+                return res.redirect('/admin')
+                
+            })
+            .catch(error => console.log(error))
+    
     }else {
 
-        const characters = readJSON("characters.json");
-        const regiones = readJSON("regiones.json");
-        const categories = readJSON("categories.json");
+       (req.files.image && existsSync(`./src/public/images/productos/${req.files.image[0].filename}`))&& unlinkSync(`./src/public/images/productos/${req.files.image[0].filename }`);
 
-        return res.render('productAdd',{
-            characters,
-            regiones,
-            categories,
-            errors : errors.mapped(),
-            old : req.body
-        })
+        if(req.files.images) {
+            req.files.images.forEach(file => {
+                existsSync(`./src/public/images/productos/${file.filename}`) && unlinkSync(`./src/public/images/productos/${file.filename}`);
+            });
+        }
 
+        const categories = db.Category.findAll({
+            order : ['title']
+          });
+      
+          const sections = db.Section.findAll({
+            order : ['title']
+          });
+          const regions = db.Region.findAll({
+            order : ['title']
+          });
+          
+          Promise.all([categories,sections,regions])
+            .then(([categories,sections,regions]) => {
+      
+              return res.render("productAdd", {
+                categories,
+                sections,
+                regions,
+                errors : errors.mapped(),
+                old : req.body
+             }); 
+      
+            })
+            .catch(error => console.log(error))
+        
     }
 
 }

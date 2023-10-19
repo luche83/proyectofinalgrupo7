@@ -8,49 +8,49 @@ module.exports = {
      
      [
       {
-       name: 'Norte Grande Argentino',
+       title: 'Norte Grande Argentino',
        image: null,
        createdAt : new Date,
        updatedAt : new Date,
        
       },
       {
-        name: 'Centro',
+        title: 'Centro',
         image: null,
         createdAt : new Date,
         updatedAt : new Date,
         
        },
        {
-         name: 'Nuevo Cuyo',
+        title: 'Nuevo Cuyo',
          image: null,
          createdAt : new Date,
          updatedAt : new Date,
          
         },
         {
-          name: 'Patagonia',
+          title: 'Patagonia',
           image: null,
           createdAt : new Date,
           updatedAt : new Date,
           
          },
          {
-           name: 'Litoral',
+          title: 'Litoral',
            image: null,
            createdAt : new Date,
            updatedAt : new Date,
            
           },
           {
-            name: 'Buenos Aires',
+            title: 'Buenos Aires',
             image: null,
             createdAt : new Date,
             updatedAt : new Date,
             
            },
            {
-             name: 'Costa Atlantica',
+            title: 'Costa Atlantica',
              image: null,
              createdAt : new Date,
              updatedAt : new Date,

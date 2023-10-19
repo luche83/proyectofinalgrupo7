@@ -1,34 +1,54 @@
-const {readJSON} = require("../data");
-/*const products = require("./products");*/
+const db = require("../database/models");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index : (req, res) => {
-        const products = readJSON('products.json');
-        return res.render('index',{
-            productsInsale : products.filter(product => product.category === "Oferta"),
-            productsMasVisitadas : products.filter(product => product.category === "Mas Visitadas"),
-            productsNew : products.filter(product => product.category === "New"),
-            products : products.filter(product => product.category === " "),
-            toThousand
+        
+        db.Product.findAll({
+            include : ['images']
         })
+
+        .then(products => {
+            
+            return res.render('index',{
+                /*productsInsale : products.filter(product => product.category.title === "Oferta"),
+                productsMasVisitadas : products.filter(product => product.category.title === "Mas Visitadas"),
+                productsNew : products.filter(product => product.category.title === "Nuevos"),
+                products : products.filter(product => product.category.title === " "),
+                toThousand*/
+                products,
+            })
+        })
+        .catch(error => console.log(error))
+        
     },
 
     admin : (req,res) => {
 
-        const products = readJSON('products.json');
-        const characters = readJSON('characters.json');
-        const regiones = readJSON('regiones.json');
-        const categories = readJSON('categories.json');
-        const users = readJSON('users.json');
-        return res.render('admin', {
-            products,
-            characters,
-            regiones,
-            categories,
-            users
+
+
+
+        const products = db.Product.findAll();
+        const categories = db.Category.findAll();
+        const regions = db.Region.findAll();
+        const sections = db.Section.findAll();
+               
+        const users = db.Product.findAll();
+
+        Promise.all([products, categories, regions, sections, users])
+        .then(([products, categories, regions, sections, users]) => {
+           
+            return res.render('admin', {
+                products,
+                categories,
+                regions,
+                sections,
+                users
+            })
         })
+        .catch(error => console.log(error))
+        
     },
 
 	search: (req, res) => {

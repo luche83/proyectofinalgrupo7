@@ -10,22 +10,19 @@ module.exports = [
       max: 50,
     })
     .withMessage("Debe tener entre 4 y 20 caracteres"),
-  check("category")
+  check("categoryId")
     .notEmpty()
     .withMessage("Es necesario"),
-  check("region")
+    check("sectionId")
     .notEmpty()
     .withMessage("Es necesario"),
-  check("character")
+  check("regionId")
     .notEmpty()
     .withMessage("Es necesario"),
-  check("section")
-    .notEmpty()
-    .withMessage("Es necesario"),
-  check("cant")
+    check("amount")
     .notEmpty()
     .withMessage("Especificar"),
-  check("cantMin")
+  check("amountmin")
     .notEmpty()
     .withMessage("Especificar"),  
   check("price")
