@@ -1,16 +1,5 @@
 /* HEADER */
 
-.burger-simple {
-    height: 0;
-    overflow: hidden;
-}
-
-.burger-complejo {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-
 header {   
     display: flex;
     flex-direction: column;  
@@ -149,7 +138,9 @@ img {
     right: 0;
     top: 0;
     bottom: 0;
-    display: none;
+    box-shadow: 0 0 0 100vmax rgb(0, 0, 0, .5);
+    opacity: 0;
+    visibility: hidden;
 } 
 
 .drop-menu__nav ul{
@@ -166,7 +157,8 @@ img {
 }
 
 .drop-menu__nav.open {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 } 
 
 /* TABLET */

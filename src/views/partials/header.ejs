@@ -30,14 +30,17 @@
             <a href="/users/login"><h5>iniciar sesión</h5></a>
             <% } %>
           </div>
-        </div>
-        <div class="icon-open-menu__div">
-          <a href=""><i class="fa-solid fa-bars"></i></a>
+          <div class="icon-open-menu__div">
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </div>
       </div>
     </div>
     <nav class="drop-menu__nav">
       <ul>
+        <div>
+          <a href=""><i class="fa-solid fa-xmark"></i></a>
+        </div>
         <li><a href="/">Inicio</a></li>
         <li><a href="/products">Productos</a></li>
         <li><a href="#">Regiones</a></li>
@@ -67,7 +70,7 @@
     </nav>
   </header>
   <script>
-    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtn = document.querySelector('.icon-close-menu__div')
     const toggleIcon = document.querySelector('.icon-open-menu__div')
     const dropMenu = document.querySelector('.drop-menu__nav')
 

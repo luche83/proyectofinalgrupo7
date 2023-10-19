@@ -1,5 +1,5 @@
-const dropMenu = document.querySelector('#drop-menu__nav')
-const open = document.querySelector('#icon-open-menu__div')
+const dropMenu = document.querySelector("#nav")
+const open = document.querySelector("#open")
 
 open.addEventListener('click', () => {
     dropMenu.classList.add('open')
