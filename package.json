@@ -5,14 +5,15 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "dev": "nodemon ./src/bin/www",
-    "db:create" : "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
-    "db:reset" : "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all"
+    "db:create": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
+    "db:reset": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.3.1",
+    "dotenv-cli": "^7.3.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.3",
