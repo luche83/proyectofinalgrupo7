@@ -46,10 +46,10 @@ module.exports = (req, res) => {
                             db.Image.bulkCreate(images, {
                                 validate : true
                             }).then(result => {
-                                return res.redirect('/admin')
+                                return res.redirect('/index',{
+                                    result
+                                })
                             })
-                        }else{
-                            return res.redirect('/admin') 
                         }
                         
                     })
