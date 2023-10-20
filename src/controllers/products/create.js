@@ -16,7 +16,7 @@ module.exports = (req, res) => {
 
             title : title.trim(),
             price,
-            discount,
+            discount : discount || 0,
             amount,
             amountmin,
             categoryId,
@@ -29,7 +29,7 @@ module.exports = (req, res) => {
                 if(req.files.image){
 
                    db.Image.create({
-                        filename : req.files.image[0].filename,
+                        file : req.files.image[0].filename,
                         main : true,
                         productId : product.id
                 }) 
@@ -37,7 +37,7 @@ module.exports = (req, res) => {
                         if(req.files.images){
                             const images = req.files.images.map(({filename}) => {
                                 return {
-                                    filename,
+                                    file: filename,
                                     main : false,
                                     productId : product.id
                                 }
@@ -45,7 +45,11 @@ module.exports = (req, res) => {
 
                             db.Image.bulkCreate(images, {
                                 validate : true
-                            }).then(result => console.log(result))
+                            }).then(result => {
+                                return res.redirect('/admin')
+                            })
+                        }else{
+                            return res.redirect('/admin') 
                         }
                         
                     })

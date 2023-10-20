@@ -12,14 +12,13 @@
                 <th scope="col">Decuento</th>
                 <th scope="col">P. Final</th>
                 <th scope="col">Acciones</th>
-            </tr>
+              </tr>
         </thead>
         <tbody>
-            <% products.forEach(({id, title, categoryId, sectionId, regionId, amount, amountmin, price, discount, image,
-                description}, index)=> { %>
+           <% products.forEach(({id, title, category, section, region, amount,
+      amountmin, price, discount, images, description}, index)=> { %>
 
                 <tr>
-
                     <th scope="row">
                         <%= index + 1 %>
                     </th>
@@ -27,13 +26,13 @@
                         <%= title %>
                     </td>
                     <td>
-                        <%= categoryId ? categoryId : 'sin especificar' %>
+                        <%= category.title %>
                     </td>
                     <td>
-                        <%= sectionId ? sectionId : 'sin especificar' %>
+                        <%= section.title %>
                     </td>
                     <td>
-                        <%= regionId ? regionId : 'sin especificar' %>
+                        <%= region.title %>
                     </td>
                     <td>
                         <%= amount %>
@@ -57,7 +56,7 @@
 
                             <div class="modal fade" id="detailProduct<%=id%>" tabindex="-1"
                                 aria-labelledby="detailProduct<%=id%>Label" aria-hidden="true">
-                                <div class="modal-dialog  modal-dialog-centered">
+                                <div class="modal-dialog modal-lg  modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="detailProduct<%=id%>Label">
@@ -67,11 +66,17 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="card mb-3" style="max-width: 540px;">
+                                            <div class="card mb-3">
                                                 <div class="row g-0">
                                                     <div class="col-md-6">
-                                                        <img src="/images/productos/<%= image %>" class="img-fluid rounded-start"
-                                                            alt="...">
+                                                        <img src="/images/productos/<%= images.find(image => image.main).file %>"
+                                                            class="img-fluid" alt="...">
+                                                            <div class="d-flex flex-wrap justify-content-between mt-1">
+                                                                <% images.filter(image => !image.main).forEach(image => { %>
+                                                                    <img src="/images/productos/<%= image.file %>"
+                                                                    style="width: 33%;" alt="...">
+                                                                <% }) %>
+                                                            </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="card-body">
@@ -81,6 +86,13 @@
                                                             <p class="card-text">
                                                                 <%=description%>
                                                             </p>
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item"><b>Categoría: </b><%= category.title%></li>
+                                                                <li class="list-group-item"><b>Seccion: </b><%= section.title%></li>
+                                                                <li class="list-group-item"><b>Region: </b><%= region.title%></li>
+                                                                <li class="list-group-item"><b>Precio: </b><%= price %></li>
+                                                                <li class="list-group-item"><b>Descuento: </b><%= discount %></li>
+                                                              </ul>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -104,28 +116,25 @@
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="removeProduct<%= id %>" tabindex="-1"
-                                aria-labelledby="removeProduct<%= id %>Label" aria-hidden="true">
+                            <div class="modal fade" id="removeProduct<%= id %>" tabindex="-1" aria-labelledby="removeProduct<%= id %>Label"
+                                aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="removeProduct<%= id %>Label">ADVERTENCIA
-                                            </h1>
+                                            <h1 class="modal-title fs-5" id="removeProduct<%= id %>Label">ADVERTENCIA</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Estás seguro que querés eliminar el producto <b>
-                                                    <%= title %>
-                                                </b></p>
+                                            <p>Estás seguro que querés eliminar el producto <b><%= title %></b></p> 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Cancelar</button>
-                                            <form action="/products/remove/<%= id %>?_method=DELETE" method="POST">
-                                                <button type="submit" class="btn btn-danger">Eliminalo</button>
-                                            </form>
-
+                                                <form action="/products/remove/<%= id %>?_method=DELETE" method="POST">
+                                                    <button type="submit" class="btn btn-danger">Eliminalo</button>
+                                                </form>
+                                            
                                         </div>
                                     </div>
                                 </div>

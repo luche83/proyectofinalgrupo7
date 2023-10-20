@@ -18,6 +18,7 @@ module.exports = {
                 products : products.filter(product => product.category.title === " "),
                 toThousand*/
                 products,
+                toThousand
             })
         })
         .catch(error => console.log(error))
@@ -26,19 +27,17 @@ module.exports = {
 
     admin : (req,res) => {
 
-
-
-
-        const products = db.Product.findAll();
+        const products = db.Product.findAll({
+            include : ['category','region','section','images']
+        });
         const categories = db.Category.findAll();
         const regions = db.Region.findAll();
         const sections = db.Section.findAll();
-               
-        const users = db.Product.findAll();
+        const users = db.User.findAll();
 
         Promise.all([products, categories, regions, sections, users])
         .then(([products, categories, regions, sections, users]) => {
-           
+
             return res.render('admin', {
                 products,
                 categories,

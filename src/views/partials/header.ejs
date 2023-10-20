@@ -65,9 +65,11 @@
           <li><a href="/">Inicio</a></li>
           <li><a href="/products">Productos</a></li>
           <li><a href="#">Regiones</a></li>
-          <% if (locals.userLogin) { %> <% if (userLogin.role === "admin") { %>
-          <li><a href="/admin">ADMIN</a></li>
-          <% } %> <% } %>
+          <% if (locals.userLogin) { %>
+            <% if (userLogin.role === 1) { %>
+                <li><a href="/admin">ADMIN</a></li>
+            <% } %>
+        <% } %> 
           <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
         </ul>
       </div>

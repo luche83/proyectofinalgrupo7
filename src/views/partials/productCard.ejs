@@ -1,5 +1,5 @@
 <article class="tarjeta--individual-index">
-    <img class="img--trajeta" src="/images/productos/<%= image || 'poncho.jpg' %>" alt="">
+    <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main).file || 'poncho.jpg' %>" alt="">
     <h4 class="titulo--tarjeta"> <%= title %> </h4>
     <div class="index--price-discount__box">
         <p class="precio--tarjeta"> <%= toThousand((price - (price * discount / 100)).toFixed(0))  %> </p>
