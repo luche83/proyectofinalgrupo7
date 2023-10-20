@@ -25,40 +25,38 @@ module.exports = (req, res) => {
             description : description.trim()
 
         })
-            .then(product => {
-                if(req.files.image){
-
-                   db.Image.create({
-                        file : req.files.image[0].filename,
-                        main : true,
-                        productId : product.id
-                }) 
-                    .then(() => {
+        .then(product => {
+            if(req.files.image){
+                db.Image.create({
+                    file :  req.files.image[0].filename,
+                    main : true,
+                    productId : product.id
+                })
+                    .then( () => {
                         if(req.files.images){
-                            const images = req.files.images.map(({filename}) => {
-                                return {
-                                    file: filename,
-                                    main : false,
-                                    productId : product.id
-                                }
-                            })
+                           const images = req.files.images.map(({filename}) => {
+                            return {
+                                file: filename,
+                                main : false,
+                                productId : product.id
+                            }
+                           })
 
-                            db.Image.bulkCreate(images, {
-                                validate : true
-                            }).then(result => {
-                                return res.redirect('/index',{
-                                    result
-                                })
-                            })
+                           db.Image.bulkCreate(images,{
+                            validate : true
+                           }).then(result => {
+                            return res.redirect('/admin')
+                           })
+                           
+                        }else{
+                            return res.redirect('/admin')
                         }
-                        
-                    })
-                    
-                }
+                    } )
+            }else{
                 return res.redirect('/admin')
-                
-            })
-            .catch(error => console.log(error))
+            }
+        })
+        .catch(error => console.log(error))
     
     }else {
 

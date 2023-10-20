@@ -69,11 +69,11 @@
                                             <div class="card mb-3">
                                                 <div class="row g-0">
                                                     <div class="col-md-6">
-                                                        <img src="/images/productos/<%= images.find(image => image.main) %>"
+                                                        <img src="/images/productos/<%= images.find(image => image.main).file %>"
                                                             class="img-fluid" alt="...">
                                                             <div class="d-flex flex-wrap justify-content-between mt-1">
                                                                 <% images.filter(image => !image.main).forEach(image => { %>
-                                                                    <img src="/images/productos/<%= image.files %>"
+                                                                    <img src="/images/productos/<%= image.file %>"
                                                                     style="width: 33%;" alt="...">
                                                                 <% }) %>
                                                             </div>

@@ -28,6 +28,7 @@ module.exports = {
     admin : (req,res) => {
 
         const products = db.Product.findAll({
+            
             include : ['category','region','section','images']
         });
         const categories = db.Category.findAll();
