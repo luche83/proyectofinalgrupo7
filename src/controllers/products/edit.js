@@ -5,7 +5,11 @@ module.exports = (req, res) => {
 
         const id = req.params.id;
 
-    const product = db.Product.findByPk(id);
+    const product = db.Product.findByPk(id, {
+        include : {
+            all : true
+        }
+    });
 
     const categories = db.Category.findAll({
         order : ['title']

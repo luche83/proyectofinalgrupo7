@@ -13,7 +13,7 @@
           <div class="login__box__encabezado">
 
             <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
-            <h4 class="animate__animated animate__flash">EDICION PRODUCTOS</h4>
+            <h4 class="animate__animated animate__flash">EDICION PRODUCTOS : <%= title %></h4>
 
           </div>
           <!--Inicio -->
@@ -33,7 +33,7 @@
                 <select class="form-input <%= locals.errors && (errors.categoryId && 'is-invalid') %>" aria-label="Default select example" name="categoryId" id="categoryId">
                   
                   <% categories.forEach(category=> { %>
-                    <option value="<%= category.id%>"<%= categoryId===category.id && 'selected' %>><%= category.title %>
+                    <option <%= category.id===categoryId && 'selected' %>value="<%= category.id %>"><%= category.title %>
                     </option>
                     <% }) %>
                 </select>
@@ -43,8 +43,8 @@
                 <label for="regionId" class="form-label">Region</label>
                 <select class="form-input <%= locals.errors && (errors.regionId && 'is-invalid') %>" aria-label="Default select example" name="regionId" id="regionId">
                   
-                  <% regiones.forEach(region=> { %>
-                    <option value="<%= region.id %>" <%= regionId === region.id && 'selected' %>><%= region.title %>
+                  <% regions.forEach(region=> { %>
+                    <option <%= regionId === region.id && 'selected' %> value="<%= region.id %>"><%= region.title %>
                     </option>
                     <% }) %>
                 </select>
@@ -55,7 +55,7 @@
                 <select class="form-input <%= locals.errors && (errors.sectionId && 'is-invalid') %>" aria-label="Default select example" name="sectionId" id="sectionId">
                   
                   <% sections.forEach(section=> { %>
-                    <option value="<%= section.id %>" <%= sectionId === section.id && 'selected' %>><%= section.title %>
+                    <option <%= sectionId === section.id && 'selected' %> value="<%= section.id %>"><%= section.title %>
                     </option>
                     <% }) %>
                 </select>
@@ -106,17 +106,33 @@
               </div>
 
               <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
-                <label for="image" class="form-label">Imagen Actual</label>
-                <img src="/images/productos/<%= image || 'poncho.jpg' %>" alt="" name="image" class="card-img-top mb-5">
+                <label for="image" class="form-label">Imagen Principal</label>
+                <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="">
 
             </div>
+            
+            
+            <div class="d-flex flex-wrap justify-content-between mt-1">
+              <label for="image" class="form-label">Imagenes Secundarias</label>
 
-              <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
-                <label for="image" class="btn btn-secondary">Cambiar Imagen</label>
-                <input type="file" name="image" id="image" hidden>
-                <button class="btn btn-outline-dark">Guardar</button>
-                <button type="reset" class="btn btn-outline-dark">Borrar</button>
+              <div class="d-flex flex-wrap justify-content-between mt-1">
+                <% images.filter(image => !image.main).forEach(image => { %>
+                  <img src="/images/productos/<%= image.file %>"
+                  style="width: 30%;" alt="...">
+              <% }) %>
               </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-end gap-2 mb-3">
+            <small class="text-danger ms-2">
+              <%= locals.errors && (errors.image && errors.image.msg) %>
+            </small>
+            <label for="image" class="btn <%= (locals.errors && errors.image) ? 'btn-danger' : 'btn-secondary' %>">Cambiar Imagen principal</label>
+            <input type="file" name="image" id="image" hidden />
+            <label for="images" class="btn btn-secondary">Cambiar Imágenes</label>
+            <input type="file" multiple name="images" id="images" hidden />
+            <button class="btn btn-dark">Guardar cambios</button>
+          </div>
 
             </form>
           
