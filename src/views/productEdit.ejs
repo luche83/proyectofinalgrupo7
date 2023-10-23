@@ -33,7 +33,7 @@
                 <select class="form-input <%= locals.errors && (errors.categoryId && 'is-invalid') %>" aria-label="Default select example" name="categoryId" id="categoryId">
                   
                   <% categories.forEach(category=> { %>
-                    <option <%= category.id===categoryId && 'selected' %>value="<%= category.id %>"><%= category.title %>
+                    <option <%= categoryId === category.id && 'selected' %> value="<%= category.id %>"><%= category.title %>
                     </option>
                     <% }) %>
                 </select>
