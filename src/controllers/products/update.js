@@ -52,8 +52,8 @@ module.exports = (req, res) => {
             product.images
               .filter((image) => !image.main)
               .forEach((image) => {
-                existsSync(`./public/images/productos/${image.file}`) &&
-                  unlinkSync(`./public/images/productos/${image.file}`)
+                existsSync(`./src/public/images/productos/${image.file}`) &&
+                  unlinkSync(`./src/public/images/productos/${image.file}`)
               });
 
             db.Image.destroy({
