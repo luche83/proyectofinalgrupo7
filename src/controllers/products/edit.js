@@ -5,7 +5,11 @@ module.exports = (req, res) => {
 
         const id = req.params.id;
 
-    const product = db.Product.findByPk(id);
+    const product = db.Product.findByPk(id, {
+        include : {
+            all : true
+        }
+    });
 
     const categories = db.Category.findAll({
         order : ['title']
@@ -22,8 +26,7 @@ module.exports = (req, res) => {
     Promise.all([product, categories, regions,sections])
     .then(([product,categories,regions,sections]) => {
        
-        return res.render('productEdit', {
-            
+        return res.render('productEdit', {           
             categories,
             regions,
             sections,

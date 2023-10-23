@@ -43,7 +43,7 @@
                 <label for="regionId" class="form-label">Region</label>
                 <select class="form-input <%= locals.errors && (errors.regionId && 'is-invalid') %>" aria-label="Default select example" name="regionId" id="regionId">
                   
-                  <% regiones.forEach(region=> { %>
+                  <% regions.forEach(region=> { %>
                     <option value="<%= region.id %>" <%= regionId === region.id && 'selected' %>><%= region.title %>
                     </option>
                     <% }) %>
@@ -105,10 +105,14 @@
                   </small>
               </div>
 
-              <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
+              <div class="d-flex justify-content-between">
                 <label for="image" class="form-label">Imagen Actual</label>
-                <img src="/images/productos/<%= image || 'poncho.jpg' %>" alt="" name="image" class="card-img-top mb-5">
-
+                <% images.forEach(image => { %>
+                  <img
+                  src="/images/productos/<%= image.file%>"
+                  width="32%"
+                  alt>
+              <% }) %>
             </div>
 
               <div class="col-12 col-md-6 register__box__cuerpo__contenido uno gap-5 mb-5">
