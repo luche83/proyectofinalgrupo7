@@ -6,10 +6,10 @@ module.exports = [
     .withMessage("Es obligatorio")
     .bail()
     .isLength({
-      min: 4,
-      max: 200,
+      min: 5,
+      max: 50,
     })
-    .withMessage("Debe tener entre 4 y 20 caracteres"),
+    .withMessage("Debe tener entre 5 y 50 caracteres"),
   check("price")
     .notEmpty()
     .withMessage("Es obligatorio")
@@ -25,7 +25,7 @@ module.exports = [
     .withMessage("Especificar"),
   check("description")
     .isLength({
-      min: 20,
+      min: 5,
       max: 800,
     })
     .withMessage("Debe tener entre 5 y 800 caracteres"),

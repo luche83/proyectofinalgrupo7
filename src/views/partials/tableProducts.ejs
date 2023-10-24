@@ -15,7 +15,7 @@
               </tr>
         </thead>
         <tbody>
-           <% products.forEach(({id, title, categoryId, sectionId, regionId, amount,
+           <% products.forEach(({id, title, category, section, region, amount,
       amountmin, price, discount, images, description}, index)=> { %>
 
                 <tr>
@@ -26,13 +26,13 @@
                         <%= title %>
                     </td>
                     <td>
-                        <%= categoryId.title %>
+                        <%= category.title %>
                     </td>
                     <td>
-                        <%= sectionId.title %>
+                        <%= section.title %>
                     </td>
                     <td>
-                        <%= regionId.title %>
+                        <%= region.title %>
                     </td>
                     <td>
                         <%= amount %>
@@ -87,9 +87,9 @@
                                                                 <%=description%>
                                                             </p>
                                                             <ul class="list-group list-group-flush">
-                                                                <li class="list-group-item"><b>Categoría: </b><%= categoryId.title%></li>
-                                                                <li class="list-group-item"><b>Seccion: </b><%= sectionId.title%></li>
-                                                                <li class="list-group-item"><b>Region: </b><%= regionId.title%></li>
+                                                                <li class="list-group-item"><b>Categoría: </b><%= category.title%></li>
+                                                                <li class="list-group-item"><b>Seccion: </b><%= section.title%></li>
+                                                                <li class="list-group-item"><b>Region: </b><%= region.title%></li>
                                                                 <li class="list-group-item"><b>Precio: </b><%= price %></li>
                                                                 <li class="list-group-item"><b>Descuento: </b><%= discount %></li>
                                                               </ul>

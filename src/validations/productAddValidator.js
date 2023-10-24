@@ -6,10 +6,10 @@ module.exports = [
     .withMessage("Es obligatorio")
     .bail()
     .isLength({
-      min: 4,
+      min: 5,
       max: 50,
     })
-    .withMessage("Debe tener entre 4 y 20 caracteres"),
+    .withMessage("Debe tener entre 5 y 50 caracteres"),
   check("categoryId")
     .notEmpty()
     .withMessage("Es necesario"),
@@ -33,9 +33,9 @@ module.exports = [
     })
     .withMessage("Debe ser positivo"),
   check("description").isLength({
-    min: 20,
+    min: 5,
     max: 800,
-  }).withMessage('Debe tener entre 20 y 800 caracteres'),
+  }).withMessage('Debe tener entre 5 y 800 caracteres'),
   body('image')
     .custom((value,{req}) => {
       if(req.files.image){
