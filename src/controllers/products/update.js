@@ -76,10 +76,11 @@ module.exports = (req, res) => {
               }).then(result => console.log(result))
             })
           }
+          
         })
         .catch((error) => console.log(error))
         .finally(() => {
-          return res.redirect("/admin")
+          return res.redirect("/admin");
         })
     })
   } else {

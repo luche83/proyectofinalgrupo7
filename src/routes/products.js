@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const {detail, add, edit, cart, create, remove, index, update,} = require('../controllers/productsController');
-/*const productsController = require('../controllers/productsController');*/
 const upload = require('../middlewares/upload');
 const adminCheck = require('../middlewares/adminCheck');
 const productAddValidator = require('../validations/productAddValidator');
@@ -17,15 +16,5 @@ router.post('/add', upload.fields([{name: "image"},{name: "images"}]), productAd
 router.get('/edit/:id',adminCheck, edit);
 router.put('/update/:id', upload.fields([{name: "image"},{name: "images"}]), productEditValidator, update);
 router.delete('/remove/:id', remove)
-
-/* Tambien se puede expresar de esta manera
-
-router
-        .get('/detail/:id?', productsController.detail)
-        .get('/cart', productsController.cart)
-        .get('/add', productsController.add)
-
-
-*/
 
 module.exports = router;

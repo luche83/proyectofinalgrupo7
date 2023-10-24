@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <% categories.forEach(({id, title, image},index)=> { %>                                                     
+            <% regions.forEach(({id, title, image},index)=> { %>                                                     
                 <tr>
                     <th scope="row">
                         <%= index + 1 %>
@@ -19,7 +19,7 @@
                         <%= title %>
                     </td>
                     <td>
-                        <%= products.filter(product => product.category ===
+                        <%= products.filter(product => product.region ===
                             title).length %>
                     </td>
                     <td>
