@@ -1,13 +1,21 @@
-const { readJSON, writeJSON } = require('../../data');
+
+ const db = require('../../database/models')
 
 module.exports = (req, res) => {
 
-    const users = readJSON('users.json');
-
-    const user = users.find(user => user.id === req.params.id);
-
-    return res.render('userDetail', {
-        ...user,
-        
+    db.User.findByPk(req.params.id, {
+        include : ['images']
     })
+
+    .then(user => {
+
+        return res.render('userDetail', {
+            ...user.dataValues,
+            
+        })
+
+    })
+    .catch(error => console.log(error))
+
+    
  }

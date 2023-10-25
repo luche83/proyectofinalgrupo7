@@ -33,8 +33,12 @@
                     </div>
     
                     <div class="perfil__box__cuerpo__contenido uno">
-                        <label for="lastname" class="labels-forms">Rol</label>
-                        <h4><%= role.name %></h4>
+                        <label for="roleId" class="labels-forms">Rol</label>
+                        
+                        
+                            <h4><%= roleId === 1? 'Administrador' : 'Usuario' %></h4>
+                     
+                                                                       
                     </div>
     
                     <div class="perfil__box__cuerpo__contenido uno">

@@ -45,7 +45,7 @@ module.exports = (req, res) => {
     }else {
         db.User.findByPk(req.session.userLogin.id)
       .then(user =>{
-         return res.render('profile',{
+         return res.render('profileEdit',{
          ...user.dataValues,
          errors : errors.mapped()
       
