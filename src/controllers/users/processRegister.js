@@ -21,7 +21,7 @@ module.exports = (req, res) => {
 
         })
             .then(()=> {
-                return res.redirect('/')
+                return res.redirect('/users/login')
             })
                 .catch(error => console.log(error))
     }else {
