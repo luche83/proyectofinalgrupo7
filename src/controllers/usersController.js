@@ -9,7 +9,7 @@ module.exports = {
    login : require('./users/login'),
    processLogin : require('./users/processLogin'),
    logout : require('./users/logout'),
-   /* profile : require('./users/profile'),
-   profileEdit : require('./users/profileEdit'), */
+   profile : require('./users/profile'),
+   profileEdit : require('./users/profileEdit'),
    updatePerfilEdit : require('./users/updatePerfilEdit'),
  }

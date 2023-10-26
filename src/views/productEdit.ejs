@@ -107,8 +107,7 @@
 
               <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
                 <label for="image" class="form-label">Imagen Actual</label>
-                <img src="/images/productos/<%= image || 'poncho.jpg' %>" alt="" name="image" class="card-img-top mb-5">
-
+                <img src="/images/productos/<%= images.find(image => image.main).file || 'poncho.jpg' %>" alt="" name="image" class="card-img-top mb-5">
             </div>
             
             
