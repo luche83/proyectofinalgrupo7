@@ -5,23 +5,37 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     index : (req, res) => {
         
-        db.Product.findAll({
-            include : ['images']
-        })
+        
+const nuevos = db.Product.findAll({
+    include : ['images'],
+    where : {
+        categoryId : 1
+    }
 
-        .then(products => {
-            
-            return res.render('index',{
-                /*productsInsale : products.filter(product => product.category.title === "Oferta"),
-                productsMasVisitadas : products.filter(product => product.category.title === "Mas Visitadas"),
-                productsNew : products.filter(product => product.category.title === "Nuevos"),
-                products : products.filter(product => product.category.title === " "),
-                toThousand*/
-                products,
-                toThousand
-            })
-        })
-        .catch(error => console.log(error))
+})
+
+const ofertas = db.Product.findAll({
+    include : ['images'],
+    where : {
+        categoryId : 2
+    }
+
+})
+
+const visitados = db.Product.findAll({
+    include : ['images'],
+    where : {
+        categoryId : 3
+    }
+
+})
+      Promise.all([nuevos, ofertas, visitados])
+
+      .then(([nuevos, ofertas, visitados]) => {
+
+        return res.render('index',{nuevos, ofertas, visitados, toThousand}  )
+      })
+      .catch(error => console.log(error))
         
     },
 

@@ -10,7 +10,7 @@
                     <h1>Nuevos Productos</h1>
                 </div>
                 <section class="contenedor--tarjetas-index">
-                    <% products.forEach(({title, description, id, images,category, price, discount})=> { %>
+                    <% nuevos.forEach(({title, description, id, images,category, price, discount})=> { %>
 
                         <article class="tarjeta--individual-index">
                             <div class="img--trajeta">
@@ -34,13 +34,59 @@
                     <h1>Mas Visitadas</h1>
                 </div>
                 <section class="contenedor--tarjetas-index">
+
                     
+
+                    <% visitados.forEach(({title, description, id, images,category, price, discount})=> { %>
+                       
+                         
+                       
+                        <article class="tarjeta--individual-index">
+                            <div class="img--trajeta">
+                                <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="">
+                            </div>
+                            <h4 class="titulo--tarjeta"> <%= title %> </h4>
+                            <div class="index--price-discount__box">
+                                <p class="precio--tarjeta"> <%= toThousand((price - (price * discount / 100)).toFixed(0))  %> </p>
+                                 <% if (discount) { %>
+                                    <p class="index--space">/</p>
+                                    <p class="index--discount__p">% <%= discount %> OFF</p>
+                                <% } %>
+                            </div>
+                            <button class="boton--tarjeta"><a href="/products/detail/<%= id %>">VER MAS</a></button>
+                        </article>   
+                        
+                        <% }) %>
+                           
+
                 </section>
                 <div>
                     <h3>OFERTAS</h3>
                 </div>
                 <section class="contenedor--tarjetas-index">
                     
+
+                <% ofertas.forEach(({title, description, id, images,category, price, discount})=> { %>
+                       
+                         
+                       
+                        <article class="tarjeta--individual-index">
+                            <div class="img--trajeta">
+                                <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="">
+                            </div>
+                            <h4 class="titulo--tarjeta"> <%= title %> </h4>
+                            <div class="index--price-discount__box">
+                                <p class="precio--tarjeta"> <%= toThousand((price - (price * discount / 100)).toFixed(0))  %> </p>
+                                 <% if (discount) { %>
+                                    <p class="index--space">/</p>
+                                    <p class="index--discount__p">% <%= discount %> OFF</p>
+                                <% } %>
+                            </div>
+                            <button class="boton--tarjeta"><a href="/products/detail/<%= id %>">VER MAS</a></button>
+                        </article>   
+                        
+                        <% }) %>
+
                 </section>
             </main>
             <%- include('partials/footer') %>
