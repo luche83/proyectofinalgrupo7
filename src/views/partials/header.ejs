@@ -42,7 +42,7 @@
           <a href=""><i class="fa-solid fa-xmark"></i></a>
         </div>
         <li><a href="/">Inicio</a></li>
-        <li><a href="/products">Productos</a></li>
+        <li><a href="/products/all">Productos</a></li>
         <li><a href="#">Regiones</a></li>
         <% if (locals.userLogin) { %>
         <li><a href="/users/profile">Perfil <i class="fa-regular fa-user"></i></a></li>
@@ -63,7 +63,7 @@
       <div class="Header-nav__div">
         <ul class="Header-nav-div__ul">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/products">Productos</a></li>
+          <li><a href="/products/all">Productos</a></li>
           <li><a href="#">Regiones</a></li>
           <% if (locals.userLogin) { %>
             <% if (userLogin.role === 1) { %>

@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const {Op} = require('sequelize')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -65,15 +66,20 @@ const visitados = db.Product.findAll({
         
     },
 
-	search: (req, res) => {
-        const products = readJSON('products.json');
-        const results = products.filter(product => product.title.toLowerCase().includes(req.query.keywords.toLowerCase()))
-		return res.render('results', {
-			results,
-			toThousand,
-			keywords : req.query.keywords
-		})
-	},
+    search: (req, res) => {
+        const keyword = req.query.keyword
 
-    
+        db.Product.findAll({
+            where : {
+                title : {
+                    [Op.substring] : keyword
+                }
+            }
+        }).then(products => {
+            return res.render('results', {
+                products,
+                result : true 
+            })
+        }).catch(error => console.log(error))
+	}, 
 }

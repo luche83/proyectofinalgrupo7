@@ -31,7 +31,8 @@ module.exports = (req, res) => {
       )
         .then(() => {
           //cambiar imagen principal
-          if (req.files.image) { existsSync(`./src/public/images/productos/${product.images.find((image) => image.main).file}`) &&
+          if (req.files.image) { 
+            existsSync(`./src/public/images/productos/${product.images.find((image) => image.main).file}`) &&
               unlinkSync(`./src/public/images/productos/${product.images.find((image) => image.main).file}`);
             
               db.Image.destroy({
