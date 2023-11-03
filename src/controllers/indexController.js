@@ -78,7 +78,7 @@ const visitados = db.Product.findAll({
         }).then(products => {
             return res.render('results', {
                 products,
-                result : true 
+                results : true 
             })
         }).catch(error => console.log(error))
 	}, 
