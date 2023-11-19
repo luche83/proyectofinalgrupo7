@@ -3,7 +3,7 @@ const db = require('../database/models')
 module.exports = [
     check("name")
         .isLength({
-             min: 2,
+            min: 2,
         }).withMessage("El nombre es obligatorio")
         .isAlpha("es-ES").withMessage("Solo letras"),
     check("surname")
