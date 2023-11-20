@@ -18,51 +18,51 @@
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="name">Nombe</label>
-                    <input id="name" placeholder="Escriba su nombre" type="text" name="name" class="form-input" value="<%= name %>">
-                    <small class="text-danger ms-2">
+                    <input id="name" placeholder="Escriba su nombre" type="text" name="name" class="form-control" value="<%= name %>">
+                    <small class="text-danger ms-2" id="msgError-name">
                         <%= locals.errors && (errors.name && errors.name.msg) %>
-                      </small>
-                      
+                    </small>
+                    
                 </div>
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="surname">Apellido</label>
-                    <input id="surname" placeholder="Escriba su apellido" type="text" name="surname" class="form-input" value="<%= surname %>">
-                    <small class="text-danger ms-2">
+                    <input id="surname" placeholder="Escriba su apellido" type="text" name="surname" class="form-control" value="<%= surname %>">
+                    <small class="text-danger ms-2" id="msgError-surname">
                         <%= locals.errors && (errors.surname && errors.surname.msg) %>
-                      </small>
+                    </small>
                 </div>
     
                 <div class="register__box__cuerpo__contenido dos">
                     <label for="address">Direccion</label>
-                    <input id="address" placeholder="Calle y Numero" type="text" name="address" class="form-input" value="<%= address %>">
-                    <small class="text-danger ms-2">
+                    <input id="address" placeholder="Calle y Numero" type="text" name="address" class="form-control" value="<%= address %>">
+                    <small class="text-danger ms-2"id="msgError-address">
                         <%= locals.errors && (errors.address && errors.address.msg) %>
-                      </small>
+                    </small>
                 </div>
 
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="birthday">Fecha de nacimiento</label>
-                    <input id="birthday" type="date" name="birthday" class="form-input" value="<%= birthday %>">
-                    <small class="text-danger ms-2">
+                    <input id="birthday" type="date" name="birthday" class="form-control" value="<%= birthday %>">
+                    <small class="text-danger ms-2" id="msgError-birthday">
                         <%= locals.errors && (errors.birthday && errors.birthday.msg) %>
-                      </small>
+                    </small>
                 </div>
 
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="city">Ciudad</label>
-                    <input id="city" placeholder="Escriba su Ciudad" type="text" name="city" class="form-input" value="<%= city %>">
-                    <small class="text-danger ms-2">
+                    <input id="city" placeholder="Escriba su Ciudad" type="text" name="city" class="form-control" value="<%= city %>">
+                    <small class="text-danger ms-2" id="msgError-city">
                         <%= locals.errors && (errors.city && errors.city.msg) %>
-                      </small>
+                    </small>
                 </div>
 
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="province">Provincia</label>
-                    <input id="province" placeholder="Escriba su Provincia" type="text" name="province" class="form-input" value="<%= province %>">
-                    <small class="text-danger ms-2">
+                    <input id="province" placeholder="Escriba su Provincia" type="text" name="province" class="form-control" value="<%= province %>">
+                    <small class="text-danger ms-2" id="msgError-province">
                         <%= locals.errors && (errors.province && errors.province.msg) %>
-                      </small>
+                    </small>
                 </div>
 
                 <div class="register__box__cuerpo__contenido uno">
@@ -75,15 +75,14 @@
                 <div class="col-12 d-flex justify-content-end gap-2 mb-3">
                     <button type="submit" class="btn btn-outline-dark">Guardar Cambios</button>
                     <button type="reset" class="btn btn-outline-dark">Borrar</button>
-                  </div>
+                </div>
 
             </form>
     
         </div>
     
     </main>
-
-
     <%- include('partials/footer') %>
+    <script src="/js/profile.js"></script>
 </body>
 </html>

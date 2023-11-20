@@ -18,12 +18,12 @@ window.onload = function(e) {
                 break;
             
             case !/^[A-Za-z]+$/.test(this.value):
-                $('msgError-name').innerHTML = "Solo caracteres alfanumericos";
+                $('msgError-name').innerHTML = "No se periten numeros";
                 this.classList.add("is-invalid");
                 break;
             
             case this.value.trim().length < 2 :
-                $('msgError-name').innerHTML = "Minimo dos caracteres";
+                $('msgError-name').innerHTML = "Minimo dos letras";
                 this.classList.add("is-invalid");
                 break;
             
@@ -111,6 +111,12 @@ window.onload = function(e) {
         
     });
 
+    $('email').addEventListener('focus', function() {
+        $('msgError-email').innerHTML = null;
+        this.classList.remove("is-invalid");
+                    
+        })
+
     $('password').addEventListener('blur', function(e){
         switch (true) {
             case !this.value.trim():
@@ -155,7 +161,7 @@ window.onload = function(e) {
         this.classList.remove("is-invalid");
                     
         })
-
+            
     $('password2').addEventListener('blur', function(e){
         switch (true) {
             case !this.value.trim():
@@ -174,7 +180,7 @@ window.onload = function(e) {
                 break;
         }
     });
-
+    
     $('formAdd').addEventListener('submit', function(e) {
         e.preventDefault();
 

@@ -17,11 +17,11 @@
     
             </div>
     
-            <form action="" method="POST" enctype="multipart/form-data" class="register__box__cuerpo row">
+            <form action="" method="POST" enctype="multipart/form-data" class="register__box__cuerpo row"id="formAdd">
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="name">Nombe</label>
-                    <input id="name" placeholder="Escriba su nombre" type="text" name="name" class="form-input <%= locals.errors && (errors.name && 'is-invalid') %>" value="<%= locals.old && (old.name && old.name) %>">
+                    <input id="name" placeholder="Escriba su nombre" type="text" name="name" class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>" value="<%= locals.old && (old.name && old.name) %>">
                     <small class="text-danger ms-2" id="msgError-name">
                         <%= locals.errors && (errors.name && errors.name.msg) %>
                     </small>
@@ -29,7 +29,7 @@
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="surname">Apellido</label>
-                    <input id="surname" placeholder="Escriba su apellido" type="text" name="surname" class="form-input <%= locals.errors && (errors.surname && 'is-invalid') %>" value="<%= locals.old && (old.surname && old.surname) %>">
+                    <input id="surname" placeholder="Escriba su apellido" type="text" name="surname" class="form-control <%= locals.errors && (errors.surname && 'is-invalid') %>" value="<%= locals.old && (old.surname && old.surname) %>">
                     <small class="text-danger ms-2" id="msgError-surname">
                         <%= locals.errors && (errors.surname && errors.surname.msg) %>
                     </small>
@@ -37,7 +37,7 @@
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="email">Email</label>
-                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input <%= locals.errors && (errors.email && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
+                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-control <%= locals.errors && (errors.email && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
                     <small class="text-danger ms-2" id="msgError-email">
                         <%= locals.errors && (errors.email && errors.email.msg) %>
                     </small>
@@ -45,8 +45,12 @@
 
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="password" class="labels-forms">Contraseña</label>
-                    <input id="password" type="password" placeholder="Escriba su contraseña" name="password"
-                    class="form-input <%= locals.errors && (errors.password && 'is-invalid') %>" value="<%= locals.old && (old.password && old.password) %>">
+
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control input-group-text <%= locals.errors && (errors.password && 'is-invalid') %>" id="password" placeholder="Tu Contraseña" name="password">
+                        <span class="input-group-text"><i id="button-eye" class="fa fa-eye"></i></span>
+                    </div>
+
                     <small class="text-danger ms-2" id="msgError-password">
                         <%= locals.errors && (errors.password && errors.password.msg) %>
                     </small> 
@@ -54,18 +58,28 @@
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="password2" class="labels-forms">Confirmar Contraseña</label>
-                    <input id="password2" type="password" placeholder="Confirmar su contraseña" name="password2"
-                        class="form-input <%= locals.errors && (errors.password2 && 'is-invalid') %>">
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control input-group-text <%= locals.errors && (errors.password && 'is-invalid') %>" id="password2" placeholder="Confirmar Contraseña" name="password2">
+                        <!--<span class="input-group-text"><i id="button-eye" class="fa fa-eye"></i></span>-->
+                    </div>
                     <small class="text-danger ms-2" id="msgError-password2">
                         <%= locals.errors && (errors.password2 && errors.password2.msg) %>
                     </small>    
                 </div>
-
+                            
                 <div class="register__box__cuerpo__contenido uno">
                     
                     <label for="image" class="btn btn-secondary">Agregar Imagen</label>
                     <input type="file" name="image" id="image" hidden>
 
+                </div>
+
+                <div class="register__box__cuerpo__contenido uno">
+                    
+                    <small class="text-danger ms-2" id="msgError-empty">
+                        
+                    </small>  
+                    
                 </div>
     
                 <div class="col-12 d-flex justify-content-end gap-2 mb-3">
@@ -73,20 +87,22 @@
                     <input type="file" name="image" id="image" hidden>-->
                     <button type="submit" class="btn btn-outline-dark">Guardar</button>
                     <button type="reset" class="btn btn-outline-dark">Borrar</button>
-                  </div>
+                </div>
 
-              <!--  <div class="register__box__cuerpo__bottom">
+            <!--  <div class="register__box__cuerpo__bottom">
                     <button type="submit" class="buttom-forms"><a href="/">Enviar</a></button>
                     <button type="reset" class="buttom-forms">Borrar</button>
                 </div>-->
+
+                
     
             </form>
     
         </div>
     
     </main>
-  <%- include('partials/footer') %>
-  <script src="/js/register.js"></script>
+<%- include('partials/footer') %>
+<script src="/js/register.js"></script>
 </body>
 
 </html>

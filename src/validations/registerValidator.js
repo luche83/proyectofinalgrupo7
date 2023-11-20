@@ -4,15 +4,15 @@ module.exports = [
     check("name")
         .isLength({
             min: 2,
-        }).withMessage("El nombre es obligatorio")
+        }).withMessage("El nombre es requerido")
         .isAlpha("es-ES").withMessage("Solo letras"),
     check("surname")
         .isLength({
             min: 2,
-        }).withMessage("El apellido es obligatorio")
+        }).withMessage("El apellido es requerido")
         .isAlpha("es-ES").withMessage("Solo letras"),
     body('email')
-        .notEmpty().withMessage('El email es obligatorio')
+        .notEmpty().withMessage('El email es requerido')
         .isEmail().withMessage('Formato invalido')
         .custom((value,{req}) => {
 
@@ -26,7 +26,7 @@ module.exports = [
                 }
             }).catch((error) => {
                 console.log(error);
-                return Promise.reject('El email ya se encuentra registrado')
+                return Promise.reject('El email ya fue registrado')
             })
             
         }),
