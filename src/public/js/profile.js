@@ -1,4 +1,5 @@
 const $ = id => document.getElementById(id);
+
 const urlBase = "https://apis.datos.gob.ar/georef/api"
 
 window.onload = async function(e) {
@@ -27,7 +28,7 @@ window.onload = async function(e) {
     $('surname').addEventListener('blur', function(e){
         switch (true) {
             case !this.value.trim():
-                $('msgError-surname').innerHTML = "El nombre es obligatorio";
+                $('msgError-surname').innerHTML = "El apellido es obligatorio";
                 this.classList.add("is-invalid");
                 break;
             case !/^[A-Za-z]+$/.test(this.value):
@@ -49,7 +50,7 @@ window.onload = async function(e) {
     $('address').addEventListener('blur', function(e){
         switch (true) {
             case !this.value.trim():
-                $('msgError-address').innerHTML = "El nombre es obligatorio";
+                $('msgError-address').innerHTML = "La direccion es obligatorio";
                 this.classList.add("is-invalid");
                 break;
             case this.value.trim().length < 2 :
@@ -71,6 +72,11 @@ window.onload = async function(e) {
         const minDate = moment().subtract(120, 'years');
 
         switch (true) {
+
+            case !this.value.trim():
+                $('msgError-birthday').innerHTML = "La fecha es obligatorio";
+                this.classList.add("is-invalid");
+                break;
 
             case birthDate.isAfter(currentDate):
                 $('msgError-birthday').innerHTML = "Sos Termita?";
@@ -116,6 +122,27 @@ window.onload = async function(e) {
         } catch (error) {
             console.error(error);
         }
+        
+    })
+
+    $('formAdd').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const elementsForm = $('formAdd').elements;
+
+        let error = false
+
+        for (let i = 0; i < elementsForm.length - 1; i++) {
+            
+            if(!elementsForm[i].value.trim() || elementsForm[i].classList.contains('is-invalid')){
+                elementsForm[i].classList.add('is-invalid')
+                $('msgError-empty').innerHTML = "Todos los campos son obligatorio"
+                error = true
+            }
+        }
+
+        !error && this.submit()
+
         
     })
 

@@ -17,20 +17,20 @@
             
             </div>
             
-            <form action="" method="POST" class="login__box__cuerpo">
+            <form action="" method="POST" class="login__box__cuerpo" id="formAdd">
                 
                 <div class="login__box__cuerpo__contenido">
                     <label for="email">Email</label>
-                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-input <%= locals.errors && ((errors.email || errors.password) && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
-                    <small class="text-danger ms-2">
+                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-control <%= locals.errors && ((errors.email || errors.password) && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
+                    <small class="text-danger ms-2" id="msgError-email">
                         <%= locals.errors && (errors.email && errors.email.msg) %>
                     </small>   
                 </div>
     
                 <div class="login__box__cuerpo__contenido">
                     <label for="password" class="labels-forms">Contraseña</label>
-                    <input id="password" type="password" placeholder="Escriba su contraseña" name="password" class="form-input">
-                    <small class="text-danger ms-2">
+                    <input id="password" type="password" placeholder="Escriba su contraseña" name="password" class="form-control">
+                    <small class="text-danger ms-2" id="msgError-password">
                         <%= locals.errors && (errors.password && errors.password.msg) %>
                     </small>   
                 </div>
@@ -38,6 +38,14 @@
                 <div class="login__box__cuerpo__contenido__recordarme">
                     <label for="remember">Recordarme</label>           
                     <input type="checkbox" value="" id="remember" name="remember"> 
+                </div>
+
+                <div class="register__box__cuerpo__contenido uno">
+                    
+                    <small class="text-danger ms-2" id="msgError-empty">
+                        
+                    </small>  
+                    
                 </div>
                 
                 <div class="login__box__cuerpo__bottom">
@@ -50,6 +58,7 @@
     
     </main>
     <%- include('partials/footer') %>
+    <script src="/js/login.js"></script>
 </body>
 
 </html>

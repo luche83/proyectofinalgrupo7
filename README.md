@@ -73,12 +73,18 @@
 
 ### SPRIN 4 RETRO
 
-![Retroespectiva SPRIN 3](/mocks/Retro/Sprint4Retro.png)
+![Retroespectiva SPRIN 4](/mocks/Retro/Sprint4Retro.png)
 
 ***
 
 ### SPRIN 5 RETRO
 
-![Retroespectiva SPRIN 3](/mocks/Retro/Sprint5Retro.png)
+![Retroespectiva SPRIN 5](/mocks/Retro/Sprint5Retro.png)
+
+***
+
+### SPRIN 6 RETRO
+
+![Retroespectiva SPRIN 6](/mocks/Retro/Sprint6Retro.png)
 
 ***

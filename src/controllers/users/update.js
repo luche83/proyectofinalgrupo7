@@ -23,7 +23,7 @@ module.exports = (req, res) => {
                 city : city.trim(),
                 province : province.trim(),
 
-               
+            
             },
             {
                 where : {
@@ -32,7 +32,6 @@ module.exports = (req, res) => {
             }
         )
         .then(response => {
-            console.log(response);
             req.session.userLogin.name = name;
             res.locals.userLogin.name = name;
             

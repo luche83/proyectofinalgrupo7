@@ -14,7 +14,7 @@
     
             </div>
     
-            <form action="/users/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="register__box__cuerpo row">
+            <form action="/users/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="register__box__cuerpo row" id="formAdd">
     
                 <div class="register__box__cuerpo__contenido uno">
                     <label for="name">Nombe</label>
@@ -50,18 +50,23 @@
                 </div>
 
                 <div class="register__box__cuerpo__contenido uno">
-                    <label for="city">Ciudad</label>
-                    <input id="city" placeholder="Escriba su Ciudad" type="text" name="city" class="form-control" value="<%= city %>">
-                    <small class="text-danger ms-2" id="msgError-city">
-                        <%= locals.errors && (errors.city && errors.city.msg) %>
+                    <label for="province">Provincia</label>
+                    <select type="test" class="form-select" id="province" name="province">
+                        <option value=""hidden><%= province %></option>
+                    </select>
+                    <small class="text-danger ms-2" id="msgError-province">
+                        <%= locals.errors && (errors.province && errors.province.msg) %>
                     </small>
                 </div>
 
+                
                 <div class="register__box__cuerpo__contenido uno">
-                    <label for="province">Provincia</label>
-                    <input id="province" placeholder="Escriba su Provincia" type="text" name="province" class="form-control" value="<%= province %>">
-                    <small class="text-danger ms-2" id="msgError-province">
-                        <%= locals.errors && (errors.province && errors.province.msg) %>
+                    <label for="city">Ciudad</label>
+                    <select type="test" class="form-select" id="city" name="city">
+                        <option value=""hidden><%= city %>"</option>
+                    </select>
+                    <small class="text-danger ms-2" id="msgError-city">
+                        <%= locals.errors && (errors.city && errors.city.msg) %>
                     </small>
                 </div>
 
@@ -70,6 +75,14 @@
                     <label for="image" class="btn btn-secondary">Agregar Imagen</label>
                     <input type="file" name="image" id="image" hidden>
 
+                </div>
+
+                <div class="register__box__cuerpo__contenido uno">
+                    
+                    <small class="text-danger ms-2" id="msgError-empty">
+                        
+                    </small>  
+                    
                 </div>
     
                 <div class="col-12 d-flex justify-content-end gap-2 mb-3">
@@ -83,6 +96,7 @@
     
     </main>
     <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
     <script src="/js/profile.js"></script>
 </body>
 </html>
