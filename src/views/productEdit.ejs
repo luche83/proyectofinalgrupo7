@@ -23,7 +23,7 @@
               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
                 <label for="title" class="form-label">Nombre del Producto</label>
                 <input type="text" class="form-input <%= locals.errors && (errors.title && 'is-invalid') %>" id="title" placeholder="Nombre del Producto" name="title" value="<%= title %>">
-                <small class="text-danger ms-2">
+                <small class="text-danger ms-2" id="msgError-title">
                   <%= locals.errors && (errors.title && errors.title.msg) %>
                 </small>
               </div>
@@ -66,7 +66,7 @@
                 <label for="price" class="form-label">Precio</label>
                 <input type="number" class="form-input <%= locals.errors && (errors.price && 'is-invalid') %>" id="price" placeholder="Precio" name="price"
                   value="<%= price %>">
-                  <small class="text-danger ms-2">
+                  <small class="text-danger ms-2" id="msgError-price">
                     <%= locals.errors && (errors.price && errors.price.msg) %>
                   </small>
               </div>
@@ -81,7 +81,7 @@
                 <label for="amount" class="form-label">Cantidad Disponible</label>
                 <input type="number" class="form-input <%= locals.errors && (errors.amount && 'is-invalid') %>" id="amount" placeholder="Cantidad Disponible" name="amount"
                   value="<%= amount %>">
-                  <small class="text-danger ms-2">
+                  <small class="text-danger ms-2" id="msgError-amount">
                     <%= locals.errors && (errors.amount && errors.amount.msg) %>
                   </small>
               </div>
@@ -90,7 +90,7 @@
                 <label for="amountmin" class="form-label">Cantidad Minima</label>
                 <input type="number" class="form-input <%= locals.errors && (errors.amountmin && 'is-invalid') %>" id="amountmin" placeholder="Cantidad Minima" name="amountmin"
                   value="<%= amountmin %>">
-                  <small class="text-danger ms-2">
+                  <small class="text-danger ms-2" id="msgError-amountmin">
                     <%= locals.errors && (errors.amountmin && errors.amountmin.msg) %>
                   </small>
               </div>
@@ -100,7 +100,7 @@
                 <label for="description" class="form-label">Descripcion</label>
                 <textarea name="description" id="description" class="form-input <%= locals.errors && (errors.description && 'is-invalid') %>"
                   style="resize: none"><%= description %></textarea>
-                  <small class="text-danger ms-2">
+                  <small class="text-danger ms-2" id="msgError-description">
                     <%= locals.errors && (errors.description && errors.description.msg) %>
                   </small>
               </div>
@@ -142,6 +142,7 @@
 
       </main>
       <%- include('partials/footer') %>
+      <script src="/js/productUpdateValidation.js"></script>
   </body>
 
 </html>

@@ -21,10 +21,10 @@
                         
                         <form action="" method="POST" enctype="multipart/form-data" class="row">
 
-                            <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="title" class="form-label">Nombre del Producto</label>
                                 <input type="text" class="form-input <%= locals.errors && (errors.title && 'is-invalid') %>" id="title" placeholder="Nombre del Producto" name="title" value="<%= locals.old && (old.title && old.title ) %>">
-                                <small class="text-danger ms-2">
+                                <small class="text-danger ms-2" id="msgError-title">
                                   <%= locals.errors && (errors.title && errors.title.msg) %>
                                 </small>
                               </div>
@@ -85,7 +85,7 @@
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="price" class="form-label">Precio</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.price && 'is-invalid') %>" id="price" placeholder="Precio" name="price" value="<%= locals.old && (old.price && old.price ) %>">
-                                <small class="text-danger ms-2">
+                                <small class="text-danger ms-2" id="msgError-price">
                                   <%= locals.errors && (errors.price && errors.price.msg) %>
                                 </small>
                               </div>
@@ -93,12 +93,15 @@
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="discount" class="form-label">Descuento</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.discount && 'is-invalid') %>" id="discount" placeholder="Descuento" name="discount" value="<%= locals.old && (old.discount && old.discount ) %>">
+                                <small class="text-danger ms-2" id="msgError-discount">
+                                  <%= locals.errors && (errors.price && errors.price.msg) %>
+                                </small>
                               </div>
 
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="amount" class="form-label">Cantidad Disponible</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.amount && 'is-invalid') %>" id="amount" placeholder="Cantidad Disponible" name="amount" id="amount" value="<%= locals.old && (old.amount && old.amount ) %>">
-                                <small class="text-danger ms-2">
+                                <small class="text-danger ms-2" id="msgError-amount">
                                   <%= locals.errors && (errors.amount && errors.amount.msg) %>
                                 </small>
                               </div>
@@ -106,7 +109,7 @@
                               <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
                                 <label for="amountmin" class="form-label">Cantidad Minima</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.amountmin && 'is-invalid') %>" id="amountmin" placeholder="Cantidad Minima" name="amountmin" id="amountmin" value="<%= locals.old && (old.amountmin && old.amountmin ) %>">
-                                <small class="text-danger ms-2">
+                                <small class="text-danger ms-2" id="msgError-amountmin">
                                   <%= locals.errors && (errors.amountmin && errors.amountmin.msg) %>
                                 </small>
                               </div>
@@ -115,7 +118,7 @@
                               <div class="col-12 mb-3 login__box__cuerpo__contenido">
                                 <label for="description" class="form-label">Descripcion</label>
                                 <textarea name="description" id="description" class="form-input" style="resize: none"><%= locals.old && (old.description && old.description ) %></textarea>
-                                <small class="text-danger ms-2">
+                                <small class="text-danger ms-2" id="msgError-description">
                                   <%= locals.errors && (errors.description && errors.description.msg) %>
                                 </small>
                               </div>
@@ -140,6 +143,7 @@
 
             </main>
             <%- include('partials/footer') %>
+            <script src="/js/productAddValidation.js"></script>
     </body>
 
 </html>
