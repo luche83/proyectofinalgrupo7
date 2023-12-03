@@ -17,22 +17,27 @@
             
             </div>
             
-            <form action="" method="POST" class="login__box__cuerpo" id="formAdd">
+            <form action="" method="POST" class="login__box__cuerpo" id="formLogin">
                 
                 <div class="login__box__cuerpo__contenido">
                     <label for="email">Email</label>
-                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-control <%= locals.errors && ((errors.email || errors.password) && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
+                    <input id="email" placeholder="Escriba su email" type="email" name="email" class="form-control <%= locals.errors && (errors.email && 'is-invalid') %>" value="<%= locals.old && (old.email && old.email) %>">
                     <small class="text-danger ms-2" id="msgError-email">
                         <%= locals.errors && (errors.email && errors.email.msg) %>
                     </small>   
                 </div>
     
-                <div class="login__box__cuerpo__contenido">
+                <div class="register__box__cuerpo__contenido">
                     <label for="password" class="labels-forms">Contraseña</label>
-                    <input id="password" type="password" placeholder="Escriba su contraseña" name="password" class="form-control">
+
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control input-group-text <%= locals.errors && (errors.password && 'is-invalid') %>" id="password" placeholder="Tu Contraseña" name="password">
+                        <span class="input-group-text"><i id="button-eye" class="fa fa-eye"></i></span>
+                    </div>
+
                     <small class="text-danger ms-2" id="msgError-password">
                         <%= locals.errors && (errors.password && errors.password.msg) %>
-                    </small>   
+                    </small> 
                 </div>
     
                 <div class="login__box__cuerpo__contenido__recordarme">

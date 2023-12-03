@@ -36,9 +36,9 @@ window.onload = function(e) {
 
         const result = await response.json();
 
-        if(result.data){
+        if(!result.data){
 
-            $('msgError-email').innerHTML = "El email ya se encuentra registrado";
+            $('msgError-email').innerHTML = "El email no se encuentra registrado - REGISTRESE";
             this.classList.add("is-invalid");
 
         }
@@ -97,14 +97,14 @@ window.onload = function(e) {
     });
 
         
-    $('formAdd').addEventListener('submit', function(e) {
+    $('formLogin').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const elementsForm = $('formAdd').elements;
+        const elementsForm = $('formLogin').elements;
 
         let error = false
 
-        for (let i = 0; i < elementsForm.length - 1; i++) {
+        for (let i = 0; i < elementsForm.length - 2; i++) {
             
             if(!elementsForm[i].value.trim() || elementsForm[i].classList.contains('is-invalid')){
                 elementsForm[i].classList.add('is-invalid')
