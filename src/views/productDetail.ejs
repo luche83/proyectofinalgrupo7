@@ -9,18 +9,20 @@
         <section>
             <div class="main-producdetalles__div">
 
-                <div class="img-detail">
-                    <img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="" class="img--trajeta">
-                </div>
+                <div class="Box-img-div">
+                    <div class="img-detail">
+                        <img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="" class="img--trajeta">
+                    </div>
 
-                <div class="d-flex flex-wrap justify-content-between mt-1">
-                    <% images.filter(image => !image.main).forEach(image => { %>
-                        <img src="/images/productos/<%= image.file %>"
-                        style="width: 33%;" alt="...">
-                    <% }) %>
+                    <div>
+                        <% images.filter(image => !image.main).forEach(image => { %>
+                            <img src="/images/productos/<%= image.file %>"
+                            style="width: 15%" alt="...">
+                        <% }) %>
+                    </div>
                 </div>
                 
-                 <div class="n2">
+                <div class="n2">
                     <div class="Producto-precio__nombre">
                         <h2 class="detail--h4"><%= title %></h2>
                         <div class="detail--price-discount__box">                
@@ -36,6 +38,7 @@
                     </div>
 
                     <p class="productos__detalles"><%= description %></p>
+
                     <div class="Producto-comprar__carrito">
                         <a href="/products/Cart">Comprar</a>
                         <a href="/products/cart">Agregar al carrito</a>
