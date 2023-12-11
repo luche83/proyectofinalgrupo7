@@ -4,19 +4,27 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = (req, res) => {
 
-    db.Product.findByPk(req.params.id, {
-        include : ['images']
+    const productDetail = db.Product.findByPk(req.params.id, {
+        include : ['images'],
     })
 
-    .then(product => {
+    const productsRelated = db.Product.findAll({
+        include : ['images'],        
+    })
+
+    Promise.all([productDetail,productsRelated])
+
+    .then(([productDetail, productsRelated]) => {
 
         return res.render('productDetail', {
-            ...product.dataValues,
+            ...productDetail.dataValues,
+            productsRelated,
             toThousand
         })
 
     })
-    .catch(error => console.log(error))
-
-    
+    .then( () => {
+        
+    })
+    .catch(error => console.log(error))    
  }

@@ -23,7 +23,7 @@ module.exports = {
         name: 'Tomas',
         surname: 'Reyes',
         email: 'tomasreyes2107@gmail.com',
-        password: "$2a$10$UnA7dMmjhzrh/mD85ztKcO6FyTANYjNNsCtJPE0judpqWbMsVKOgi",
+        password: "$2a$10$Zy46bsBmLqfKRTXhHy1rX.T2D0hnGy3fFU7tGueMhxMLa7toGiNl.",
         roleId: 1,
         birthday: null,
        address: null,

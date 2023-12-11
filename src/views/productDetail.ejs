@@ -9,25 +9,27 @@
         <section>
             <div class="main-producdetalles__div">
 
-                <div class="img-detail">
-                    <img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="" class="img--trajeta">
-                </div>
+                <div class="Box-img-div">
+                    <div class="img-detail">
+                        <img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="" class="img--trajeta">
+                    </div>
 
-                <div class="d-flex flex-wrap justify-content-between mt-1">
-                    <% images.filter(image => !image.main).forEach(image => { %>
-                        <img src="/images/productos/<%= image.file %>"
-                        style="width: 33%;" alt="...">
-                    <% }) %>
+                    <div>
+                        <% images.filter(image => !image.main).forEach(image => { %>
+                            <img src="/images/productos/<%= image.file %>"
+                            style="width: 15%" alt="...">
+                        <% }) %>
+                    </div>
                 </div>
                 
-                 <div class="n2">
+                <div class="n2">
                     <div class="Producto-precio__nombre">
                         <h2 class="detail--h4"><%= title %></h2>
                         <div class="detail--price-discount__box">                
                             <% if (discount) { %>
                                 <p class="detail--p text-decoration-line-through fs-4">$<%= toThousand(price) %></p>
                                 <p class="detail--space__p">/</p>
-                                <p class="detail--discount__p ">% <%= discount %> OFF</p>
+                                <p class="detail--discount__p "> <%= discount %>% OFF</p>
                             <% } %>
                         </div>
                         <div class="detail--div__box">
@@ -36,6 +38,7 @@
                     </div>
 
                     <p class="productos__detalles"><%= description %></p>
+
                     <div class="Producto-comprar__carrito">
                         <a href="/products/Cart">Comprar</a>
                         <a href="/products/cart">Agregar al carrito</a>
@@ -43,6 +46,32 @@
                 </div>
                
             </div>
+            <h3 class="Detail--Products--Related--info--title-h3">Productos Relacionados</h3>
+            <section class="Products--Related--box">
+                <% productsRelated.forEach(({id,title,price,images,discount, section, description}) => { %>
+
+                        <div class="Products--Related--div">
+                            <div class="Products--Related--img">
+                                <a href="/products/detail/<%= id %>"><img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt=""></a>
+                            </div>
+                            <div class="Products--Related--info">
+                                <h5 class="Detail--Products--Related--info--title"><%= title %></h5>
+                                <% if (discount) { %>
+                                    <p class="Detail--Products--Related--info">$<%= toThousand(price) %></p>
+                                    <div class="Detail--Products--Related--info-box">
+                                        <p class="Detail--Products--Related--info-price" > <%= toThousand((price - (price * discount / 100)).toFixed(0)) %></p>
+                                        <p class="Detail--Products--Related--info-espace">/</p>
+                                        <p class="Detail--Products--Related--info-discount"> <%= discount %>% OFF</p>
+                                    </div>
+                                <% } %>
+                                <% if (!discount) { %>
+                                    <p class="Detail--Products--Related--info-price"> <%= toThousand((price - (price * discount / 100)).toFixed(0)) %></p>
+                                    <p class="Detail--Products--Related--info-description"><%= description %></p>
+                                <% } %>
+                            </div> 
+                        </div>           
+                <% }) %>
+            </section>
         </section>
     </main>
     <%- include('partials/footer') %>
