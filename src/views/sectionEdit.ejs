@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+  <body>
+
+    <%- include('partials/header') %>
+
+      <main class="login">
+        <div class="login__box">
+
+          <div class="login__box__encabezado">
+
+            <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+            <h4 class="animate__animated animate__flash">Editar Seccion </h4>
+
+          </div>
+          <!--Inicio -->
+          
+            <form action="/sections/update/.´+'?_method=PUT" method="POST" enctype="multipart/form-data" class="register__box__cuerpo container">
+
+              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido uno">
+                <label for="title" class="form-label">Nombre de la Seccion</label>
+                <input type="text" class="form-input <%= locals.errors && (errors.title && 'is-invalid') %>" id="title" placeholder="Nombre dela seccion" name="title" value="">
+                <small class="text-danger ms-2" id="msgError-title">
+                  <%= locals.errors && (errors.title && errors.title.msg) %>
+                </small>
+              </div>
+
+             <div class="col-12 col-md-6 register__box__cuerpo__contenido uno">
+                <label for="image" class="form-label">Imagen Actual</label>
+               <img src="/images/productos/" alt="" name="image" class="card-img-top mb-5"> 
+            </div>
+            
+          <div class="col-12 d-flex justify-content-end gap-2 mb-3">
+            <small class="text-danger ms-2">
+              <%= locals.errors && (errors.image && errors.image.msg) %>
+            </small>
+            <label for="image" class="btn <%= (locals.errors && errors.image) ? 'btn-danger' : 'btn-secondary' %>">Cambiar Imagen principal</label>
+            <input type="file" name="image" id="image" hidden />
+            
+            <button class="btn btn-dark">Guardar cambios</button>
+          </div>
+
+            </form>
+          
+          <!--fin -->
+
+
+        </div>
+
+      </main>
+      <%- include('partials/footer') %>
+      <script src="/js/sectionUpdateValidation.js"></script>
+  </body>
+
+</html>

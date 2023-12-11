@@ -1,6 +1,5 @@
 const $ = id => document.getElementById(id);
 
-
 window.onload = function(e) {
 
     $('email').addEventListener('focus', function() {
@@ -42,12 +41,10 @@ window.onload = function(e) {
             this.classList.add("is-invalid");
 
         }
-
         
         } catch (error) {
             console.error();
         }
-
         
     });
 
@@ -95,7 +92,6 @@ window.onload = function(e) {
 
         $('password').type = $('password').type === "password" ? "text" : "password"
     });
-
         
     $('formLogin').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -114,7 +110,6 @@ window.onload = function(e) {
         }
 
         !error && this.submit()
-
         
     })
 }

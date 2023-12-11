@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+    <body class="productAdd">
+
+        <%- include('partials/header') %>
+
+            <main class="login">
+                <div class="login__box">
+
+                    <div class="login__box__encabezado">
+
+                        <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
+                        <h4 class="animate__animated animate__flash">Agregar Secciones</h4>
+                        
+                    </div>
+
+                    <div class="login__box__cuerpo container">
+                        
+                        <form action="" method="POST" enctype="multipart/form-data" class="row">
+
+                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                                <label for="title" class="form-label">Nombre de la Seccion</label>
+                                <input type="text" class="form-input <%= locals.errors && (errors.title && 'is-invalid') %>" id="title" placeholder="Nombre de Seccion" name="title" value="<%= locals.old && (old.title && old.title ) %>">
+                                <small class="text-danger ms-2" id="msgError-title">
+                                  <%= locals.errors && (errors.title && errors.title.msg) %>
+                                </small>
+                              </div>
+
+                              <div class="col-12 d-flex justify-content-end gap-2 mb-3">
+                                <small class="text-danger ms-2">
+                                  <%= locals.errors && (errors.image && errors.image.msg) %>
+                                </small>
+                                <label for="image" class="btn <%= (locals.errors && errors.image) ? 'btn-danger' : 'btn-secondary' %>">Imagen principal</label>
+                                <input type="file" name="image" id="image" hidden />
+                                
+                                <button class="btn btn-dark">Guardar cambios</button>
+                              </div>
+
+                        </form>
+                    </div>
+
+
+
+                </div>
+
+            </main>
+            <%- include('partials/footer') %>
+            <script src="/js/sectionAddValidation.js"></script>
+    </body>
+
+</html>

@@ -4,10 +4,10 @@
 
     <%- include('partials/header') %>
 
-    <main class="register">
-        <div class="register__box">
+    <main class="perfil">
+        <div class="perfil__box">
 
-            <div class="register__box__encabezado">
+            <div class="perfil__box__encabezado">
 
                 <a href="/" class="rotate-scale-up-ver"><img src="/images/celstecortado.jpg" alt=""></a>
                 <h4 class="animate__animated animate__flash">Perfil de <%= name %> <%= surname %></h4>
@@ -16,7 +16,7 @@
 
             <form action="" method="" class="perfil__box__cuerpo mt-5">
 
-                <picture class="perfil__box__cuerpo__contenido img" >
+                <picture class="perfil__box__cuerpo__contenido_img" >
                     <img src="/images/usuarios/<%= image || 'perfil.png' %>" alt="" >
                 </picture>
                 
@@ -43,7 +43,7 @@
     
                     <div class="perfil__box__cuerpo__contenido uno">
                         <label for="lastname" class="labels-forms">Fecha de Nacimiento</label>
-                        <h4><%= birthday || 'Datos incompletos' %></h4>
+                        <h4><%= birthday.split('T')[0] ||  'Datos incompletos' %></h4>
                     </div>
     
                     <div class="perfil__box__cuerpo__contenido dos mt-2">

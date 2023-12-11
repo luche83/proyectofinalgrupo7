@@ -1,4 +1,7 @@
 <div class="table-responsive">
+    <div class="card-header">
+        <a class="btn btn-outline-dark" href="/sections/add">Nueva Seccion</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -19,8 +22,7 @@
                         <%= title %>
                     </td>
                     <td>
-                        <%= products.filter(product => product.section ===
-                            title).length %>
+                        <%= products.filter(product => product.section === title).length %>
                     </td>
                     <td>
                         <img src="/img/categories/<%=image%>" class="img-fluid"
@@ -29,7 +31,7 @@
                     <td>
                         <div class="d-flex gap-1">
                             <a class="btn btn-sm btn-success"
-                                href="/categories/edit/<%= id %>"><i
+                                href="/sections/edit/<%= id %>"><i
                                     class="fas fa-edit"></i></a>
                             <a class="btn btn-sm btn-danger"
                                 href="/categories/remove/<%= id %>"><i

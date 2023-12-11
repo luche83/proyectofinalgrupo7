@@ -1,9 +1,5 @@
 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     
-  <div class="">
-    <a class="btn btn-outline-dark " href="/users/register">Carga de Usuarios</a>
-  </div>
-
   <div class="table-responsive">
 
     <table class="table table-hover">
@@ -15,7 +11,7 @@
           <th scope="col">Orden</th>
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
-          <th scope="col">Categotia</th>
+          <th scope="col">Rol</th>
           <th scope="col">Email</th>
           
           <th scope="col">Acciones</th>
@@ -26,14 +22,16 @@
       
       <tbody>
 
-        <% users.forEach(({id, name, surname, role, email, image}, index) => { %>
-           
+        <% users.forEach(({id, name, surname, roleId, email, image}, index) => { %>
+          
           <tr>
             
             <th scope="row"><%= index + 1 %></th>
             <td><%= name %></td>
             <td><%= surname %></td>
-            <td><%= role %></td>
+            <td> 
+              <%= roleId %>
+            </td>
             <td><%= email %></td>
             
             
@@ -60,7 +58,7 @@
                   <div class="modal-content">
                     
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="detailRegister<%= id %>"><%= role %> :   <%= name %> <%= surname%></h1>
+                      <h1 class="modal-title fs-5" id="detailRegister<%= id %>"><%= roleId %> :   <%= name %> <%= surname%></h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     
@@ -80,7 +78,7 @@
                             <div class="card-body">
                               <h5 class="card-title"><%= name %> <%= surname %></h5>
                               <p class="card-text"><%= email %></p>
-                              <p class="card-text"><%= role %></p>
+                              <p class="card-text"><%= roleId %></p>
                               <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                             </div>
                           
@@ -153,6 +151,7 @@
           </tr>
 
           <% }) %>
+          
           
                   
       </tbody>
