@@ -188,7 +188,7 @@ window.onload = function(e) {
 
         let error = false
 
-        for (let i = 0; i < elementsForm.length - 2; i++) {
+        for (let i = 0; i < elementsForm.length - 3; i++) {
             
             if(!elementsForm[i].value.trim() || elementsForm[i].classList.contains('is-invalid')){
                 elementsForm[i].classList.add('is-invalid')

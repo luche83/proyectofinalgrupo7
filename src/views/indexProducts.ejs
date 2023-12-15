@@ -13,7 +13,7 @@
                     <% products.forEach(({title, description, id, images,section, price, discount})=> { %>
 
                         <article class="tarjeta--individual-index">
-                            <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main) || 'producto-sin-imagen.png' %>" alt="">
+                            <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="">
                             <h4 class="titulo--tarjeta"> <%= title %> </h4>
                             <div class="index--price-discount__box">
                                 <p class="precio--tarjeta"> <%= toThousand((price - (price * discount / 100)).toFixed(0))  %> </p>

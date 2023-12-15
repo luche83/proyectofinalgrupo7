@@ -14,7 +14,7 @@
 
                         <article class="tarjeta--individual-index">
                             <div class="img--trajeta">
-                                <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main) || 'producto-sin-imagen.png' %>" alt="">
+                                <img class="img--trajeta" src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="">
                             </div>
                             <h4 class="titulo--tarjeta"> <%= title %> </h4>
                             <div class="index--price-discount__box">
