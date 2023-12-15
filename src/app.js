@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const paginate = require('express-paginate')
 
 const userlogs = require('./middlewares/userLogs');
 
@@ -30,6 +31,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(paginate.middleware(4, 50))
 
 app.use(methodOverride('_method'));
 

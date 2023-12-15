@@ -10,32 +10,40 @@ module.exports = [
       max: 50,
     })
     .withMessage("Debe tener entre 5 y 50 caracteres"),
-  check("categoryId")
-    .notEmpty()
-    .withMessage("Es necesario"),
-    check("sectionId")
-    .notEmpty()
-    .withMessage("Es necesario"),
-  check("regionId")
-    .notEmpty()
-    .withMessage("Es necesario"),
-    check("amount")
-    .notEmpty()
-    .withMessage("Especificar"),
-  check("amountmin")
-    .notEmpty()
-    .withMessage("Especificar"),  
-  check("price")
+
+    check("price")
     .notEmpty()
     .withMessage("Es obligatorio")
     .isInt({
       gt: 1,
     })
     .withMessage("Debe ser positivo"),
-  check("description").isLength({
-    min: 5,
-    max: 800,
-  }).withMessage('Debe tener entre 5 y 800 caracteres'),
+      
+  check("amount")
+    .notEmpty()
+    .withMessage("Especificar"),
+
+  check("amountmin")
+    .notEmpty()
+    .withMessage("Especificar"),
+
+    check("description").isLength({
+      min: 5,
+      max: 800,
+    }).withMessage('Debe tener entre 5 y 800 caracteres'),
+
+  check("categoryId")
+    .notEmpty()
+    .withMessage("Es necesario"),
+
+    check("sectionId")
+    .notEmpty()
+    .withMessage("Es necesario"),
+
+  check("regionId")
+    .notEmpty()
+    .withMessage("Es necesario"),
+    
   body('image')
     .custom((value,{req}) => {
       if(req.files.image){

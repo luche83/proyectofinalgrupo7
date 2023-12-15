@@ -3,16 +3,16 @@ const path = require('path')
 
 const storage = multer.diskStorage({
     destination : (req,file,cb) => {
-        return cb(null, './src/public/images/secciones')
+        return cb(null, './src/public/images/regiones')
     },
     filename : (req, file, cb) => {
-        return cb(null, `${Date.now()}_sections_${path.extname(file.originalname)}`)
+        return cb(null, `${Date.now()}_regions_${path.extname(file.originalname)}`)
     }
 })
 
-const uploadSection = multer({
+const uploadRegion = multer({
     storage
 })
 
 
-module.exports = uploadSection
+module.exports = uploadRegion

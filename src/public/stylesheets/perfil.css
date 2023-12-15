@@ -201,7 +201,23 @@
     }
 
     .perfil__box {
-        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: 50%;
+    }
+
+    .perfil__box__cuerpo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        margin: auto;
+       
+       
     }
 
     .perfil__box__cuerpo__bottom {

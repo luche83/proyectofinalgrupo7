@@ -6,9 +6,11 @@ module.exports = (req,res) => {
       .then(user =>{
 
          const birthday = new Date(user.birthday).toISOString();
+         console.log(birthday.split('T')[0]);
          
          return res.render('profileEdit',{
          ...user.dataValues,
+         birthday : birthday.split('T')[0]
         
       
        });

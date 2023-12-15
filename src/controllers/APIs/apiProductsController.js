@@ -1,51 +1,27 @@
 const createError = require('http-errors')
 const paginate = require('express-paginate');
-const db = require('../../database/models');
-const { getAllUsers, getUserById, createUser, updateUser, deleteUser } = require('../../service/users.services');
+const { getAllProducts, getProductById, createProduct, updateProduct, deleteProduct } = require('../../service/products.services');
 const { validationResult } = require('express-validator');
 
 
-const checkEmail = async (req,res) => {
-    const email = req.query.email;
-
-    try {
-        const user = await db.User.findOne({
-            where : {
-                email
-            }
-        })
-        return res.status(200).json({
-            ok : true,
-            data : user ? true : false
-        })
-    } catch (error) {
-        return res.status(error.status || 500).json({
-            ok : false,
-            msg : error.message || "Upps, hubo un error"
-        })
-    }
-}
-
 module.exports = {
-    checkEmail,
-
-    listUsers : async (req, res) => {
+    listProducts : async (req, res) => {
         try {
             
-            const {total, users} = await getAllUsers(req.query.limit, req.skip);
+            const {total, products} = await getAllProducts(req.query.limit, req.skip);
 
             const pagesCount = Math.ceil(total / req.query.limit);
             const currentPage = req.query.page;
-            const pages = paginate.getArrayPages(req)(pagesCount, pagesCount, currentPage);
+            const pages = paginate.getArrayPages(req)(pagesCount, pagesCount, currentPage); 
 
             return res.status(200).json({
                 ok : true,
                 
-                data : users.map(user => {
+                data : products.map(product => {
                     return {
-                        ...user.dataValues,
-                        image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
-                        url : `${req.protocol}://${req.get('host')}/api/users/${user.id}`
+                        ...product.dataValues,
+                       // file : `${req.protocol}://${req.get('host')}/images/products/${image.file}`,
+                        url : `${req.protocol}://${req.get('host')}/api/products/${product.id}`
                     }
                 }),
                 meta : {
@@ -60,21 +36,21 @@ module.exports = {
             return res.status(error.status || 500).json({
                 ok : false,
                 status : error.status || 500,
-                error : message || 'ERROR en List Users'
+                error : message || 'ERROR en List Product'
             })
         }
     },
 
-    showUser : async (req, res) => {
+    showProduct : async (req, res) => {
         try {
             
-            const user = await getUserById(req.params.id)
+            const product = await getProductById(req.params.id)
 
             return res.status(200).json({
                 ok : true,
                 data : {
-                    ...user.dataValues,
-                    image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
+                    ...product.dataValues,
+                    //    file : `${req.protocol}://${req.get('host')}/images/products/${product.file}`,
                 }
             })
 
@@ -82,12 +58,12 @@ module.exports = {
             return res.status(error.status || 500).json({
                 ok : false,
                 status : error.status || 500,
-                error : message || 'ERROR en List Users'
+                error : message || 'ERROR en List Product'
             })
         }
     },
 
-    createUser : async (req,res) => {
+    createProduct : async (req,res) => {
         try {
 
         const errors = validationResult(req);
@@ -118,15 +94,15 @@ module.exports = {
                 image : req.file ? req.file.filename : null
             }
 
-        const {id} = await createUser(data);
+        const {id} = await createProduct(data);
 
-        const user = await getUserById(id)
+        const product = await getProductById(id)
 
             return res.status(200).json({
                 ok : true,
                 data : {
-                 ...user.dataValues,
-                image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
+                 ...product.dataValues,
+                //image : `${req.protocol}://${req.get('host')}/images/products/${product.image}`,
                 }
                
             })
@@ -140,16 +116,16 @@ module.exports = {
         }
     },
 
-    updateUser : async (req,res) => {
+    updateProduct : async (req,res) => {
 
         try {
             
-           const userUpdated = await updateUser(req.params.id, req.body);
+           const productUpdated = await updateProduct(req.params.id, req.body);
 
            return res.status(200).json({
             ok : true,
-            message : 'Usuario Actualizada con exito',
-            data : userUpdated
+            message : 'Producto Actualizada con exito',
+            data : productUpdated
         })
             
         } catch (error) {
@@ -163,15 +139,15 @@ module.exports = {
 
     },
 
-    deleteUser : async (req,res) => {
+    deleteProduct : async (req,res) => {
 
         try {
 
-            await deleteUser(req.params.id); 
+            await deleteProduct(req.params.id); 
 
             return res.status(200).json({
                 ok : true,
-                message : 'Usuario eliminada con exito',               
+                message : 'Producto eliminada con exito',               
             })
             
         } catch (error) {

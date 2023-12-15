@@ -32,7 +32,7 @@ check("address")
 check("birthday")
     .notEmpty()
     .withMessage("Ingrese la fecha de nacimiento")
-    
+        
     .custom((value) => {
       const birthDate = moment(value);
       
@@ -58,26 +58,10 @@ check("birthday")
       const minDate = moment().subtract(120, 'years');
 
       if (birthDate.isBefore(minDate)) {
-        throw new Error("Tan viejo/a sos??");
+        throw new Error("Verifique la fecha");
       }
 
       return true;
     }),
 
-    check("city")
-    .notEmpty()
-    .withMessage("La ciudad es obligatorio")
-    .bail()
-    .isLength({
-         min: 2,
-    }),
-
-    check("province")
-    .notEmpty()
-    .withMessage("La provincia es obligatorio")
-    .bail()
-    .isLength({
-         min: 2,
-    }),        
-            
-];
+  ];

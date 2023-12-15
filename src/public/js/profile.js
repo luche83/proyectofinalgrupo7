@@ -79,11 +79,11 @@ window.onload = async function(e) {
                 break;
 
             case birthDate.isAfter(currentDate):
-                $('msgError-birthday').innerHTML = "Sos Termita?";
+                $('msgError-birthday').innerHTML = "Datos Supera la fecha actual";
                 this.classList.add("is-invalid");
                 break
             case birthDate.isBefore(minDate):
-                $('msgError-birthday').innerHTML = "Tan viejo/a sos??";
+                $('msgError-birthday').innerHTML = "Verifique la fecha, el año supera limite";
                 this.classList.add("is-invalid");
                 break
             default:
@@ -132,7 +132,7 @@ window.onload = async function(e) {
 
         let error = false
 
-        for (let i = 0; i < elementsForm.length - 1; i++) {
+        for (let i = 0; i < elementsForm.length - 3; i++) {
             
             if(!elementsForm[i].value.trim() || elementsForm[i].classList.contains('is-invalid')){
                 elementsForm[i].classList.add('is-invalid')

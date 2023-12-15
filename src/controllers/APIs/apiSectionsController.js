@@ -1,51 +1,25 @@
 const createError = require('http-errors')
 const paginate = require('express-paginate');
-const db = require('../../database/models');
-const { getAllUsers, getUserById, createUser, updateUser, deleteUser } = require('../../service/users.services');
+const { getAllSections, getSectionById, createSection, updateSection, deleteSection } = require("../../service/sections.services");
 const { validationResult } = require('express-validator');
 
-
-const checkEmail = async (req,res) => {
-    const email = req.query.email;
-
-    try {
-        const user = await db.User.findOne({
-            where : {
-                email
-            }
-        })
-        return res.status(200).json({
-            ok : true,
-            data : user ? true : false
-        })
-    } catch (error) {
-        return res.status(error.status || 500).json({
-            ok : false,
-            msg : error.message || "Upps, hubo un error"
-        })
-    }
-}
-
 module.exports = {
-    checkEmail,
-
-    listUsers : async (req, res) => {
+    listSections : async (req, res) => {
         try {
             
-            const {total, users} = await getAllUsers(req.query.limit, req.skip);
+            const {total, sections} = await getAllSections(req.query.limit, req.skip);
 
             const pagesCount = Math.ceil(total / req.query.limit);
             const currentPage = req.query.page;
-            const pages = paginate.getArrayPages(req)(pagesCount, pagesCount, currentPage);
+            const pages = paginate.getArrayPages(req)(pagesCount, pagesCount, currentPage); 
 
             return res.status(200).json({
                 ok : true,
-                
-                data : users.map(user => {
+                data : sections.map(section => {
                     return {
-                        ...user.dataValues,
-                        image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
-                        url : `${req.protocol}://${req.get('host')}/api/users/${user.id}`
+                        ...section.dataValues,
+                        image : `${req.protocol}://${req.get('host')}/images/productos/${section.image}`,
+                        url : `${req.protocol}://${req.get('host')}/api/sections/${section.id}`
                     }
                 }),
                 meta : {
@@ -60,21 +34,22 @@ module.exports = {
             return res.status(error.status || 500).json({
                 ok : false,
                 status : error.status || 500,
-                error : message || 'ERROR en List Users'
+                error : message || 'ERROR en List Sections'
             })
         }
     },
 
-    showUser : async (req, res) => {
+    showSection : async (req, res) => {
         try {
             
-            const user = await getUserById(req.params.id)
+            const section = await getSectionById(req.params.id)
 
             return res.status(200).json({
                 ok : true,
                 data : {
-                    ...user.dataValues,
-                    image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
+                    ...section.dataValues,
+                    image : `${req.protocol}://${req.get('host')}/images/productos/${section.image}`,
+                    url : `${req.protocol}://${req.get('host')}/api/sections/${section.id}`
                 }
             })
 
@@ -82,12 +57,12 @@ module.exports = {
             return res.status(error.status || 500).json({
                 ok : false,
                 status : error.status || 500,
-                error : message || 'ERROR en List Users'
+                error : message || 'ERROR en List Section'
             })
         }
     },
 
-    createUser : async (req,res) => {
+    createSection : async (req,res) => {
         try {
 
         const errors = validationResult(req);
@@ -118,15 +93,15 @@ module.exports = {
                 image : req.file ? req.file.filename : null
             }
 
-        const {id} = await createUser(data);
+        const {id} = await createSection(data);
 
-        const user = await getUserById(id)
+        const section = await getSectionById(id)
 
             return res.status(200).json({
                 ok : true,
                 data : {
-                 ...user.dataValues,
-                image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
+                 ...section.dataValues,
+                image : `${req.protocol}://${req.get('host')}/images/secciones/${section.image}`,
                 }
                
             })
@@ -140,16 +115,16 @@ module.exports = {
         }
     },
 
-    updateUser : async (req,res) => {
+    updateSection : async (req,res) => {
 
         try {
             
-           const userUpdated = await updateUser(req.params.id, req.body);
+           const sectionUpdated = await updateSection(req.params.id, req.body);
 
            return res.status(200).json({
             ok : true,
-            message : 'Usuario Actualizada con exito',
-            data : userUpdated
+            message : 'Seccion Actualizada con exito',
+            data : sectionUpdated
         })
             
         } catch (error) {
@@ -163,15 +138,15 @@ module.exports = {
 
     },
 
-    deleteUser : async (req,res) => {
+    deleteSection : async (req,res) => {
 
         try {
 
-            await deleteUser(req.params.id); 
+            await deleteSection(req.params.id); 
 
             return res.status(200).json({
                 ok : true,
-                message : 'Usuario eliminada con exito',               
+                message : 'Seccion eliminada con exito',               
             })
             
         } catch (error) {
