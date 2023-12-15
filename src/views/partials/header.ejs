@@ -1,5 +1,3 @@
-  <!DOCTYPE html>
-<html lang="en">
   <header>
     <div class="Header-div__box">
       <a class="img-logo__a" href="/"
@@ -9,7 +7,7 @@
       <div class="login-input__box">
         <div class="Header-form__box">
           <form action="/search" class="Header-form">
-            <input type="text" name="keywords" placeholder="Buscar" />
+            <input type="text" name="keywords" placeholder="Buscar" class="Header--input--keywords" />
             <button type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -54,10 +52,7 @@
         <% if (locals.userLogin) { %> <% if (userLogin.role === "admin") { %>
           <li><a href="/admin">ADMIN</a></li>
           <% } %> <% } %>
-        <li>
-          <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </li>
-      </ul>
+          <li><a href="#" id="btn--cart" data-bs-toggle="modal" data-bs-target="#cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
     </nav>
     <nav class="header-nav__box">
       <div class="Header-nav__div">
@@ -70,13 +65,39 @@
                 <li><a href="/admin">ADMIN</a></li>
             <% } %>
         <% } %> 
-          <a href="/products/Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </ul>
+        <li><a  id="btn-cart" href="#" class="position-relative" data-bs-toggle="modal" data-bs-target="#cart"><i class="fa-solid fa-cart-shopping fa-xl" ></i><span id="show-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" hidden></span></a></li>
+      </ul>
       </div>
       <div class="Header-nav-div__div2"></div>
     </nav>
   </header>
+
+     <!-- Modal -->
+  <div class="modal fade" id="cart" tabindex="-1" aria-labelledby="cartLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="cartLabel">Carrito de compra</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cart-body">
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar comprando</button>
+          <button type="button" id="btn-clearCart" onclick="clearCart()" class="btn btn-danger">Vaciar carrito</button>
+          <button type="button" class="btn btn-success">Finalizar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    
+    window.onload = function(){
+    
     const toggleBtn = document.querySelector('.icon-close-menu__div')
     const toggleIcon = document.querySelector('.icon-open-menu__div')
     const dropMenu = document.querySelector('.drop-menu__nav')
@@ -84,5 +105,12 @@
     toggleIcon.onclick = function () {
         dropMenu.classList.toggle('open')
     }
- </script>
-</html>
+
+}
+  </script>
+
+
+
+
+
+

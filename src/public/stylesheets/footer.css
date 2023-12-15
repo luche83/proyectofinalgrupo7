@@ -10,8 +10,8 @@
     display: flex;
     justify-content: space-between;
     border-bottom: solid 1px #fff;
-    padding: 10px;
-    padding-bottom: 40px;
+    padding: 10px 40px 40px;
+    /* padding-bottom: 40px; */
     margin-top: 30px;
 }
 
