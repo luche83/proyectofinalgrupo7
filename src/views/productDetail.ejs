@@ -14,7 +14,7 @@
                         <img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt="" class="img--trajeta">
                     </div>
 
-                    <div>
+                    <div class="div--imgs--detail">
                         <% images.filter(image => !image.main).forEach(image => { %>
                             <img src="/images/productos/<%= image.file %>"
                             style="width: 15%" alt="...">
@@ -39,42 +39,45 @@
 
                     <p class="productos__detalles"><%= description %></p>
 
+                    <button onclick="addItemToCart(1,'<%=id%>')" class="btn btn-dark">Comprar</button>
+
                     <div class="Producto-comprar__carrito">
-                        <a href="/products/Cart">Comprar</a>
-                        <a href="/products/cart">Agregar al carrito</a>
+                        
                     </div>
                 </div>
                
             </div>
             <h3 class="Detail--Products--Related--info--title-h3">Productos Relacionados</h3>
             <section class="Products--Related--box">
-                <% productsRelated.forEach(({id,title,price,images,discount, section, description}) => { %>
-
-                        <div class="Products--Related--div">
-                            <div class="Products--Related--img">
-                                <a href="/products/detail/<%= id %>"><img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt=""></a>
-                            </div>
-                            <div class="Products--Related--info">
-                                <h5 class="Detail--Products--Related--info--title"><%= title %></h5>
-                                <% if (discount) { %>
-                                    <p class="Detail--Products--Related--info">$<%= toThousand(price) %></p>
-                                    <div class="Detail--Products--Related--info-box">
-                                        <p class="Detail--Products--Related--info-price" > <%= toThousand((price - (price * discount / 100)).toFixed(0)) %></p>
-                                        <p class="Detail--Products--Related--info-espace">/</p>
-                                        <p class="Detail--Products--Related--info-discount"> <%= discount %>% OFF</p>
-                                    </div>
-                                <% } %>
-                                <% if (!discount) { %>
-                                    <p class="Detail--Products--Related--info-price"> <%= toThousand((price - (price * discount / 100)).toFixed(0)) %></p>
-                                    <p class="Detail--Products--Related--info-description"><%= description %></p>
-                                <% } %>
-                            </div> 
-                        </div>           
-                <% }) %>
+                
+                <% productsRelated.filter( product => product.sectionId == sectionId).forEach(({id,title,price,images,discount, section, description}) => { %>
+                    <div class="Products--Related--div">
+                        <div class="Products--Related--img">
+                            <a href="/products/detail/<%= id %>"><img src="/images/productos/<%= images.find(image => image.main).file || 'producto-sin-imagen.png' %>" alt=""></a>
+                        </div>
+                        <div class="Products--Related--info">
+                            <h5 class="Detail--Products--Related--info--title"><%= title %></h5>
+                            <% if (discount) { %>
+                                <p class="Detail--Products--Related--info">$<%= toThousand(price) %></p>
+                                <div class="Detail--Products--Related--info-box">
+                                    <p class="Detail--Products--Related--info-price" > <%= toThousand((price - (price * discount / 100)).toFixed(0)) %></p>
+                                    <p class="Detail--Products--Related--info-espace">/</p>
+                                    <p class="Detail--Products--Related--info-discount"> <%= discount %>% OFF</p>
+                                </div>
+                            <% } %>
+                            <% if (!discount) { %>
+                                <p class="Detail--Products--Related--info-price"> <%= toThousand((price - (price * discount / 100)).toFixed(0)) %></p>
+                                <p class="Detail--Products--Related--info-description"><%= description %></p>
+                            <% } %>
+                        </div> 
+                    </div>           
+            <% }) %>
             </section>
         </section>
     </main>
     <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
 </body>
 
 </html>
+
