@@ -1,4 +1,3 @@
-const createError = require('http-errors')
 const paginate = require('express-paginate');
 const db = require('../../database/models');
 const { getAllUsers, getUserById, createUser, updateUser, deleteUser } = require('../../service/users.services');

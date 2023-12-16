@@ -2,8 +2,6 @@ const { validationResult } = require('express-validator');
 const {hashSync} = require('bcryptjs')
 const db = require('../../database/models')
 
-
-
 module.exports = (req, res) => {
 
     const errors = validationResult(req)
@@ -23,12 +21,12 @@ module.exports = (req, res) => {
             .then(()=> {
                 return res.redirect('/users/login')
             })
-                .catch(error => console.log(error))
+                .catch(error => (error))
     }else {
         
         return res.render('register',{
+            old : req.body,
             errors : errors.mapped(),
-            old : req.body
         })
     } 
 }
