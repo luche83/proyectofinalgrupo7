@@ -20,6 +20,47 @@ const router = express.Router();
 
     router
     .get('/check-email', checkEmail)
+
+    /* /usuarios */
+      
+    .get('/users',  listUsers)
+    .get('/users/:id', showUser)
+    .post('/users',uploadUser.single('image'), userAddValidator, createUser)
+    .put('/users/:id', updateUser)
+    .delete('/users/:id', deleteUser)
+    
+
+        .get('/products', listProducts)
+        .get('/products/:id', showProduct)
+        .post('/products',upload.fields([{name: "image"},{name: "images"}]), productValidator, createProduct)
+        .put('/products/:id', updateProduct)
+        .delete('/products/:id', deleteProduct)
+
+    
+
+    /* /categorias */
+    
+    .get('/categories',  listCategories)
+    .get('/categories/:id', showCategory)
+    .post('/categories',uploadCategory.single('image'), categoryValidator, createCategory)
+    .put('/categories/:id', updateCategory)
+    .delete('/categories/:id', deleteCategory)
+
+    /* /regiones */
+   
+    .get('/regions',  listRegions)
+    .get('/regions/:id', showRegion)
+    .post('/regions',uploadRegion.single('image'), regionValidator, createRegion)
+    .put('/regions/:id', updateRegion)
+    .delete('/regions/:id', deleteRegion)
+
+    /* /sections */
+    
+    .get('/sections',  listSections)
+    .get('/sections/:id', showSection)
+    .post('/sections',uploadSection.single('image'), sectionValidator, createSection)
+    .put('/sections/:id', updateSection)
+    .delete('/sections/:id', deleteSection)
     
 
 
