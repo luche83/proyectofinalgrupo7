@@ -63,7 +63,7 @@ const addItemToCart = async (quantity, product) => {
         "Content-Type": "application/json",
       },
     });
-    const {ok, data,msg} = await response.json();
+    const {ok, data, msg} = await response.json();
     if (!ok) {
       throw new Error(msg);
     } else {
@@ -192,7 +192,7 @@ window.onload = function () {
       try {
         const response = await fetch("/api/cart");
         const { ok, data: {products, total} } = await response.json();
-        
+
         if (ok) {
           if (products.length) {
             $("cart-body").innerHTML = `
@@ -226,6 +226,7 @@ window.onload = function () {
       } catch (error) {
         console.error;
         alert(error.message);
+            
       }
     });
 };

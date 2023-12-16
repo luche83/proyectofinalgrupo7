@@ -1,6 +1,7 @@
 const userAddValidator = require('../validations/registerValidator');
 const productValidator = require('../validations/productAddValidator')
 const express = require('express');
+const { getCart, addItemToCart, removeItemToCart, deleteItemToCart, clearCart } = require('../controllers/APIs/cartApiController');
 const { checkEmail, listUsers, showUser, createUser, updateUser, deleteUser } = require('../controllers/APIs/usersApiController');
 const { listProducts, showProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/APIs/apiProductsController');
 const { listCategories, showCategory, createCategory, updateCategory, deleteCategory } = require('../controllers/APIs/apiCaregoriesController');
@@ -20,6 +21,14 @@ const router = express.Router();
 
     router
     .get('/check-email', checkEmail)
+
+    // Cart
+
+    .get('/cart', getCart)
+    .post('/cart', addItemToCart)
+    .delete('/cart',removeItemToCart)
+    .delete('/cart/item', deleteItemToCart)
+    .delete('/cart/all',clearCart)
 
     /* /usuarios */
       
