@@ -1,50 +1,25 @@
+const createError = require('http-errors')
 const paginate = require('express-paginate');
-const db = require('../../database/models');
-const { getAllUsers, getUserById, createUser, updateUser, deleteUser } = require('../../service/users.services');
+const { getAllRegions, getRegionById, createRegion, updateRegion, deleteRegion } = require("../../service/resgions.services");
 const { validationResult } = require('express-validator');
 
-
-const checkEmail = async (req,res) => {
-    const email = req.query.email;
-
-    try {
-        const user = await db.User.findOne({
-            where : {
-                email
-            }
-        })
-        return res.status(200).json({
-            ok : true,
-            data : user ? true : false
-        })
-    } catch (error) {
-        return res.status(error.status || 500).json({
-            ok : false,
-            msg : error.message || "Upps, hubo un error"
-        })
-    }
-}
-
 module.exports = {
-    checkEmail,
-
-    listUsers : async (req, res) => {
+    listRegions : async (req, res) => {
         try {
             
-            const {total, users} = await getAllUsers(req.query.limit, req.skip);
-
+            const {total, regions} = await getAllRegions(req.query.limit, req.skip);
+            
             const pagesCount = Math.ceil(total / req.query.limit);
             const currentPage = req.query.page;
-            const pages = paginate.getArrayPages(req)(pagesCount, pagesCount, currentPage);
+            const pages = paginate.getArrayPages(req)(pagesCount, pagesCount, currentPage); 
 
             return res.status(200).json({
                 ok : true,
-                
-                data : users.map(user => {
+                data : regions.map(region => {
                     return {
-                        ...user.dataValues,
-                        image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
-                        url : `${req.protocol}://${req.get('host')}/api/users/${user.id}`
+                        ...region.dataValues,
+                        image : `${req.protocol}://${req.get('host')}/images/productos/${region.image}`,
+                        url : `${req.protocol}://${req.get('host')}/api/regions/${region.id}`
                     }
                 }),
                 meta : {
@@ -59,21 +34,22 @@ module.exports = {
             return res.status(error.status || 500).json({
                 ok : false,
                 status : error.status || 500,
-                error : message || 'ERROR en List Users'
+                error : message || 'ERROR en List Regions'
             })
         }
     },
 
-    showUser : async (req, res) => {
+    showRegion : async (req, res) => {
         try {
             
-            const user = await getUserById(req.params.id)
+            const region = await getRegionById(req.params.id)
 
             return res.status(200).json({
                 ok : true,
                 data : {
-                    ...user.dataValues,
-                    image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
+                    ...region.dataValues,
+                    image : `${req.protocol}://${req.get('host')}/images/productos/${region.image}`,
+                    url : `${req.protocol}://${req.get('host')}/api/regions/${region.id}`
                 }
             })
 
@@ -81,12 +57,12 @@ module.exports = {
             return res.status(error.status || 500).json({
                 ok : false,
                 status : error.status || 500,
-                error : message || 'ERROR en List Users'
+                error : message || 'ERROR en List Region'
             })
         }
     },
 
-    createUser : async (req,res) => {
+    createRegion : async (req,res) => {
         try {
 
         const errors = validationResult(req);
@@ -117,15 +93,15 @@ module.exports = {
                 image : req.file ? req.file.filename : null
             }
 
-        const {id} = await createUser(data);
+        const {id} = await createRegion(data);
 
-        const user = await getUserById(id)
+        const region = await getRegionById(id)
 
             return res.status(200).json({
                 ok : true,
                 data : {
-                 ...user.dataValues,
-                image : `${req.protocol}://${req.get('host')}/images/usuarios/${user.image}`,
+                 ...region.dataValues,
+                image : `${req.protocol}://${req.get('host')}/images/regiones/${region.image}`,
                 }
                
             })
@@ -139,16 +115,16 @@ module.exports = {
         }
     },
 
-    updateUser : async (req,res) => {
+    updateRegion : async (req,res) => {
 
         try {
             
-           const userUpdated = await updateUser(req.params.id, req.body);
+           const regionUpdated = await updateRegion(req.params.id, req.body);
 
            return res.status(200).json({
             ok : true,
-            message : 'Usuario Actualizada con exito',
-            data : userUpdated
+            message : 'Region Actualizada con exito',
+            data : regionUpdated
         })
             
         } catch (error) {
@@ -162,15 +138,15 @@ module.exports = {
 
     },
 
-    deleteUser : async (req,res) => {
+    deleteRegion : async (req,res) => {
 
         try {
 
-            await deleteUser(req.params.id); 
+            await deleteRegion(req.params.id); 
 
             return res.status(200).json({
                 ok : true,
-                message : 'Usuario eliminada con exito',               
+                message : 'Region eliminada con exito',               
             })
             
         } catch (error) {
@@ -183,3 +159,4 @@ module.exports = {
         }
     }
 }
+

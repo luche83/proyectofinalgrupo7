@@ -15,7 +15,7 @@ const notUserCheck = require('../middlewares/notUserCheck');
 /* /users*/
 
 router.get('/register', register);
-router.post('/register',uploadUser.single('image'), registerValidator, processRegister);
+router.post('/register', registerValidator, processRegister);
 router.get('/edit/:id', edit);
 router.put('/update/:id',uploadUser.single('image'),perfilValidator, userCheck, update);
 router.delete('/remove/:id', remove);

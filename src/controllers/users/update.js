@@ -7,23 +7,23 @@ const { response } = require("express");
 module.exports = (req, res) => {
 
     const errors = validationResult(req)
-
+    
     if(errors.isEmpty()) {
         
         const {name, surname, address, birthday, city, province, image } = req.body
-        
-       
-
+			
         db.User.update(
+            
             {
+
                 name : name.trim(),
                 surname : surname.trim(),
                 address : address.trim(),
                 birthday : birthday,
                 city : city.trim(),
                 province : province.trim(),
-
-            
+                image : req.file ? req.file.filename : null
+                
             },
             {
                 where : {
@@ -31,7 +31,9 @@ module.exports = (req, res) => {
                 }
             }
         )
+        
         .then(response => {
+            console.log(response)
             req.session.userLogin.name = name;
             res.locals.userLogin.name = name;
             
@@ -42,8 +44,13 @@ module.exports = (req, res) => {
             return res.redirect('/')
         })
     }else {
+
+        
+
         db.User.findByPk(req.session.userLogin.id)
+        
       .then(user =>{
+        
          return res.render('profileEdit',{
          ...user.dataValues,
          errors : errors.mapped()
