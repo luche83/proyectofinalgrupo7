@@ -18,22 +18,25 @@ const router = express.Router();
 
 /* /api */
 
-/* /productos */
     router
+    .get('/check-email', checkEmail)
+
+    /* /usuarios */
+      
+    .get('/users',  listUsers)
+    .get('/users/:id', showUser)
+    .post('/users',uploadUser.single('image'), userAddValidator, createUser)
+    .put('/users/:id', updateUser)
+    .delete('/users/:id', deleteUser)
+    
+
         .get('/products', listProducts)
         .get('/products/:id', showProduct)
         .post('/products',upload.fields([{name: "image"},{name: "images"}]), productValidator, createProduct)
         .put('/products/:id', updateProduct)
         .delete('/products/:id', deleteProduct)
 
-    /* /usuarios */
     
-    .get('/check-email', checkEmail)
-    .get('/users',  listUsers)
-    .get('/users/:id', showUser)
-    .post('/users',uploadUser.single('image'), userAddValidator, createUser)
-    .put('/users/:id', updateUser)
-    .delete('/users/:id', deleteUser)
 
     /* /categorias */
     

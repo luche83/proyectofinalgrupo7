@@ -8,7 +8,7 @@
         <%- include('partials/header') %>
 
             <main class="login">
-                <div class="login__box">
+                <div class="register__box">
 
                     <div class="login__box__encabezado">
 
@@ -19,9 +19,9 @@
 
                     <div class="login__box__cuerpo container">
                         
-                        <form action="" method="POST" enctype="multipart/form-data" class="row">
+                        <form action="" method="POST" enctype="multipart/form-data" class="register__box__cuerpo row">
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="title" class="form-label">Nombre del Producto</label>
                                 <input type="text" class="form-input <%= locals.errors && (errors.title && 'is-invalid') %>" id="title" placeholder="Nombre del Producto" name="title" value="<%= locals.old && (old.title && old.title ) %>">
                                 <small class="text-danger ms-2" id="msgError-title">
@@ -29,7 +29,7 @@
                                 </small>
                               </div>
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="categoryId" class="form-label">Categoria</label>
                                 <select class="form-input <%= locals.errors && (errors.categoryId && 'is-invalid') %>" aria-label="Default select example" name="categoryId" id="categoryId">
                                     <option value="" selected hidden>Seleccione ....</option>
@@ -45,7 +45,7 @@
                                   </small>
                               </div>
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="sectionId" class="form-label">Caracteristica</label>
                                 <select class="form-input <%= locals.errors && (errors.sectionId && 'is-invalid') %>" aria-label="Default select example" name="sectionId" id="sectionId">
                                     <option value="" selected hidden>Seleccione ....</option>
@@ -61,7 +61,7 @@
                                   </small>
                               </div>
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="regionId" class="form-label">Region</label>
                                 <select class="form-input <%= locals.errors && (errors.regionId && 'is-invalid') %>" aria-label="Default select example" name="regionId" id="regionId">
                                     <option value="" selected hidden>Seleccione ....</option>
@@ -82,7 +82,7 @@
                               </div>
 
                               
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="price" class="form-label">Precio</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.price && 'is-invalid') %>" id="price" placeholder="Precio" name="price" value="<%= locals.old && (old.price && old.price ) %>">
                                 <small class="text-danger ms-2" id="msgError-price">
@@ -90,7 +90,7 @@
                                 </small>
                               </div>
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="discount" class="form-label">Descuento</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.discount && 'is-invalid') %>" id="discount" placeholder="Descuento" name="discount" value="<%= locals.old && (old.discount && old.discount ) %>">
                                 <small class="text-danger ms-2" id="msgError-discount">
@@ -98,7 +98,7 @@
                                 </small>
                               </div>
 
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="amount" class="form-label">Cantidad Disponible</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.amount && 'is-invalid') %>" id="amount" placeholder="Cantidad Disponible" name="amount" id="amount" value="<%= locals.old && (old.amount && old.amount ) %>">
                                 <small class="text-danger ms-2" id="msgError-amount">
@@ -106,7 +106,7 @@
                                 </small>
                               </div>
         
-                              <div class="col-12 col-md-6 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 col-md-6 mb-3 register__box__cuerpo__contenido uno">
                                 <label for="amountmin" class="form-label">Cantidad Minima</label>
                                 <input type="number" class="form-input <%= locals.errors && (errors.amountmin && 'is-invalid') %>" id="amountmin" placeholder="Cantidad Minima" name="amountmin" id="amountmin" value="<%= locals.old && (old.amountmin && old.amountmin ) %>">
                                 <small class="text-danger ms-2" id="msgError-amountmin">
@@ -115,7 +115,7 @@
                               </div>
 
 
-                              <div class="col-12 mb-3 login__box__cuerpo__contenido">
+                              <div class="col-12 mb-3 register__box__cuerpo__contenido dos">
                                 <label for="description" class="form-label">Descripcion</label>
                                 <textarea name="description" id="description" class="form-input" style="resize: none"><%= locals.old && (old.description && old.description ) %></textarea>
                                 <small class="text-danger ms-2" id="msgError-description">
