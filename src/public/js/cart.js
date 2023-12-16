@@ -192,7 +192,7 @@ window.onload = function () {
       try {
         const response = await fetch("/api/cart");
         const { ok, data: {products, total} } = await response.json();
-
+        
         if (ok) {
           if (products.length) {
             $("cart-body").innerHTML = `
