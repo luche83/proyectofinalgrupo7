@@ -130,7 +130,7 @@ img {
 .fa-cart-shopping {
     color: whitesmoke;
     padding: 2px;
-    
+    line-height: 1;
 }
 
 .div--box__cart {
@@ -192,7 +192,7 @@ img {
         align-items: flex-end;
         gap: 20px;
         padding: 10px 40px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
 }
@@ -216,6 +216,15 @@ img {
 @media (min-width:769px) { 
      
     /* HEADER */
+
+    .Header-div__box {
+        background-color: var(--MarronOscuro);
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        padding: 10px 60px;
+        margin-bottom: 40px;
+    }
 
     .fa-bars {
         display: none;

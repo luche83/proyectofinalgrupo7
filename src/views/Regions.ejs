@@ -5,12 +5,13 @@
     <body>
         <%- include('partials/header') %>
             <main class="main--index">
-                
-                <div class="div--index-h3">
-                    <h3>Nuevos Productos</h3>
-                </div>
+                <% if (NorteGrandeArgentino.lenght) { %>
+                    <div class="div--regions-h1">
+                        <h3>Norte Grande Argentino</h3>
+                    </div>
+                <% } %>
                 <section class="contenedor--tarjetas-index">
-                    <% nuevos.forEach(({title, description, id, images,category, price, discount})=> { %>
+                    <% NorteGrandeArgentino.forEach(({title, description, id, images,category, price, discount})=> { %>
 
                         <article class="tarjeta--individual-index">
                             <div class="img--trajeta">
@@ -30,14 +31,14 @@
                         <% }) %>
                 </section>
                 
-                <div class="div--index-h3">
-                    <h3>Mas Visitadas</h3>
+                <div class="div--regions-h1">
+                    <h3>Centro</h3>
                 </div>
                 <section class="contenedor--tarjetas-index">
 
                     
 
-                    <% visitados.forEach(({title, description, id, images,category, price, discount})=> { %>
+                    <% Centro.forEach(({title, description, id, images,category, price, discount})=> { %>
                        
                          
                        
@@ -60,13 +61,13 @@
                            
 
                 </section>
-                <div class="div--index-h3">
-                    <h3>OFERTAS</h3>
+                <div class="div--regions-h1">
+                    <h3>Nuevo Cuyo</h3>
                 </div>
                 <section class="contenedor--tarjetas-index">
                     
 
-                <% ofertas.forEach(({title, description, id, images,category, price, discount})=> { %>
+                <% NuevoCuyo.forEach(({title, description, id, images,category, price, discount})=> { %>
                        
                          
                        
