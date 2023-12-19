@@ -10,7 +10,14 @@ const getAllCategories = async (limit, offset) => {
             },
            
             limit,
-            offset
+            offset,
+            include : [
+                
+                {
+                    association : 'products',
+                    attributes : ['id', 'title', 'price', 'discount']
+                },
+            ]
         })
 
         return {

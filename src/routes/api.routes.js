@@ -2,7 +2,7 @@ const userAddValidator = require('../validations/registerValidator');
 const productValidator = require('../validations/productAddValidator')
 const express = require('express');
 const { checkEmail, listUsers, showUser, createUser, updateUser, deleteUser } = require('../controllers/APIs/usersApiController');
-const { listProducts, showProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/APIs/apiProductsController');
+const { getCategoriesWithProducts, getProducts, createProductDash, getCategories, getSections, updateProductDash, deleteProductDash } = require('../controllers/APIs/productsApiController');
 const { listCategories, showCategory, createCategory, updateCategory, deleteCategory } = require('../controllers/APIs/apiCaregoriesController');
 const { listRegions, showRegion, createRegion, updateRegion, deleteRegion } = require('../controllers/APIs/apiRegionsController');
 const { listSections, showSection, createSection, updateSection, deleteSection } = require('../controllers/APIs/apiSectionsController');
@@ -14,12 +14,16 @@ const uploadRegion = require('../middlewares/uploadRegion');
 const regionValidator = require('../validations/regionValidator');
 const uploadSection = require('../middlewares/uploadSection');
 const sectionValidator = require('../validations/sectionValidator');
+
+const { listProducts,totalProductInDB, showProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/APIs/apiProductsController');
 const router = express.Router();
 
 /* /api */
 
     router
     .get('/check-email', checkEmail)
+    .get('/products/count', totalProductInDB)
+    
 
     /* /usuarios */
       
@@ -28,8 +32,7 @@ const router = express.Router();
     .post('/users',uploadUser.single('image'), userAddValidator, createUser)
     .put('/users/:id', updateUser)
     .delete('/users/:id', deleteUser)
-    
-
+        
         .get('/products', listProducts)
         .get('/products/:id', showProduct)
         .post('/products',upload.fields([{name: "image"},{name: "images"}]), productValidator, createProduct)
@@ -61,5 +64,9 @@ const router = express.Router();
     .post('/sections',uploadSection.single('image'), sectionValidator, createSection)
     .put('/sections/:id', updateSection)
     .delete('/sections/:id', deleteSection)
+
+    
+
+   
 
 module.exports = router;
