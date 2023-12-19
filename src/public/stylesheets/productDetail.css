@@ -4,7 +4,7 @@
     flex-direction: column;
     border-radius: 15px;
     padding: 40px;
-    margin: 15px 20px;
+    margin: 15px 40px;
     gap: 5px;
 }
 
@@ -48,7 +48,7 @@
 }
 
 
-.Producto-comprar__carrito a {
+.Producto-comprar__carrito buttom{
     font-size: 16px;
     color: black;
     background-color: #fff;
@@ -98,12 +98,12 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
-    padding: 20px 65px;
+    padding: 20px 40px;
     width: 100%;
 }
 
 .Products--Related--div{
-    width: 10%;
+    width: 25%;
     padding: 3px;
     border: solid 1px grey;
     transition: all 1s ease;
@@ -125,18 +125,18 @@
 }
 
 .Detail--Products--Related--info {
-    font-size: 11px;
+    font-size: 7px;
     text-decoration: line-through!important;
     margin-bottom: 0;
 }
 
 .Detail--Products--Related--info-price{
-    font-size: 15px;
+    font-size: 11px;
     margin-bottom: 0;
 }
 
 .Detail--Products--Related--info-discount{
-    font-size: 10px;
+    font-size: 6px;
     margin-bottom: 0;
     color: #226327;
 }
@@ -152,19 +152,18 @@
     font-size: 9px;
     color: #333131;
     margin-bottom: 0;
-    padding-bottom: 5px;
 }
 
 .Detail--Products--Related--info--title{
-    font-size: 0.750rem;
+    font-size: 0.600rem;
     margin-bottom: 0;
     padding: 5px 0;
     color: black;
 } 
 
 .Detail--Products--Related--info--title-h3{
-    font: 12px;
-    padding: 30px 65px 0px;
+    font-size: 1rem;
+    padding: 30px 40px 0px;
 }
 
 .Detail--Products--Related--info-description{
@@ -187,11 +186,8 @@
     .main-producdetalles__div {
         display: flex;
         flex-direction: row;
-        gap: 10px;
-    }
-
-    .main-producdetalles__div img {
-        /* width: 50%; */
+        gap: 30px;
+        margin: 15px 60px;
     }
 
     .n2 {
@@ -199,7 +195,56 @@
         gap: 2px;
         justify-content: space-between;
     }
+
+    .Detail--Products--Related--info--title-h3{
+        font-size: 1.20rem;
+        padding: 30px 60px 0px;
+    }
+
+    .Products--Related--div{
+        width: 25%;
+        padding: 3px;
+        border: solid 1px grey;
+        transition: all 1s ease;
+    }
+
+    .Products--Related--box{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        padding: 20px 60px;
+        width: 100%;
+    }
+
+    .Detail--Products--Related--info--title{
+        font-size: 0.750rem;
+        margin-bottom: 0;
+        padding: 5px 0;
+        color: black;
+    } 
+
+    .Detail--Products--Related--info {
+        font-size: 10px;
+        text-decoration: line-through!important;
+        margin-bottom: 0;
+    }
+    
+    .Detail--Products--Related--info-price{
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .Detail--Products--Related--info-espace{
+        font-size: 10px;
+        color: #333131;
+        margin-bottom: 0;
+    }
      
+    .Detail--Products--Related--info-discount{
+        font-size: 8px;
+        margin-bottom: 0;
+        color: #226327;
+    }
 }
 
 @media (min-width:769px) { 
@@ -220,6 +265,15 @@
         display: flex;
         flex-direction: row;
         gap: 50px;
+        margin: 40px 100px 0;
+    }
+
+    .Products--Related--box{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        padding: 20px 100px;
+        width: 100%;
     }
 
     .detail--p {
@@ -240,5 +294,47 @@
 
     .Producto-comprar__carrito {
         padding-top: 10px;
+    }
+
+    .Detail--Products--Related--info--title-h3{
+        font-size: 1.50rem;
+        padding: 40px 100px 0px;
+    }
+
+    .Products--Related--div{
+        width: 10%;
+        padding: 3px;
+        border: solid 1px grey;
+        transition: all 1s ease;
+    }
+
+    .Detail--Products--Related--info--title{
+        font-size: 0.850rem;
+        margin-bottom: 0;
+        padding: 5px 0;
+        color: black;
+    } 
+
+    .Detail--Products--Related--info {
+        font-size: 12px;
+        text-decoration: line-through!important;
+        margin-bottom: 0;
+    }
+    
+    .Detail--Products--Related--info-price{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .Detail--Products--Related--info-espace{
+        font-size: 12px;
+        color: #333131;
+        margin-bottom: 0;
+    }
+     
+    .Detail--Products--Related--info-discount{
+        font-size: 10px;
+        margin-bottom: 0;
+        color: #226327;
     }
 }

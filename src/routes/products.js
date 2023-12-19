@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {detail, add, edit, cart, create, remove, update, products,} = require('../controllers/productsController');
+const {detail, add, edit, cart, create, remove, update, products, regionsProducts,} = require('../controllers/productsController');
 const upload = require('../middlewares/upload');
 const adminCheck = require('../middlewares/adminCheck');
 const productAddValidator = require('../validations/productAddValidator');
@@ -9,6 +9,7 @@ const productEditValidator = require('../validations/productEditValidator');
 /* /products */
 
 router.get('/all', products);
+router.get('/regions', regionsProducts)
 router.get('/cart', cart);
 router.get('/detail/:id', detail);
 router.get('/add',adminCheck, add);

@@ -75,6 +75,7 @@ const visitados = db.Product.findAll({
                     [Op.substring] : keyword
                 }
             }
+
         }).then(products => {
             return res.render('results', {
                 products,

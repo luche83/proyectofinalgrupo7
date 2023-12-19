@@ -1,3 +1,5 @@
+/dashboard/node_modules
+/dashboard/package-lock.json
 /node_modules
 package-lock.json
 Markdown.md
