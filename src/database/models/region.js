@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      Region.hasMany(models.Product, {
+        as: 'products',
+        foreignKey: 'regionId'
+      })
     }
   }
   Region.init({
