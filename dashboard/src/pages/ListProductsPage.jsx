@@ -4,7 +4,8 @@ import { FormProduct } from "../components/FormProduct";
 import { TableItem } from "../components/TableItem";
 import { useEffect, useState } from "react";
 import { UseFetch } from "../hooks/UseFetch";
-import { deleteProduct } from "../service/productServices";
+import ReactPaginate from 'react-paginate'
+//import { deleteProduct } from "../service/productServices";
 
 
 export const ListProductsPage = () => {
@@ -54,7 +55,7 @@ export const ListProductsPage = () => {
   }
 
   const getData = async () => {
-    const { data } = await UseFetch("products");
+    const { data } = await UseFetch("dashboard/products");
 
     setProducts(data);
   };
@@ -62,6 +63,7 @@ export const ListProductsPage = () => {
   useEffect(() => {
     getData();
   }, []);
+
 
 /* paginator settings */
 
@@ -87,7 +89,7 @@ const handlePageClick = (event) => {
               </CardTitle>
             </CardHeader>
             <CardBody>
-              <FormProduct products={products} setProducts={setProducts} formValues={formValues} setFormValues={setFormValues}/>
+              <FormProduct products={products} setProducts={setProducts}/>
             </CardBody>
           </Card>
         </Col>
@@ -134,7 +136,7 @@ const handlePageClick = (event) => {
           <th>Seccion</th>
           <th>Region</th>
           <th>Precio</th>
-          <th>Descuento</th>
+          <th>Desto.</th>
           <th>Cant.</th>
           <th>Cant. Min.</th>
           <th>Acciones</th>

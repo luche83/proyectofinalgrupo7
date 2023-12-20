@@ -3,7 +3,7 @@ import { UseFetch } from "../hooks/UseFetch"
 export const totalProductInDB = async () => {
     try {
 
-        return await UseFetch('products/count')
+        return await UseFetch('dashboard/products/count')
         
     } catch (error) {
         console.error
@@ -13,13 +13,13 @@ export const totalProductInDB = async () => {
 export const getAllProducts = async () => {
     try {
 
-        return await UseFetch('dashboard/products/count')
+        return await UseFetch('products')
         
     } catch (error) {
         console.error
     }
 }
-
+/*
 export const createProduct = async (formValues) => {
     try {
 
@@ -56,4 +56,4 @@ export const deleteProduct = async (id) => {
     } catch (error) {
         console.error
     }
-}
+}*/

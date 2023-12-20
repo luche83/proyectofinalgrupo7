@@ -3,7 +3,7 @@ import { UseFetch } from "../hooks/UseFetch"
 export const getAllRegion = async () => {
     try {
        
-        return await UseFetch('dashboard/regions')
+        return await UseFetch('regions')
 
     } catch (error) {
         console.error

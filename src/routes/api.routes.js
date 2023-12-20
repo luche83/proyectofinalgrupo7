@@ -3,7 +3,7 @@ const productValidator = require('../validations/productAddValidator')
 const express = require('express');
 const { getCart, addItemToCart, removeItemToCart, deleteItemToCart, clearCart } = require('../controllers/APIs/cartApiController');
 const { checkEmail, listUsers, showUser, createUser, updateUser, deleteUser } = require('../controllers/APIs/usersApiController');
-const { getCategoriesWithProducts, getProducts, createProductDash, getCategories, getSections, updateProductDash, deleteProductDash } = require('../controllers/APIs/productsApiController');
+const { getAllCategories, totalProductInDB, getAllSections, getAllRegions, getAllProducts, onCreateProduct, getCategoriesWithProducts } = require('../controllers/APIs/productsApiController');
 const { listCategories, showCategory, createCategory, updateCategory, deleteCategory } = require('../controllers/APIs/apiCaregoriesController');
 const { listRegions, showRegion, createRegion, updateRegion, deleteRegion } = require('../controllers/APIs/apiRegionsController');
 const { listSections, showSection, createSection, updateSection, deleteSection } = require('../controllers/APIs/apiSectionsController');
@@ -16,14 +16,22 @@ const regionValidator = require('../validations/regionValidator');
 const uploadSection = require('../middlewares/uploadSection');
 const sectionValidator = require('../validations/sectionValidator');
 
-const { listProducts,totalProductInDB, showProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/APIs/apiProductsController');
+const { listProducts, showProduct,createProduct, updateProduct, deleteProduct } = require('../controllers/APIs/apiProductsController');
 const router = express.Router();
 
 /* /api */
 
     router
     .get('/check-email', checkEmail)
-    .get('/products/count', totalProductInDB)
+    
+
+    .get('/dashboard/categories/products', getCategoriesWithProducts)
+    .get('/dashboard/categories', getAllCategories)
+    .get('/dashboard/products/count', totalProductInDB)
+    .get('/dashboard/sections', getAllSections)
+    .get('/dashboard/regions', getAllRegions)
+    .get('/dashboard/products', getAllProducts)
+    .post('/dashboard/product', onCreateProduct)
     
 
     // Cart
@@ -74,10 +82,5 @@ const router = express.Router();
     .put('/sections/:id', updateSection)
     .delete('/sections/:id', deleteSection)
     
-
-
-    
-
-   
 
 module.exports = router;
