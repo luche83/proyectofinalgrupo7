@@ -127,13 +127,13 @@ const onCreateProduct = async (req, res) => {
       description: description ?.trim(),
     });
 
-    const newproduct = await db.Product.findByPk(newProduct.id,{
+    const product = await db.Product.findByPk(newProduct.id,{
       include: ["section", "category", "region", "images"],
     })
 
     return res.status(200).json({
       ok: true,
-      data: newproduct,
+      data: product,
       msg: "Producto agregado con éxito",
     });
   } catch (error) {
@@ -144,41 +144,15 @@ const onCreateProduct = async (req, res) => {
     });
   }
 };
-/*
 
-const getCategoriesWithProducts = async (req, res) => {
-  try {
-    const categories = await db.Category.findAll({
-      include: [
-        {
-          association: "products",
-          attributes: ["id", "title", "price", "discount"],
-        },
-      ],
-    });
-
-    return res.status(200).json({
-      ok: true,
-      data: categories,
-    });
-  } catch (error) {
-    return res.status(error.status || 500).json({
-      ok: false,
-      msg: error.message || "Upss, hubo un error",
-    });
-  }
-};
-
-
-
-const updateProductDash = async (req, res) => {
+const onUpdateProduct = async (req, res) => {
   try {
     const {  title, categoryId, sectionId,regionId, price, discount, amount, amountmin, description } =
       req.body;
 
     await db.Product.update(
       {
-        title: title?.trim(),
+      title: title?.trim(),
       categoryId,
       sectionId,
       regionId,
@@ -213,6 +187,7 @@ const updateProductDash = async (req, res) => {
   }
 };
 
+/*
 
 const deleteProductDash = async (req,res) => {
   try {
@@ -242,7 +217,8 @@ module.exports = {
   getAllSections,
   getAllRegions,
   getAllProducts,
-  onCreateProduct
+  onCreateProduct,
+  onUpdateProduct
   
   /*getCategoriesWithProducts,
   getCategories,
