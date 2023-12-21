@@ -32,12 +32,12 @@ export const SideBar = () => {
     <hr className="sidebar-divider"/>
 
 
-    <div className="sidebar-heading">Actions</div>
+    <div className="sidebar-heading">ACCIONES</div>
 
     
     <li className={`nav-item ${pathname === '/'  && 'active'}`}>
         <Link className="nav-link collapsed" to="/">
-            <i className="fas fa-fw fa-home"></i>
+            <i className="fa-solid fa-house btn-sm btn-outline-primary"></i>
             <span>HOME</span>
         </Link>
     </li>
@@ -45,14 +45,14 @@ export const SideBar = () => {
     
     <li className={`nav-item ${pathname === '/products'  && 'active'}`}>
         <Link className="nav-link" to="/products">
-            <i className="fas fa-fw fa-film"></i>
+            <i className="fa-brands fa-product-hunt btn-sm btn-outline-success"></i>
             <span>PRODUCTOS</span></Link>
     </li>
 
     
     <li className={`nav-item ${pathname === '/users'  && 'active'}`}>
         <Link className="nav-link" to="/users">
-            <i className="fas fa-fw fa-users"></i>
+            <i className="fa-solid fa-users btn-sm btn-outline-danger"></i>
             <span>USUARIOS</span></Link>
     </li>
 

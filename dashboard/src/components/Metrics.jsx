@@ -9,21 +9,21 @@ export const Metrics = ({totalProducts}) => {
 			color: "primary",
 			title: "Productos en Almacen",
 			value: totalProducts,
-			icon: "fa-film"
+			icon: "fa-bag-shopping"
 		},
 		{
 			id: crypto.randomUUID(),
 			color: "success",
 			title: "Categorias y Secciones",
 			value: 79,
-			icon: "fa-award"
+			icon: "fa-layer-group"
 		},
 		{
 			id: crypto.randomUUID(),
 			color: "warning",
 			title: "Usuarios Registrados",
 			value: 49,
-			icon: "fa-user"
+			icon: "fa-users"
 		}
 	]
 

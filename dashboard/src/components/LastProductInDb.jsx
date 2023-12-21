@@ -10,8 +10,8 @@ export const LastProductInDb = () => {
 									<div className="text-center">
 										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: "40rem"}} src="images/poncho.jpg" alt=" Star Wars - Mandalorian "/>
 									</div>
-									<p>Ladder 49 (en español, Brigada 49) es una película de 2004 acerca del heroísmo de un bombero de Baltimore, Jack Morrison, que queda atrapado dentro de un edificio en llamas durante un incendio, y sobre sus recuerdos de los hechos que lo condujeron a ese punto. La película es un homenaje a la profesión y a la vida de bombero. Fue dirigida por Jay Russell.</p>
-									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
+									<p>Poncho de lana de alpaca, producto muy cotizado por el valor calorico que ofrece en una noche fresca</p>
+									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle del Producto</a>
 								</div>
 							</div>
 						</div>

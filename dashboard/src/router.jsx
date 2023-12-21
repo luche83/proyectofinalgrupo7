@@ -3,6 +3,7 @@ import App from './App';
 import { HomeAdminPage } from './pages/HomeAdminPage';
 import { ListProductsPage } from './pages/ListProductsPage';
 import { loader as loaderAdminHome} from './pages/HomeAdminPage/loader';
+import { FormUser } from './components/FormUser';
 
 
 
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
             {
                 path: '/products',
                 element : <ListProductsPage/>
+            },
+            {
+                path: '/users',
+                element : <FormUser/>
             }
         ]
     }

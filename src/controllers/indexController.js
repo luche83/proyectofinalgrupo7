@@ -66,6 +66,8 @@ const visitados = db.Product.findAll({
         
     },
 
+
+    
     search: (req, res) => {
         const keyword = req.query.keyword
 
