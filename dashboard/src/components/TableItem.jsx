@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export const TableItem = ({product : {title, category, section, region, price, discount, amount, amountmin}}) => {
+export const TableItem = ({product : {id, title, category, section, region, price, discount, amount, amountmin}, handleEditForm, handleDeleteProduct}) => {
   return (
     <tr>
           <td>{title}</td>
@@ -14,8 +14,11 @@ export const TableItem = ({product : {title, category, section, region, price, d
           <td>
             <div className='d-flex'>
               <button className='btn btn-sm btn-outline-primary mr-2'><i className="fa-solid fa-file-circle-plus"></i></button>
-                <button className='btn btn-sm btn-outline-success mr-2'><i className="fa-regular fa-pen-to-square"></i></button>
-                <button className='btn btn-sm btn-outline-danger'><i className="fa-solid fa-trash-can"></i></button>
+                <button 
+                className='btn btn-sm btn-outline-success mr-2'
+                onClick={() => handleEditForm(id)}><i className="fa-regular fa-pen-to-square"></i></button>
+                <button className='btn btn-sm btn-outline-danger'
+                onClick={() => handleDeleteProduct(id)}><i className="fa-solid fa-trash-can"></i></button>
             </div>
           </td>
         </tr>
@@ -24,5 +27,7 @@ export const TableItem = ({product : {title, category, section, region, price, d
 
 TableItem.propTypes = {
     product : PropTypes.object,
+    handleEditForm : PropTypes.func,
+    handleDeleteProduct : PropTypes.func
     
 }

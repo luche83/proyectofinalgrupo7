@@ -23,7 +23,23 @@ const getCategoriesWithProducts = async (req, res) => {
   }
 };
 
-const getCategories = async (req, res) => {
+const totalProductInDB = async (req, res) => {
+  try {
+  const total = await db.Product.count();
+
+  return res.status(200).json({
+      ok: true,
+      data: total,
+  });
+  } catch (error) {
+  return res.status(error.status || 500).json({
+      ok: false,
+      msg: error.message || "Upss, hubo un error",
+  });
+  }
+}
+
+const getAllCategories = async (req, res) => {
   try {
     const categories = await db.Category.findAll({
       attributes: ["title", "id"],
@@ -41,7 +57,7 @@ const getCategories = async (req, res) => {
   }
 };
 
-const getSections = async (req, res) => {
+const getAllSections = async (req, res) => {
   try {
     const sections = await db.Section.findAll({
       attributes: ["title", "id"],
@@ -59,7 +75,7 @@ const getSections = async (req, res) => {
   }
 };
 
-const getRegions = async (req, res) => {
+const getAllRegions = async (req, res) => {
   try {
     const regions = await db.Region.findAll({
       attributes: ["title", "id"],
@@ -67,7 +83,7 @@ const getRegions = async (req, res) => {
 
     return res.status(200).json({
       ok: true,
-      data: categories,
+      data: regions,
     });
   } catch (error) {
     return res.status(error.status || 500).json({
@@ -77,9 +93,7 @@ const getRegions = async (req, res) => {
   }
 };
 
-
-
-const getProducts = async (req, res) => {
+const getAllProducts = async (req, res) => {
   try {
     const products = await db.Product.findAll({
       include: ["section", "category", "region", "images"],
@@ -97,13 +111,12 @@ const getProducts = async (req, res) => {
   }
 };
 
-const createProductDash = async (req, res) => {
+const onCreateProduct = async (req, res) => {
   try {
-    const { title, categoryId, sectionId,regionId, price, discount, amount, amountmin, description } =
-      req.body;
+    const { title, categoryId, sectionId,regionId, price, discount, amount, amountmin, description } = req.body;
 
     const newProduct = await db.Product.create({
-      title: title?.trim(),
+      title: title ?.trim(),
       categoryId,
       sectionId,
       regionId,
@@ -111,7 +124,7 @@ const createProductDash = async (req, res) => {
       price,
       amount,
       amountmin,
-      description: description?.trim(),
+      description: description ?.trim(),
     });
 
     const product = await db.Product.findByPk(newProduct.id,{
@@ -132,14 +145,14 @@ const createProductDash = async (req, res) => {
   }
 };
 
-const updateProductDash = async (req, res) => {
+const onUpdateProduct = async (req, res) => {
   try {
     const {  title, categoryId, sectionId,regionId, price, discount, amount, amountmin, description } =
       req.body;
 
     await db.Product.update(
       {
-        title: title?.trim(),
+      title: title?.trim(),
       categoryId,
       sectionId,
       regionId,
@@ -175,7 +188,7 @@ const updateProductDash = async (req, res) => {
 };
 
 
-const deleteProductDash = async (req,res) => {
+const onDeleteProduct = async (req,res) => {
   try {
     await db.Product.destroy({
       where : {
@@ -198,11 +211,13 @@ const deleteProductDash = async (req,res) => {
 
 module.exports = {
   getCategoriesWithProducts,
-  getCategories,
-
-  createProductDash,
-  updateProductDash,
-  deleteProductDash,
-  getSections,
-  getRegions
+  getAllCategories,
+  totalProductInDB,
+  getAllSections,
+  getAllRegions,
+  getAllProducts,
+  onCreateProduct,
+  onUpdateProduct,
+  onDeleteProduct
+  
 };

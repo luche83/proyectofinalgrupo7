@@ -5,6 +5,8 @@ import { TableItem } from "../components/TableItem";
 import { useEffect, useState } from "react";
 import { UseFetch } from "../hooks/UseFetch";
 import { deleteProduct } from "../service/productServices";
+import ReactPaginate from 'react-paginate';
+
 
 
 export const ListProductsPage = () => {
@@ -24,8 +26,7 @@ export const ListProductsPage = () => {
     description: "",
   });
 
-  // eslint-disable-next-line no-unused-vars
-  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const handleEditForm = (idProduct) => {
 
@@ -54,7 +55,7 @@ export const ListProductsPage = () => {
   }
 
   const getData = async () => {
-    const { data } = await UseFetch("products");
+    const { data } = await UseFetch("dashboard/products");
 
     setProducts(data);
   };
@@ -63,7 +64,7 @@ export const ListProductsPage = () => {
     getData();
   }, []);
 
-/* paginator settings */
+  /* paginator settings */
 
 const [itemOffset, setItemOffset] = useState(0);
 
@@ -76,7 +77,7 @@ const handlePageClick = (event) => {
  
   setItemOffset(newOffset);
 };
-  
+
        return (<Row>
 
         <Col sm={12} lg={4}>
@@ -120,7 +121,7 @@ const handlePageClick = (event) => {
             activeClassName="active"
       
           />
-                
+                                
               </div>
               </CardTitle>
             </CardHeader>
@@ -134,7 +135,7 @@ const handlePageClick = (event) => {
           <th>Seccion</th>
           <th>Region</th>
           <th>Precio</th>
-          <th>Descuento</th>
+          <th>Desto.</th>
           <th>Cant.</th>
           <th>Cant. Min.</th>
           <th>Acciones</th>
@@ -144,7 +145,7 @@ const handlePageClick = (event) => {
       <tbody>
 
       {
-        products.map((product, index) => (<TableItem key={product.title+index} product={product} handleEditForm={handleEditForm} handleDeleteProduct={handleDeleteProduct}/>))}
+        currentItems.map((product, index) => (<TableItem key={product.title+index} product={product} handleEditForm={handleEditForm} handleDeleteProduct={handleDeleteProduct}/>))}
       
       
       </tbody>

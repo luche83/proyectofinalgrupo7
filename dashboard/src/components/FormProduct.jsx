@@ -4,12 +4,7 @@ import { UseFetch } from "../hooks/UseFetch";
 import PropTypes from "prop-types";
 import { createProduct, updateProduct } from "../service/productServices";
 
-export const FormProduct = ({
-  products,
-  setProducts,
-  formValues,
-  setFormValues,
-}) => {
+export const FormProduct = ({products, setProducts, formValues, setFormValues}) => {
 
   const [categories, setCategories] = useState([]);
   const [sections, setSections] = useState([]);
@@ -21,72 +16,74 @@ export const FormProduct = ({
     const sections = await UseFetch("dashboard/sections");
     const regions = await UseFetch("dashboard/regions");
 
-    setCategories([...categories.data])
-    setSections([...sections.data])
-    setRegions([...regions.data])
+    setCategories([...categories.data]);
+    setSections([...sections.data]);
+    setRegions([...regions.data]);
+
+  };
     
-  };
+    useEffect(() => {
+      getData();
+    }, []);
+  
+const handleInputChange = ({ target }) => {
+  setFormValues({
+    ...formValues,
+    [target.name]: target.value,
+  });
+};
 
-  useEffect(() => {
-    getData();
-  }, []);
+const handleSubmitForm = async (event) => {
+  event.preventDefault();
 
-  const handleInputChange = ({ target }) => {
-    setFormValues({
-      ...formValues,
-      [target.name]: target.value,
-    });
-  };
- 
-    const handleSubmitForm = async (event) => {
-      event.preventDefault();
-      if (
-        [
-          formValues.title,
-          formValues.categoryId,
-          formValues.sectionId,
-          formValues.regionId,
-          formValues.price,
-          formValues.discount,
-          formValues.amount,
-          formValues.amountmin,
-          formValues.description,
-        ].includes("")
-      ) {
-        alert("upsss... no envíe vacío el formulario!!!");
-        return;
+  if (
+    [
+      formValues.title,
+      formValues.categoryId,
+      formValues.sectionId,
+      formValues.regionId,
+      formValues.price,
+      formValues.amount,
+      formValues.amountmin,
+      formValues.description,
+    ].includes("")
+  ) {
+    alert("upsss... no envíe vacío el formulario!!!");
+    return;
+  }
+
+  if(formValues.id){
+    const {data} = await updateProduct(formValues);
+
+    const  productUpdated = products.map(product => {
+
+      if(product.id === data.id){
+        product = data
       }
-        
-      if (formValues.id) {
-        const { data } = await updateProduct(formValues)
-  
-        const productsUpdated = products.map((product) => {
-          if (product.id === data.id) {
-            product = data;
-          }
-          return product;
-        });
-  
-        setProducts([...productsUpdated]);
-      } else {
-        const { data } = await createProduct(formValues)
-        setProducts([...products, data]);
-      }
-  
-      setFormValues({
-        id: null,
-        title: "",
-        categoryId: "",
-        sectionId: "",
-        regionId: "",
-        price: "",
-        discount: "",
-        amount: "",
-        amountmin: "",
-        description: "",
-      });
-    };
-  
+      return product
+
+    })
+    setProducts([...productUpdated])
+
+  } else {
+    const {data} = await createProduct(formValues);
+
+  setProducts([...products, data]);
+  }
+  setFormValues({
+    id: null,
+      title: "",
+      categoryId: "",
+      sectionId: "",
+      regionId: "",
+      price: "",
+      discount: "",
+      amount: "",
+      amountmin: "",
+      description: "",
+});
+};
+    
   return (
 
     <Form className="row" onSubmit={handleSubmitForm}>
@@ -100,19 +97,14 @@ export const FormProduct = ({
       <Form.Group className="mb-3 col-12" >
         <Form.Label>Categoria</Form.Label>
         <Form.Select className="form-control" aria-label="Default select example" name="categoryId" onChange={handleInputChange}>
-          <option hidden defaultChecked>Selecciona....</option>
-
-          {categories.map((category, index) =>
-            category.id == formValues.categoryId ? (
-              <option key={index + category.title} selected value={category.id}>
-                {category.title}
-              </option>
-            ) : (
-              <option key={index + category.title} value={category.id}>
-                {category.title}
-              </option>
-            )
-          )}
+          <option hidden defaultValue>Selecciona....</option>
+          
+          {categories.map((category, index) => (
+            category.id == formValues.categoryId ? 
+            (<option selected key={index + category.title} value={category.id}>{category.title}</option>) 
+            : 
+            (<option key={index + category.title} value={category.id}>{category.title}</option>)
+            ))}
                     
         </Form.Select>
         
@@ -121,19 +113,15 @@ export const FormProduct = ({
       <Form.Group className="mb-3 col-12" >
         <Form.Label>Seccion</Form.Label>
         <Form.Select className="form-control" aria-label="Default select example" name="sectionId" onChange={handleInputChange}>
-          <option hidden defaultChecked>Selecciona....</option>
+          <option hidden defaultValue>Selecciona....</option>
 
-          {sections.map((section, index) =>
-            section.id == formValues.sectionId ? (
-              <option key={index + section.title} selected value={section.id}>
-                {section.title}
-              </option>
-            ) : (
-              <option key={index + section.title} value={section.id}>
-                {section.title}
-              </option>
-            )
-          )}
+          {sections.map((section, index) => (
+            section.id == formValues.sectionId ? 
+            (<option selected key={index + section.title} value={section.id}>{section.title}</option>) 
+            : 
+            (<option key={index + section.title} value={section.id}>{section.title}</option>)
+            ))}
+                    
 
         </Form.Select>
         
@@ -142,20 +130,15 @@ export const FormProduct = ({
       <Form.Group className="mb-3 col-12" >
         <Form.Label>Region</Form.Label>
         <Form.Select className="form-control" aria-label="Default select example" name="regionId" onChange={handleInputChange}>
-          <option hidden defaultChecked>Selecciona....</option>
+          <option hidden defaultValue>Selecciona....</option>
 
-          {regions.map((region, index) =>
-            region.id == formValues.regionId ? (
-              <option key={index + region.title} selected value={region.id}>
-                {region.title}
-              </option>
-            ) : (
-              <option key={index + region.title} value={region.id}>
-                {region.title}
-              </option>
-            )
-          )}
-          
+          {regions.map((region, index) => (
+            region.id == formValues.regionId ? 
+            (<option selected key={index + region.title} value={region.id}>{region.title}</option>) 
+            : 
+            (<option key={index + region.title} value={region.id}>{region.title}</option>)
+            ))}
+                              
         </Form.Select>
         
       </Form.Group>
