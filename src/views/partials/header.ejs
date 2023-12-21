@@ -6,11 +6,9 @@
 
       <div class="login-input__box">
         <div class="Header-form__box">
-          <form action="/search" class="Header-form">
-            <input type="text" name="keywords" placeholder="Buscar" class="Header--input--keywords" />
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+          <form action="/search" method="GET" class="Header-form">
+            <input type="text" name="keyword" placeholder="Buscar" class="Header--input--keywords" />
+            <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
           </form>
         </div>
         <div class="div-user-bar-login__box">

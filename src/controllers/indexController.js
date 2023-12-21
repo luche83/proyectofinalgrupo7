@@ -66,23 +66,41 @@ const visitados = db.Product.findAll({
         
     },
 
-
-    
     search: (req, res) => {
         const keyword = req.query.keyword
 
         db.Product.findAll({
             where : {
-                title : {
-                    [Op.substring] : keyword
+                [Op.or] : [
+
+                    {
+                        title : {
+                            [Op.substring] : keyword
+                        }
+                    },
+                    {
+                    description : {
+                        [Op.substring] : keyword
+                    }
                 }
-            }
+                ]
+                
+            },
+            include : [
+                'category',
+                'region',
+                'section',
+                'images'
+            ]
 
         }).then(products => {
+            
             return res.render('results', {
-                products,
-                results : true 
+                
+                results : products,
+                toThousand,
+                title: "Resultado de la busqueda"
             })
         }).catch(error => console.log(error))
-	}, 
+	},
 }

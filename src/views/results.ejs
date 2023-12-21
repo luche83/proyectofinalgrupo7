@@ -6,11 +6,11 @@
         <%- include('partials/header') %>
             <main class="main--index">
                 <section class="contenedor--tarjetas-index">
-                   <% if (products.length) { %>
+                   <% if (results.length) { %>
                     <% results.forEach(product=> { %>
 
                         <%- include('partials/productCard',{
-                            ...product,
+                            ...product.dataValues,
                             toThousand
                         }) %>
 
