@@ -187,9 +187,8 @@ const onUpdateProduct = async (req, res) => {
   }
 };
 
-/*
 
-const deleteProductDash = async (req,res) => {
+const onDeleteProduct = async (req,res) => {
   try {
     await db.Product.destroy({
       where : {
@@ -208,7 +207,7 @@ const deleteProductDash = async (req,res) => {
       data: null,
     });
   }
-}*/
+}
 
 module.exports = {
   getCategoriesWithProducts,
@@ -218,13 +217,7 @@ module.exports = {
   getAllRegions,
   getAllProducts,
   onCreateProduct,
-  onUpdateProduct
+  onUpdateProduct,
+  onDeleteProduct
   
-  /*getCategoriesWithProducts,
-  getCategories,
-
-  createProductDash,
-  updateProductDash,
-  deleteProductDash,
-  */
 };

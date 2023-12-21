@@ -4,8 +4,9 @@ import { FormProduct } from "../components/FormProduct";
 import { TableItem } from "../components/TableItem";
 import { useEffect, useState } from "react";
 import { UseFetch } from "../hooks/UseFetch";
-import ReactPaginate from 'react-paginate'
-//import { deleteProduct } from "../service/productServices";
+import { deleteProduct } from "../service/productServices";
+import ReactPaginate from 'react-paginate';
+
 
 
 export const ListProductsPage = () => {
@@ -24,6 +25,8 @@ export const ListProductsPage = () => {
     amountmin:"",
     description: "",
   });
+
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const handleEditForm = (idProduct) => {
 
@@ -61,6 +64,20 @@ export const ListProductsPage = () => {
     getData();
   }, []);
 
+  /* paginator settings */
+
+const [itemOffset, setItemOffset] = useState(0);
+
+const endOffset = itemOffset + itemsPerPage;
+const currentItems = products.slice(itemOffset, endOffset);
+const pageCount = Math.ceil(products.length / itemsPerPage);
+
+const handlePageClick = (event) => {
+  const newOffset = (event.selected * itemsPerPage) % products.length;
+ 
+  setItemOffset(newOffset);
+};
+
        return (<Row>
 
         <Col sm={12} lg={4}>
@@ -84,6 +101,26 @@ export const ListProductsPage = () => {
 
                 <FormSearch/>
 
+                <ReactPaginate
+            pageCount={pageCount}
+            breakLabel="..."
+            nextLabel=">"
+            previousLabel="<"
+            pageRangeDisplayed={4}
+            onPageChange={handlePageClick}
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            marginPagesDisplayed={2}
+            containerClassName="pagination justify-content-center cursorPage"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            activeClassName="active"
+      
+          />
                                 
               </div>
               </CardTitle>
@@ -108,7 +145,7 @@ export const ListProductsPage = () => {
       <tbody>
 
       {
-        products.map((product, index) => (<TableItem key={product.title+index} product={product} handleEditForm={handleEditForm}/>))}
+        currentItems.map((product, index) => (<TableItem key={product.title+index} product={product} handleEditForm={handleEditForm} handleDeleteProduct={handleDeleteProduct}/>))}
       
       
       </tbody>

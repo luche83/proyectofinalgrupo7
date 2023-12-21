@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button, Form } from "react-bootstrap"
 import { UseFetch } from "../hooks/UseFetch";
 import PropTypes from "prop-types";
-//import { createProduct, updateProduct } from "../service/productServices";
+import { createProduct, updateProduct } from "../service/productServices";
 
 export const FormProduct = ({products, setProducts, formValues, setFormValues}) => {
 
@@ -33,7 +33,7 @@ const handleInputChange = ({ target }) => {
   });
 };
 
-const handleSubmitFormCreate = async (event) => {
+const handleSubmitForm = async (event) => {
   event.preventDefault();
 
   if (
@@ -53,23 +53,22 @@ const handleSubmitFormCreate = async (event) => {
   }
 
   if(formValues.id){
-    const {data} = await UseFetch(`dashboard/product/${formValues.id}`, 'PUT', formValues);
+    const {data} = await updateProduct(formValues);
 
     const  productUpdated = products.map(product => {
+
       if(product.id === data.id){
         product = data
       }
       return product
+
     })
-    setProducts(...productUpdated)
+    setProducts([...productUpdated])
 
   } else {
-    const {data} = await UseFetch('dashboard/product', 'POST', formValues);
+    const {data} = await createProduct(formValues);
 
-  setProducts([
-    ...products,
-    data
-  ]);
+  setProducts([...products, data]);
   }
   setFormValues({
     id: null,
@@ -82,44 +81,12 @@ const handleSubmitFormCreate = async (event) => {
       amount: "",
       amountmin: "",
       description: "",
-})
-}
-      
-
-
-  /* const handleSubmitForm = async (event) => {
-      event.preventDefault();
-      
-        
-      if (formValues.id) {
-        const { data } = await updateProduct(formValues)
-  
-        const productsUpdated = products.map((product) => {
-          if (product.id === data.id) {
-            product = data;
-          }
-          return product;
-        });
-  
-        
-  
-      setFormValues({
-        id: null,
-        title: "",
-        categoryId: "",
-        sectionId: "",
-        regionId: "",
-        price: "",
-        discount: "",
-        amount: "",
-        amountmin: "",
-        description: "",
-      });
-    };*/
-  
+});
+};
+    
   return (
 
-    <Form className="row" onSubmit={handleSubmitFormCreate}>
+    <Form className="row" onSubmit={handleSubmitForm}>
 
       <Form.Group className="mb-3 col-12" >
         <Form.Label>Nombre del Producto</Form.Label>

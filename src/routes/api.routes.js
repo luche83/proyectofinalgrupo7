@@ -3,7 +3,7 @@ const productValidator = require('../validations/productAddValidator')
 const express = require('express');
 const { getCart, addItemToCart, removeItemToCart, deleteItemToCart, clearCart } = require('../controllers/APIs/cartApiController');
 const { checkEmail, listUsers, showUser, createUser, updateUser, deleteUser } = require('../controllers/APIs/usersApiController');
-const { getAllCategories, totalProductInDB, getAllSections, getAllRegions, getAllProducts, onCreateProduct, getCategoriesWithProducts, onUpdateProduct } = require('../controllers/APIs/productsApiController');
+const { getAllCategories, totalProductInDB, getAllSections, getAllRegions, getAllProducts, onCreateProduct, getCategoriesWithProducts, onUpdateProduct, onDeleteProduct } = require('../controllers/APIs/productsApiController');
 const { listCategories, showCategory, createCategory, updateCategory, deleteCategory } = require('../controllers/APIs/apiCaregoriesController');
 const { listRegions, showRegion, createRegion, updateRegion, deleteRegion } = require('../controllers/APIs/apiRegionsController');
 const { listSections, showSection, createSection, updateSection, deleteSection } = require('../controllers/APIs/apiSectionsController');
@@ -32,7 +32,8 @@ const router = express.Router();
     .get('/dashboard/regions', getAllRegions)
     .get('/dashboard/products', getAllProducts)
     .post('/dashboard/product', onCreateProduct)
-    .put('/dashboard/products/:id', onUpdateProduct)
+    .put('/dashboard/product/:id', onUpdateProduct)
+    .delete('/dashboard/product/:id', onDeleteProduct)
     
 
     // Cart
