@@ -1,6 +1,6 @@
 const $ = id => document.getElementById(id);
 
-const urlBase = "https://apis.datos.gob.ar/georef/api"
+const urlBas = "https://apis.datos.gob.ar/georef/api"
 
 window.onload = async function(e) {
 
@@ -95,7 +95,7 @@ window.onload = async function(e) {
     });
 
     try {
-        const response = await fetch(urlBase + '/provincias');
+        const response = await fetch(urlBas + '/provincias');
         const result = await response.json();
 
     result.provincias.sort((a,b) => (a.nombre > b.nombre ? 1 : a.nombre < b.nombre ? -1 : 0)).forEach(({nombre}) =>{
@@ -110,7 +110,7 @@ window.onload = async function(e) {
 
     try {
             
-        const response = await fetch(`${urlBase}/localidades?provincia=${this.value}&max=1000`);
+        const response = await fetch(`${urlBas}/localidades?provincia=${this.value}&max=1000`);
         const result = await response.json();
 
         $('city').innerHTML = null;
