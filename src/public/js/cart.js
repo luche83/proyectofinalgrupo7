@@ -30,7 +30,7 @@ const showProductInCart = (products, total) => {
     products.forEach(({ id, image, title, price, quantity, discount }) => {
       $("cart-table").innerHTML += `
     <tr>
-        <th scope="row"><img src="/img/products/${image}" alt="" width=100/></th>
+        <th scope="row"><img src="/images/productos/${image}" alt="" style="width:50px"/></th>
         <td>${title}</td>
         <td>${(price - price * discount /100) * quantity}</td>
         <td>

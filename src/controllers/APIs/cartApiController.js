@@ -9,7 +9,7 @@ const calculateTotal = (req) => {
 const getCart = async (req, res) => {
   try {
     if (!req.session.cart) {
-      let error = new Error("Debe loguearte para comprar");
+      let error = new Error("Debes loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -29,7 +29,7 @@ const getCart = async (req, res) => {
 const addItemToCart = async (req, res) => {
   try {
     if (!req.session.cart) {
-      let error = new Error("Debe loguearte para comprar");
+      let error = new Error("Debes loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -104,7 +104,7 @@ const addItemToCart = async (req, res) => {
 const removeItemToCart = async (req, res) => {
   try {
     if (!req.session.cart) {
-      let error = new Error("Debe loguearte para comprar");
+      let error = new Error("Debes loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -155,7 +155,7 @@ const deleteItemToCart = async (req,res) => {
   try {
 
     if (!req.session.cart) {
-      let error = new Error("Debe loguearte para comprar");
+      let error = new Error("Debes loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -196,7 +196,7 @@ const clearCart = async (req,res) => {
   try {
 
     if (!req.session.cart) {
-      let error = new Error("Debe loguearte para comprar");
+      let error = new Error("Debes loguearte para comprar");
       error.status = 404;
       throw error;
     };

@@ -13,7 +13,7 @@ export const TableItem = ({product : {id, title, category, section, region, pric
           <td>{amountmin}</td>
           <td>
             <div className='d-flex'>
-              <button className='btn btn-sm btn-outline-primary mr-2'><i className="fa-solid fa-file-circle-plus"></i></button>
+              
                 <button 
                 className='btn btn-sm btn-outline-success mr-2'
                 onClick={() => handleEditForm(id)}><i className="fa-regular fa-pen-to-square"></i></button>

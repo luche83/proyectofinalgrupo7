@@ -55,7 +55,8 @@
         <% } %>
         <% if (locals.userLogin) { %> <% if (userLogin.role === 1) { %>
           <li><a href="/admin">ADMIN</a></li>
-          <% } %> <% } %>
+          <li><a href="http://localhost:5173/">DASHBOARD</a></li>
+        <% } %> <% } %>
     </nav>
     <nav class="header-nav__box">
       <div class="Header-nav__div">
@@ -66,6 +67,7 @@
           <% if (locals.userLogin) { %>
             <% if (userLogin.role === 1) { %>
                 <li><a href="/admin">ADMIN</a></li>
+                <li><a href="http://localhost:5173/">DASHBOARD</a></li>
             <% } %>
         <% } %> 
       </ul>

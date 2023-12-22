@@ -33,9 +33,15 @@ export const SideBar = () => {
 
 
     <div className="sidebar-heading">ACCIONES</div>
-
     
-    <li className={`nav-item ${pathname === '/'  && 'active'}`}>
+    <li className={`nav-item ${pathname === 'http://localhost:3000/'  && 'active'}`}>
+        <Link className="nav-link collapsed" to="http://localhost:3000/">
+            <i className="fa-solid fa-screwdriver-wrench btn-sm btn-outline-primary"></i>
+            <span>MVC</span>
+        </Link>
+    </li>
+
+    <li className={`nav-item ${pathname === '/home'  && 'active'}`}>
         <Link className="nav-link collapsed" to="/">
             <i className="fa-solid fa-house btn-sm btn-outline-primary"></i>
             <span>HOME</span>
