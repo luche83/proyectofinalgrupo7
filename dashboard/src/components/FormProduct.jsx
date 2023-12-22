@@ -1,17 +1,22 @@
-import { useEffect, useState } from "react"
-import { Button, Form } from "react-bootstrap"
+import { useEffect, useState } from "react";
+import { Button, Form, FormLabel, Image } from "react-bootstrap";
 import { UseFetch } from "../hooks/UseFetch";
 import PropTypes from "prop-types";
 import { createProduct, updateProduct } from "../service/productServices";
 
-export const FormProduct = ({products, setProducts, formValues, setFormValues}) => {
-
+export const FormProduct = ({
+  products,
+  setProducts,
+  formValues,
+  setFormValues,
+  setChangeImage,
+  changeImage,
+}) => {
   const [categories, setCategories] = useState([]);
   const [sections, setSections] = useState([]);
   const [regions, setRegions] = useState([]);
-  
-  const getData = async () => {
 
+  const getData = async () => {
     const categories = await UseFetch("dashboard/categories");
     const sections = await UseFetch("dashboard/sections");
     const regions = await UseFetch("dashboard/regions");
@@ -19,59 +24,81 @@ export const FormProduct = ({products, setProducts, formValues, setFormValues}) 
     setCategories([...categories.data]);
     setSections([...sections.data]);
     setRegions([...regions.data]);
-
   };
-    
-    useEffect(() => {
-      getData();
-    }, []);
-  
-const handleInputChange = ({ target }) => {
-  setFormValues({
-    ...formValues,
-    [target.name]: target.value,
-  });
-};
 
-const handleSubmitForm = async (event) => {
-  event.preventDefault();
+  useEffect(() => {
+    getData();
+  }, []);
 
-  if (
-    [
-      formValues.title,
-      formValues.categoryId,
-      formValues.sectionId,
-      formValues.regionId,
-      formValues.price,
-      formValues.amount,
-      formValues.amountmin,
-      formValues.description,
-    ].includes("")
-  ) {
-    alert("upsss... no envíe vacío el formulario!!!");
-    return;
-  }
+  const handleInputChange = ({ target }) => {
+    setFormValues({
+      ...formValues,
+      [target.name]: target.value,
+    });
+  };
 
-  if(formValues.id){
-    const {data} = await updateProduct(formValues);
+  const handleImagePrev = ({ target }) => {
+    setFormValues({
+      ...formValues,
+      [target.name]: target.files[0],
+    });
+    setChangeImage(true);
+  };
 
-    const  productUpdated = products.map(product => {
+  const handleCleanForm = () => {
+    setFormValues({
+      id: null,
+      name: "",
+      price: "",
+      discount: "",
+      brandId: "",
+      sectionId: "",
+      description: "",
+      image: "",
+    });
+    setChangeImage(false);
+  };
 
-      if(product.id === data.id){
-        product = data
-      }
-      return product
+  const handleSubmitForm = async (event) => {
+    event.preventDefault();
 
-    })
-    setProducts([...productUpdated])
+    if (
+      [
+        formValues.title,
+        formValues.categoryId,
+        formValues.sectionId,
+        formValues.regionId,
+        formValues.price,
+        formValues.amount,
+        formValues.amountmin,
+        formValues.description,
+      ].includes("")
+    ) {
+      alert("upsss... no envíe vacío el formulario!!!");
+      return;
+    }
 
-  } else {
-    const {data} = await createProduct(formValues);
+    if (formValues.id) {
+      const { data } = await updateProduct(formValues);
 
-  setProducts([...products, data]);
-  }
-  setFormValues({
-    id: null,
+      const productUpdated = products.map((product) => {
+        if (product.id == data.id) {
+          product = data;
+          console.log(data);
+        }
+        return product;
+      });
+      setProducts([...productUpdated]);
+    } else {
+      const { data } = await createProduct(formValues);
+
+      setProducts([...products, data]);
+    }
+
+    setChangeImage(false);
+
+    setFormValues({
+      id: null,
       title: "",
       categoryId: "",
       sectionId: "",
@@ -81,103 +108,191 @@ const handleSubmitForm = async (event) => {
       amount: "",
       amountmin: "",
       description: "",
-});
-};
-    
+      image: "",
+    });
+  };
+
   return (
-
     <Form className="row" onSubmit={handleSubmitForm}>
-
-      <Form.Group className="mb-3 col-12" >
+      <Form.Group className="mb-3 col-12">
         <Form.Label>Nombre del Producto</Form.Label>
-        <Form.Control type="text" placeholder="Nombre del Producto" name="title" onChange={handleInputChange} value={formValues.title}/>
-        
+        <Form.Control
+          type="text"
+          placeholder="Nombre del Producto"
+          name="title"
+          onChange={handleInputChange}
+          value={formValues.title}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12" >
+      <Form.Group className="mb-3 col-12">
         <Form.Label>Categoria</Form.Label>
-        <Form.Select className="form-control" aria-label="Default select example" name="categoryId" onChange={handleInputChange}>
-          <option hidden defaultValue>Selecciona....</option>
-          
-          {categories.map((category, index) => (
-            category.id == formValues.categoryId ? 
-            (<option selected key={index + category.title} value={category.id}>{category.title}</option>) 
-            : 
-            (<option key={index + category.title} value={category.id}>{category.title}</option>)
-            ))}
-                    
+        <Form.Select
+          className="form-control"
+          aria-label="Default select example"
+          name="categoryId"
+          onChange={handleInputChange}
+        >
+          <option hidden defaultValue>
+            Selecciona....
+          </option>
+
+          {categories.map((category, index) =>
+            category.id == formValues.categoryId ? (
+              <option selected key={index + category.title} value={category.id}>
+                {category.title}
+              </option>
+            ) : (
+              <option key={index + category.title} value={category.id}>
+                {category.title}
+              </option>
+            )
+          )}
         </Form.Select>
-        
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12" >
+      <Form.Group className="mb-3 col-12">
         <Form.Label>Seccion</Form.Label>
-        <Form.Select className="form-control" aria-label="Default select example" name="sectionId" onChange={handleInputChange}>
-          <option hidden defaultValue>Selecciona....</option>
+        <Form.Select
+          className="form-control"
+          aria-label="Default select example"
+          name="sectionId"
+          onChange={handleInputChange}
+        >
+          <option hidden defaultValue>
+            Selecciona....
+          </option>
 
-          {sections.map((section, index) => (
-            section.id == formValues.sectionId ? 
-            (<option selected key={index + section.title} value={section.id}>{section.title}</option>) 
-            : 
-            (<option key={index + section.title} value={section.id}>{section.title}</option>)
-            ))}
-                    
-
+          {sections.map((section, index) =>
+            section.id == formValues.sectionId ? (
+              <option selected key={index + section.title} value={section.id}>
+                {section.title}
+              </option>
+            ) : (
+              <option key={index + section.title} value={section.id}>
+                {section.title}
+              </option>
+            )
+          )}
         </Form.Select>
-        
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12" >
+      <Form.Group className="mb-3 col-12">
         <Form.Label>Region</Form.Label>
-        <Form.Select className="form-control" aria-label="Default select example" name="regionId" onChange={handleInputChange}>
-          <option hidden defaultValue>Selecciona....</option>
+        <Form.Select
+          className="form-control"
+          aria-label="Default select example"
+          name="regionId"
+          onChange={handleInputChange}
+        >
+          <option hidden defaultValue>
+            Selecciona....
+          </option>
 
-          {regions.map((region, index) => (
-            region.id == formValues.regionId ? 
-            (<option selected key={index + region.title} value={region.id}>{region.title}</option>) 
-            : 
-            (<option key={index + region.title} value={region.id}>{region.title}</option>)
-            ))}
-                              
+          {regions.map((region, index) =>
+            region.id == formValues.regionId ? (
+              <option selected key={index + region.title} value={region.id}>
+                {region.title}
+              </option>
+            ) : (
+              <option key={index + region.title} value={region.id}>
+                {region.title}
+              </option>
+            )
+          )}
         </Form.Select>
-        
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12 col-md-6" >
+      <Form.Group className="mb-3 col-12 col-md-6">
         <Form.Label>Precio</Form.Label>
-        <Form.Control type="number" placeholder="Precio" name="price" onChange={handleInputChange} value={formValues.price}/>
-        
+        <Form.Control
+          type="number"
+          placeholder="Precio"
+          name="price"
+          onChange={handleInputChange}
+          value={formValues.price}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12 col-md-6" >
+      <Form.Group className="mb-3 col-12 col-md-6">
         <Form.Label>Descuento</Form.Label>
-        <Form.Control type="number" placeholder="Descuento" name="discount" onChange={handleInputChange} value={formValues.discount}/>
-        
+        <Form.Control
+          type="number"
+          placeholder="Descuento"
+          name="discount"
+          onChange={handleInputChange}
+          value={formValues.discount}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12 col-md-6" >
+      <Form.Group className="mb-3 col-12 col-md-6">
         <Form.Label>Cantidad Disponible</Form.Label>
-        <Form.Control type="number" placeholder="Cantidad Disponible" name="amount" onChange={handleInputChange} value={formValues.amount}/>
-        
+        <Form.Control
+          type="number"
+          placeholder="Cantidad Disponible"
+          name="amount"
+          onChange={handleInputChange}
+          value={formValues.amount}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12 col-md-6" >
+      <Form.Group className="mb-3 col-12 col-md-6">
         <Form.Label>Cantidad Minima</Form.Label>
-        <Form.Control type="number" placeholder="Cantidad Minima" name="amountmin" onChange={handleInputChange} value={formValues.amountmin}/>
-        
+        <Form.Control
+          type="number"
+          placeholder="Cantidad Minima"
+          name="amountmin"
+          onChange={handleInputChange}
+          value={formValues.amountmin}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3 col-12" >
+      <Form.Group className="mb-3 col-12">
         <Form.Label>Descripcion</Form.Label>
-        <Form.Control as="textarea" type="text" placeholder="Descipcion" name="description" onChange={handleInputChange} value={formValues.description}/>
-        
+        <Form.Control
+          as="textarea"
+          type="text"
+          placeholder="Descipcion"
+          name="description"
+          onChange={handleInputChange}
+          value={formValues.description}
+        />
       </Form.Group>
-      
-      <Form.Group className="mb-3 col-12 d-flex flex-column flex-md-row justify-content-between" >
-        <Button type="submit" variant="outline-primary">Agregar</Button>
-        <Button variant="outline-danger">Cancelar</Button>
+
+      <Form.Group className="mb-3 col-12 d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <Button type="submit" variant="outline-primary">
+          Agregar
+        </Button>
+        <FormLabel
+          htmlFor="file"
+          className="btn btn-outline-dark m-0"
+          style={{ cursor: "pointer" }}
+        >
+          <input
+            type="file"
+            hidden
+            id="file"
+            name="image"
+            onChange={handleImagePrev}
+          />
+          Imagen
+        </FormLabel>
+        <Button variant="outline-danger" onClick={handleCleanForm}>
+          Cancelar
+        </Button>
       </Form.Group>
-      
+
+      <Image
+        src={
+          changeImage
+            ? URL.createObjectURL(formValues.image)
+            : formValues.id
+            ? formValues.image
+            : "/images/producto-sin-imagen.png"
+        }
+        alt=""
+        className="img-fluid"
+      />
     </Form>
   );
 };
@@ -187,4 +302,6 @@ FormProduct.propTypes = {
   setProducts: PropTypes.func,
   formValues: PropTypes.object,
   setFormValues: PropTypes.func,
+  setChangeImage: PropTypes.func,
+  changeImage: PropTypes.bool,
 };

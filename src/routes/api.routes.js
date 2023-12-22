@@ -31,8 +31,8 @@ const router = express.Router();
     .get('/dashboard/sections', getAllSections)
     .get('/dashboard/regions', getAllRegions)
     .get('/dashboard/products', getAllProducts)
-    .post('/dashboard/product', onCreateProduct)
-    .put('/dashboard/product/:id', onUpdateProduct)
+    .post('/dashboard/product', upload.any(), onCreateProduct)
+    .put('/dashboard/product/:id',upload.any(), onUpdateProduct)
     .delete('/dashboard/product/:id', onDeleteProduct)
     
 
