@@ -101,7 +101,12 @@ const getAllProducts = async (req, res) => {
 
     return res.status(200).json({
       ok: true,
-      data: products,
+      data : products.map(product => {
+        return {
+            ...product.dataValues,
+           image : `${req.protocol}://${req.get('host')}/images/productos/${product.images[0].file}`,
+        }
+    }),
     });
   } catch (error) {
     return res.status(error.status || 500).json({
@@ -127,9 +132,20 @@ const onCreateProduct = async (req, res) => {
       description: description ?.trim(),
     });
 
-    const product = await db.Product.findByPk(newProduct.id,{
+    await db.Image.create({
+      file : req.files[0]?.filename,
+      main : true,
+      productId : newProduct.id
+    })
+
+    let product = await db.Product.findByPk(newProduct.id,{
       include: ["section", "category", "region", "images"],
     })
+
+    product = {
+      ...product.dataValues,
+      image: `${req.protocol}://${req.get('host')}/images/productos/${product.images[0].file}`
+    }  
 
     return res.status(200).json({
       ok: true,
@@ -137,6 +153,7 @@ const onCreateProduct = async (req, res) => {
       msg: "Producto agregado con éxito",
     });
   } catch (error) {
+    console.log(error);
     return res.status(error.status || 500).json({
       ok: false,
       msg: error.message || "Upss, hubo un error",
@@ -169,9 +186,23 @@ const onUpdateProduct = async (req, res) => {
       }
     );
 
-    const product = await db.Product.findByPk(req.params.id,{
+    await db.Image.update({
+      file : req.files[0]?.filename,
+    },{
+      where : {
+        productId : req.params.id,
+        main : true
+      }
+    })
+
+    let product = await db.Product.findByPk(req.params.id,{
       include: ["section", "category", "region", "images"],
     })
+
+    product = {
+      ...product.dataValues,
+      image: `${req.protocol}://${req.get('host')}/images/productos/${product.images[0].file}`
+    }  
 
     return res.status(200).json({
       ok: true,
@@ -179,6 +210,7 @@ const onUpdateProduct = async (req, res) => {
       msg: "Producto actualizado con éxito",
     });
   } catch (error) {
+    console.log(error);
     return res.status(error.status || 500).json({
       ok: false,
       msg: error.message || "Upss, hubo un error",

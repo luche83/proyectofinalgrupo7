@@ -12,6 +12,8 @@ import ReactPaginate from 'react-paginate';
 export const ListProductsPage = () => {
 
   const [products, setProducts] = useState([]);
+  const [changeImage, setChangeImage] = useState(false);
+
 
   const [formValues, setFormValues] = useState({
     id: null,
@@ -24,13 +26,14 @@ export const ListProductsPage = () => {
     amount:"",
     amountmin:"",
     description: "",
+    image: ""
   });
 
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const handleEditForm = (idProduct) => {
 
-    const {id, title, categoryId, sectionId, regionId, price, discount, amount, amountmin, description} = products.find(product => product.id === idProduct)
+    const {id, title, categoryId, sectionId, regionId, price, discount, amount, amountmin, description, image} = products.find(product => product.id === idProduct)
 
     setFormValues({
       id,
@@ -43,7 +46,10 @@ export const ListProductsPage = () => {
       amount,
       amountmin,
       description,
-    })
+      image 
+    });
+
+    setChangeImage(false)
   }
 
   const handleDeleteProduct = async (id) => {
@@ -88,7 +94,7 @@ const handlePageClick = (event) => {
               </CardTitle>
             </CardHeader>
             <CardBody>
-              <FormProduct products={products} setProducts={setProducts} formValues={formValues} setFormValues={setFormValues}/>
+              <FormProduct setChangeImage={setChangeImage} changeImage={changeImage} products={products} setProducts={setProducts} formValues={formValues} setFormValues={setFormValues}/>
             </CardBody>
           </Card>
         </Col>

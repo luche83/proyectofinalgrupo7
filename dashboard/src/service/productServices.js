@@ -21,9 +21,13 @@ export const getAllProducts = async () => {
 }
 
 export const createProduct = async (formValues) => {
-    try {
 
-        return await UseFetch(`dashboard/product`, "POST", formValues);
+    try {
+ const formData = new FormData()
+    for (const key in formValues) {
+       formData.append(key, formValues[key])
+    }
+        return await UseFetch(`dashboard/product`, "POST", formData);
         
     } catch (error) {
         console.error
@@ -33,7 +37,12 @@ export const createProduct = async (formValues) => {
 export const updateProduct = async (formValues) => {
     try {
 
-        return await UseFetch(`dashboard/product/${formValues.id}`, 'PUT', formValues);
+        const formData = new FormData()
+        for (const key in formValues) {
+           formData.append(key, formValues[key])
+        }
+
+        return await UseFetch(`dashboard/product/${formValues.id}`, 'PUT', formData);
         
     } catch (error) {
         console.error
